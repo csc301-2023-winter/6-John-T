@@ -133,11 +133,18 @@ We have agreed with our partner John Leadston to stick to the standards of optio
 List each team member and:
  * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
  * Why did you choose them to take that role? Specify if they are interested in learning that part, experienced in it, or any other reasons. Do no make things up. This part is not graded but may be reviewed later. -->
+ Different roles:
+  * Frontend-User Developer: we plan to have 2 frontends. 1 for the user to view. The other is for the manager to use.
+  * Frontend-Manager: this is the frontend that the manager will use to upload audio recordings and create new benches.
+  * Backend: this is the backend that will be used to store the audio recordings and the QR Codes.
 
- * Parth - Frontend User
- * Tony - Frontend User
- * Angad - Frontend Manager
- * Michael - Frontend Manager (Team Liason + Co-rep)
+Members:
+ * Parth
+   - Role: Frontend-User Developer, UI/UX designer
+   - Parth has a lot of experience in frontend user development hence we have chosen him to be a frontend user developer. He is also good with visual design choices and is interested in learning more about UI/UX design so we have chosen him to be the UI/UX designer.
+ * Tony - Frontend-User
+ * Angad - Frontend-Manager
+ * Michael - Frontend-Manager (Team Liason + Co-rep)
  * Tajwaar - Backend
  * Samantha - Backend
  * Michele - Backend
