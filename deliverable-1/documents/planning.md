@@ -1,6 +1,7 @@
-# YOUR PRODUCT/TEAM NAME
-> _Note:_ This document will evolve throughout your project. You commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section). 
- > **This document will serve as a master plan between your team, your partner and your TA.**
+# Park Mindfulnes - EXgoblins
+
+<!-- > _Note:_ This document will evolve throughout your project. You commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section). 
+ > **This document will serve as a master plan between your team, your partner and your TA.** -->
 
 ## Product Details
  
@@ -17,6 +18,15 @@
  * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.      
    For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
  * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
+ 
+ A website to support guided meditation in Ontario Parks based on a user's geolocation.
+ 
+ Forest Therapy is a practice that started in the 1980s combining mindfulness and meditation with nature, and through Park Mindfulness, we plan on extending health care into Ontario Parks by helping people (our users) access Forest Therapy to cope with stress, depression, and other related mental health conditions.
+
+Our partner throughout this project will be Ontario Parks, and John Leadston will be serving as their representative to bring this innovative mental health strategy into life.
+
+More specifically, the plan is to lay out a series of QR codes in benches throughout popular parks in Ontario, such that these map to location specific audio clips that will help a person access a guided meditation session based on their location within the park upon scanning the QR code using our website or their phone's camera (which both lead to the same endpoint). Along with this, we also have to make an access point for park managers to upload and modify the audio files that these QR codes will map to based on the location, season, specific park and more.
+
 
 
 #### Q2: Who are your target users?
@@ -24,6 +34,9 @@
   > Short (1 - 2 min' read max)
  * Be specific (e.g. a 'a third-year university student studying Computer Science' and not 'a student')
  * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).**
+
+ The target users for this website are new canadians coming to John's (our partner's) parks with the idea of leaveing the parks in a better place than when they came in.
+<should include links to specific personas we make during the meeting>
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
@@ -36,12 +49,18 @@
     * Does this application exist in another form? If so, how does your differ and provide value to the users?
     * How does this align with your partner's organization's values/mission/mandate?
 
+Nowadays there is nothing quite like this product out in the world. Park Mindfulness is meant to bridge the gap between people that want to meditate and connect with nature without the need of being an expert in mindfulness and meditation.
+
+Before Park Mindfulness, people could go onto youtube or any of the multiple mindfulness applications to access meditation guidance during their visits to the parks; but with our website, everything is laid out for them, saving the users the time of looking for the perfect video, and providing a detailed and context-specific meditation session (unique based on your location within the park) that a generic meditation video or app could not provide.
+
 #### Q4: What are the user stories that make up the Minumum Viable Product (MVP)?
 
  * At least 5 user stories concerning the main features of the application - note that this can broken down further
  * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
  * User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: https://www.justinmind.com/blog/user-story-examples/. **It is important that you provide a link to an artifact containing your user stories**.
  * If you have a partner, these must be reviewed and accepted by them. You need to include the evidence of partner approval (e.g., screenshot from email) or at least communication to the partner (e.g., email you sent)
+
+ <Need to make up user stories>
 
 #### Q5: Have you decided on how you will build it? Share what you know now or tell us the options you are considering.
 
@@ -50,6 +69,12 @@
  * How will you deploy the application?
  * Describe the architecture - what are the high level components or patterns you will use? Diagrams are useful here. 
  * Will you be using third party applications or APIs? If so, what are they?
+
+Technology Stack: Python making use of the Django framework to make up our backend, and HTML, CSS, and REACT to make up our front end. In terms of deployment and database services we still need to discuss with our partner.
+
+<Architecture????>
+
+No third party API's / Applications except for libraries for camera usage within a website.
 
 ----
 ## Intellectual Property Confidentiality Agreement 
@@ -61,6 +86,8 @@
 3. You will only share the code under an open-source license with the partner but agree to not distribute it in any way to any other entity or individual. 
 4. You will share the code under an open-source license and distribute it as you wish but only the partner can access the system deployed during the course.
 5. You will only reference the work you did in your resume, interviews, etc. You agree to not share the code or software in any capacity with anyone unless your partner has agreed to it.
+
+We have agreed with our partner John Leadston to stick to the standards of option 5, allowing us to reference the work produced in our resumes and more, while keeping the code and software private (not available to the public), as this will be just a starting point for a bigger project that the partner wants jurisdiction over when presenting it to higher ups.
 
 **Your partner cannot ask you to sign any legal agreements or documents pertaining to non-disclosure, confidentiality, IP ownership, etc.**
 

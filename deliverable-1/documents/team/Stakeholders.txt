@@ -1,0 +1,8 @@
+Partner Information:
+- Partner Name: John Leadston
+- Partner Title: Assistant Park Superintendent
+- Partner Email: john.leadston@ontario.ca
+
+TA Information:
+- TA Name: Amir Masud
+- TA Email: amirmasud@cs.toronto.edu
