@@ -1,4 +1,4 @@
-# Park Mindfulnes - EXgoblins
+# Park Mindfulness - EXgoblins
 
 <!-- > _Note:_ This document will evolve throughout your project. You commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section). 
  > **This document will serve as a master plan between your team, your partner and your TA.** -->
@@ -27,6 +27,20 @@
  Our partner throughout this project will be Ontario Parks, and John Leadston will be serving as their representative to bring this innovative mental health strategy into life.
 
  More specifically, the plan is to lay out a series of QR codes in benches throughout popular parks in Ontario, such that these map to location specific audio clips that will help a person access a guided meditation session based on their location within the park upon scanning the QR code using our website or their phone's camera (which both lead to the same endpoint). Along with this, we also have to make an access point for park managers to upload and modify the audio files that these QR codes will map to based on the location, season, specific park and more.
+
+ ### Mockups
+
+User side
+
+
+ <img src="./img/3.png" width="300">
+ <img src="./img/2.png" width="300">
+ <img src="./img/4.png" width="300">
+ <img src="./img/1.png" width="300">
+
+ Manager side
+
+
 
 ## Q2: Who are your target users?
 
