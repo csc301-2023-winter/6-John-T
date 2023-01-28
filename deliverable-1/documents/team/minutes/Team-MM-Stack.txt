@@ -1,3 +1,24 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+1/25/2023
+TODO:
+    Make group github
+    Give access to partner (John)
+    Make group email (will ask TA first)
+    Join Project Team 6 on Quercus
+    Discuss D1 Handout
+    Mockup (mainly frontend teams):
+    Figma preferred due to teamwork capabilities
+    Individual aspects to be completed separately (in /team/ dir., etc)
+    First person to complete their individual sections pushes the relevant file if it’s not made
+
+Things to ask TA (1/26)
+    Is a group email necessary for our purposes?
+    What should the <tutorial> part in our GitHub repo name be?
+    Would it be possible for them to join our Discord for easy communication?
+
+Sub-teams
+        Backend: Sam, Tajwaar, Michele
+        Frontend (user): Parth, Tony
+        Frontend (manager): Michael, Angad
