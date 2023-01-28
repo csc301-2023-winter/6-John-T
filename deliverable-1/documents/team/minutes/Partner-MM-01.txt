@@ -1,0 +1,64 @@
+1/26/2023
+Meeting with partner John 
+Introduced Michael and Michele as group representatives 
+Colleague with OPS is available for us to use as a mentor 
+	Free year’s access to calm? App
+Mindfullness (inspired for him due to a spine injury) 
+Clientele
+	New Canadians coming to the parks 
+	Serve this change 
+	Want to get people in a better place when they leave the parks
+Usage   
+	Wants a QR code on a park bench 
+	Links to a guided meditation audio 
+	Wants user to listen to audio while relaxing and enjoying environment
+Contemplating whether to use real voice recording or some sort of text-to-voice 
+30 sec youtube to demonstrate what the product does 
+	To pitch to others 
+Geo reference
+	Talk isn’t generic 
+	Guide people so their eyes might wander and acknowledge their surroundings
+
+Technical questions 
+How long should each recorded meditation should be?
+	Doesn’t know 
+What limitations do we have?
+	Do we need to use data or wifi?
+	Maybe shorter is better (5 minutes)  
+How many potential parks?
+	100+ parks
+	500 benches 
+	Wants proof of concept first before worrying about storage
+Where is the audio coming from?
+	TBD 
+	John can reach out to experts and look for a volunteer 
+Specific software to use?
+	Can be demonstrated using an IOS
+	Computers are PCs
+	Maybe doesn’t even need to be Geo referenced 
+Website or App?
+	No preference 
+	Whatever we think, John is okay with web 
+	Record into the phone at the location 
+	Wants control over input (administrator rights) 
+Meeting time?
+	Busy from 10am-2pm
+	Meet afternoons or earlier in the morning 
+	Invite other CS expert? Or after mockup?
+	Let him know when we are available
+	Give him 2 or 3 slots to choose from 
+	Biweekly meetings - 2-3 Thursday
+Intellectual property?
+	John wants to pitch it to higherups 
+	Concern over losing control, other than that, do whatever we want 
+Expanding the project?
+	John has ideas but wants to wait 	
+	Wants app to look good
+Logo
+	Designed with user experience in mind 
+	Colours to reflect Parks Ontario 
+	Choose length of meditation 
+
+Outlook
+	Instruct John to create a new personal github account
+	Get sample recordings 
