@@ -26,7 +26,7 @@
 
  Our partner throughout this project will be Ontario Parks, and John Leadston will be serving as their representative to bring this innovative mental health strategy into life.
 
- More specifically, the plan is to lay out a series of QR codes in benches throughout popular parks in Ontario, such that these map to location specific audio clips that will help a person access a guided meditation session based on their location within the park upon scanning the QR code using our website or their phone's camera (which both lead to the same endpoint). Along with this, we also have to make an access point for park managers to upload and modify the audio files that these QR codes will map to based on the location, season, specific park and more.
+ More specifically, the plan is to lay out a series of QR codes in benches throughout popular parks in Ontario, and map them to location specific audio clips that will help a person access a guided meditation session based on their location within the park upon scanning the QR code using our website or their phone's camera (which both lead to the same endpoint). Along with this, we also have to make an access point for park managers to upload and modify the audio files that these QR codes will map to based on the location, season, specific park and more.
 
  ### Mockups
 
@@ -61,7 +61,7 @@ User side
 
 Nowadays there is nothing quite like this product out in the world. Park Mindfulness is meant to bridge the gap between people that want to meditate and connect with nature without the need of being an expert in mindfulness and meditation.
 
-Before Park Mindfulness, people could go onto youtube or any of the multiple mindfulness applications to access meditation guidance during their visits to the parks; but with our website, everything is laid out for them, saving the users the time of looking for the perfect video, and providing a detailed and context-specific meditation session (unique based on your location within the park) that a generic meditation video or app could not provide. This would include tailored audio recordings for the specific QR Code placed on the bench that would be dependent on its surroundings. Additionally, this would also save time as users would not need to filter/scroll through search results finding an appropriate video/audio recording to use within their meditation.
+Before Park Mindfulness, people could go onto youtube or any of the multiple mindfulness applications to access meditation guidance during their visits to the parks; but with our website, everything is laid out for them, saving the users the time of looking for the perfect video, and providing a detailed and context-specific meditation session (unique based on your location within the park) that a generic meditation video or app could not provide. This would include tailored audio recordings for the specific QR Code placed on a bench that would be dependent on its surroundings. Additionally, this would also save time as users would not need to filter/scroll through search results finding an appropriate video/audio recording to use within their meditation.
 
 ## Q4: What are the user stories that make up the Minumum Viable Product (MVP)?
 
@@ -71,13 +71,21 @@ Before Park Mindfulness, people could go onto youtube or any of the multiple min
  * If you have a partner, these must be reviewed and accepted by them. You need to include the evidence of partner approval (e.g., screenshot from email) or at least communication to the partner (e.g., email you sent)
 
  <Need to make up user stories> -->
- Possible ideas for user stories:
+ The main functionalities of the Minimum Viable Product as presented to use by our partner John Leadston can be described through the following user stories:
  
- * user wants to find general information by using the camera on the website
+ * As a user, I want to be able to scan the QR codes on Ontario Park benches, so that I can access the content behind them.
+ * As a user, I want to be able to play the media related to a benche's QR code, so that I can be guided through the context-specific meditation session.
+ * As a Park Manager, I want to be able to create an account for the website and log into it, so that I can get access to priviledged actions (such as the ones in the following bullet points).
+ * As a logged in Park Manager, I want to be able to make up new bench objects for my park within the website, so that I can upload a corresponding audio recording and get a QR code to place on the physical park bench that will guide users to the uploaded audio clip.
+ * As a logged in Park Manager, I want to be able to obtain the QR code corresponding to an existing bench, so that in the case of damages being caused to the existing printed version, I can replace it with a working one.
+ * As a logged in Park Manager, I want to be able to update the audio-to-QR Code mapping on an existing bench (assign a new audio recording to an existing bench with a QR code in the system), so that I can cycle between themes in these recording based on the season and other special factors (to achieve a more personalized experience for the user). 
+
+ <!-- * user wants to find general information by using the camera on the website
  * user wants to access a context-specific audio recording (using their camera app and the QR Code)
  * new manager wants to create an account and change an audio recording for an existing bench for seasonal changes
  * existing manager wants to make a new bench and upload a context-specific audio recording and obtain a QR Code for it
- * existing manager wants to obtain the QR Code for an existing bench due to damages caused to a bench's printed version
+ * existing manager wants to obtain the QR Code for an existing bench due to damages caused to a bench's printed version -->
+ 
 
 ## Q5: Have you decided on how you will build it? Share what you know now or tell us the options you are considering.
 
@@ -92,9 +100,11 @@ For our application, we will be using the following languages/frameworks for our
 * Backend: Python (Django), SQLite3
 * Frontend: HTML, CSS, and React
   * Potential APIs: `react-qr-reader` for QR Code reading, `qr-code` for QR Code creation, and libraries for camera usage within a website (TBD)
-* Deployment: TBD with partner
+* Deployment: TBD with partner as we near the deployment stage.
 <!-- * Helpful Diagrams: -->
-<!-- <Could have 1 for backend architecture (depicting connections between databases, client-side, and django servers)> -->
+In terms of the design and architecture, the following Logical Data Model, showcases our entities and their relationships:
+
+<img src="./img/LDM.jpg" width="650">
 
 ----
 ## Intellectual Property Confidentiality Agreement 
@@ -108,6 +118,12 @@ For our application, we will be using the following languages/frameworks for our
 5. You will only reference the work you did in your resume, interviews, etc. You agree to not share the code or software in any capacity with anyone unless your partner has agreed to it. -->
 
 We have agreed with our partner John Leadston to stick to the standards of option 5, allowing us to reference the work produced in our resumes and more, while keeping the code and software private (not available to the public), as this will be just a starting point for a bigger project that the partner wants jurisdiction over when presenting it to higher ups.
+
+<!-- Skip two lines here -->
+&nbsp;
+&nbsp;
+&nbsp;
+
 
 # Teamwork Details
 
@@ -137,14 +153,16 @@ List each team member and:
 
 Members:
  * Parth
-   - Role: Frontend-User Developer, UI/UX designer
+   - Role: Frontend-User Developer, UI/UX designer.
    - Parth has a lot of experience in frontend user development hence we have chosen him to be a frontend user developer. He is also good with visual design choices and is interested in learning more about UI/UX design so we have chosen him to be the UI/UX designer.
  * Tony - Frontend-User
  * Angad - Frontend-Manager
  * Michael - Frontend-Manager (Team Liason + Co-rep)
  * Tajwaar - Backend
  * Samantha - Backend
- * Michele - Backend
+ * Michele
+   - Role: Backend, Co-rep/PM.
+   - Michele has a lot of experience with logically designing and carrying out the execution of backend development for multiple personal and school projects. Additionally, he has lead his respective teams in other software development courses (CSC207 & CSC309) to successful results. Therefore, we have made the choice of picking him as a Co-representative along with Michael, and a backend developer to be the direct connection between the client and the backend.
 
 
 ## Q8: How will you work as a team?
@@ -177,3 +195,13 @@ Members:
 **Collaboration: (Share your responses to Q8 & Q9 from A1)**
  * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
  * How will you address the issue if one person doesn't contribute or is not responsive?  -->
+
+ Communications:
+ * We make use of a discord server on the daily to plan out meetings, ask questions, and collaborate on all aspects of the project. Attached is a screenshot of such server:
+  <img src="./img/Discord.jpg" width="650">
+  * In terms of meetings, the entire group meets every Saturday from 3-4pm, and every Thursday during our tutorial slot to discuss current goals, how work is going and device a plan for the next couple of days. We also make use of the discord voice channels for quick calls between specific sub-team members.
+  * We also have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thurdays from 2-3pm.
+
+Collaboration:
+<!-- I leave this here for michael to answer -->
+ 
