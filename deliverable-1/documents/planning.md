@@ -157,7 +157,9 @@ Members:
    - Parth has a lot of experience in frontend user development hence we have chosen him to be a frontend user developer. He is also good with visual design choices and is interested in learning more about UI/UX design so we have chosen him to be the UI/UX designer.
  * Tony - Frontend-User
  * Angad - Frontend-Manager
- * Michael - Frontend-Manager (Team Liason + Co-rep)
+ * Michael 
+    - Frontend-Manager (Team Liason + Co-rep)
+    - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liason.
  * Tajwaar - Backend
  * Samantha - Backend
  * Michele
