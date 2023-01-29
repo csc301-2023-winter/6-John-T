@@ -38,7 +38,7 @@ User side
  Manager side
 
 
- <img src="./img/5.png" width="200"> <img src="./img/6.png" width="200"> <img src="./img/4.png" width="200"> <img src="./img/7.png" width="200">
+ <img src="./img/5.png" width="500"> <img src="./img/6.png" width="500"> <img src="./img/7.png" width="500">
 
 
 
