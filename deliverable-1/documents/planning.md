@@ -158,7 +158,7 @@ Members:
  * Tony - Frontend-User
  * Angad - Frontend-Manager
  * Michael 
-    - Frontend-Manager (Team Liason + Co-rep)
+    - Role: Frontend-Manager (Team Liason + Co-rep)
     - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liason.
  * Tajwaar - Backend
  * Samantha - Backend
