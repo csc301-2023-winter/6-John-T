@@ -1,6 +1,38 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+1/28/2023
+    Team Meeting to discuss Deliverable 1 (planning.md) 
+        Brainstormed personas (3) and user stories (at least 5) 
+        Decided on technology stack
+        Create helpful diagrams
+        Architecture for backend depicting connections between databases, clients, etc. 
+    Questions for John
+        Usage of the QR codes
+            On manager side, they have access to info on audio/link and QR code link 
+            Could be a “print pdf” option (or jpeg etc.) 
+            When they want to print QR code again, can search for bench and click on download 
+            Update the audio is tied to QR code (bench id and QR code stays the same) 
+                Maybe change bench name?
+    Planning.md TODO 
+        1. 
+            Parth/Tony - Frontend Mockups (User)
+            Michael/Angad - Frontend Mockups (Manager)
+        2. Personas (Sam)
+        4. User stories (Michele)
+        5. Create backend diagram (Michele)
+        6. Tajwaar
+        7. Why did we all choose our role 
+        8. Tajwaar
+        9. Angad 
+        10. Michael 
+    Outlook 
+        Get approval for user stories by John (with evidence!) 
+        Deployment services to be discussed with John 
+            Potentially ask his OPS contact 
+        Confirm his account is added to the GitHub 
+        Go over Planning.md before due date  
+
 1/25/2023
 TODO:
     Make group github
