@@ -196,12 +196,13 @@ Members:
  * How are people held accountable for attending meetings, completing action items? Is there a moderator or process?
  * How will you address the issue if one person doesn't contribute or is not responsive?  -->
 
- Communications:
+Communications:
  * We make use of a discord server on the daily to plan out meetings, ask questions, and collaborate on all aspects of the project. Attached is a screenshot of such server:
-  <img src="./img/Discord.jpg" width="650">
-  * In terms of meetings, the entire group meets every Saturday from 3-4pm, and every Thursday during our tutorial slot to discuss current goals, how work is going and device a plan for the next couple of days. We also make use of the discord voice channels for quick calls between specific sub-team members.
-  * We also have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thurdays from 2-3pm.
+  <img src="./img/Discord.JPG" width="650">
+ * In terms of meetings, the entire group meets every Saturday from 3-4pm, and every Thursday during our tutorial slot to discuss current goals, how work is going and device a plan for the next couple of days. We also make use of the discord voice channels for quick calls between specific sub-team members.
+ * We also have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thurdays from 2-3pm.
 
 Collaboration:
-<!-- I leave this here for michael to answer -->
+  * As discord is our primary form of contact, we will keep each other accountable on discord where we regularly update each other with what we have done and sending reminders to each other for meetings and completing tasks.
+  * If a person is not responsive or is not contributing, our primary plan is to keep them updated by updating meeting minutes and our own statuses so that they can catch up easily. If we have contacted them through different channels like discord mentions, email, and they are still not responsive, since our roles are well documented then in an emergency we would able to fill in for their responsibilities.
  
