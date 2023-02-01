@@ -158,7 +158,9 @@ Members:
  * Parth
    - Role: Frontend-User Developer, UI/UX designer.
    - Parth has a lot of experience in frontend user development hence we have chosen him to be a frontend user developer. He is also good with visual design choices and is interested in learning more about UI/UX design so we have chosen him to be the UI/UX designer.
- * Tony - Frontend-User
+ * Tony 
+   - Role: Frontend-User Developer, UI/UX designer, flexible
+   - Tony has experience in frontend development from personal projects and wishes to learn more by taking on this role. He is confident in his ability to learn quickly and is excited to learn.
  * Angad - Frontend-Manager
  * Michael 
     - Role: Frontend-Manager (Team Liason + Co-rep)
