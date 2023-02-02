@@ -1,0 +1,19 @@
+Feb 2 2023 meeting with partner John
+Feedback regarding mockups personas
+- important to have bench specific info, different per park
+- likes contributor feature
+- likes audio switching/uploading
+- john wants automatic switching audio for seasons? multiple audio per bench, set the active audio
+- asking about how long audio can be? let him know when we confirm the audio
+- let him know the cost of maintaining storage before deployment
+- broader personas, children, people in pain and reduce stress
+- have history of visited benches? to simplify UX we do not have account creation
+- simple user interface is good, not too many words
+- clicking symbol directly instead of the arrow to go to audio
+- plain colors or background image
+- "any of our parks" text to change
+- wondering if app is necessary? can use website
+- have instruction on QR code explaining it
+- scan and play feature on a different page
+
+Scheduled next meeting for Feb 16 2-3
