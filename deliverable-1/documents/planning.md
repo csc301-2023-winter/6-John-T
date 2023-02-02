@@ -166,7 +166,7 @@ Members:
     - Angad has experience in frontend development from previous work experience and personal projects and enjoys learning new frameworks. He also has experience with UI/UX through course work.
  * Michael 
     - Role: Frontend-Manager (Team Liaison + Co-rep)
-    - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liason.
+    - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liaison.
  * Tajwaar - Backend
  * Samantha 
     - Role: Backend
