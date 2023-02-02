@@ -49,6 +49,8 @@ User side
  * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).** -->
 
  The target users for this website are new Canadians coming to John's (our partner's) parks with the idea of leaving the parks in a better place than when they came in.
+
+ [Persona Link](https://EXgoblins.xtensio.com/ztfep6tt)
 <should include links to specific personas we make during the meeting>
 
 ## Q3: Why would your users choose your product? What are they using today to solve their problem/need?
@@ -64,9 +66,9 @@ User side
 
 Nowadays there is nothing quite like this product out in the world. Park Mindfulness is meant to bridge the gap between people that want to meditate and connect with nature without the need of being an expert in mindfulness and meditation.
 
-Before Park Mindfulness, people could go onto youtube or any of the multiple mindfulness applications to access meditation guidance during their visits to the parks; but with our website, everything is laid out for them, saving the users the time of looking for the perfect video, and providing a detailed and context-specific meditation session (unique based on your location within the park) that a generic meditation video or app could not provide. This would include tailored audio recordings for the specific QR Code placed on a bench that would be dependent on its surroundings. Additionally, this would also save time as users would not need to filter/scroll through search results finding an appropriate video/audio recording to use within their meditation.
+Before Park Mindfulness, people could go onto YouTube or any of the multiple mindfulness applications to access meditation guidance during their visits to the parks; but with our website, everything is laid out for them, saving the users the time of looking for the perfect video, and providing a detailed and context-specific meditation session (unique based on your location within the park) that a generic meditation video or app could not provide. This would include tailored audio recordings for the specific QR Code placed on a bench that would be dependent on its surroundings. Additionally, this would also save time as users would not need to filter/scroll through search results finding an appropriate video/audio recording to use within their meditation.
 
-## Q4: What are the user stories that make up the Minumum Viable Product (MVP)?
+## Q4: What are the user stories that make up the Minimum Viable Product (MVP)?
 
  <!-- * At least 5 user stories concerning the main features of the application - note that this can broken down further
  * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
@@ -77,8 +79,8 @@ Before Park Mindfulness, people could go onto youtube or any of the multiple min
  The main functionalities of the Minimum Viable Product as presented to use by our partner John Leadston can be described through the following user stories:
  
  * As a user, I want to be able to scan the QR codes on Ontario Park benches, so that I can access the content behind them.
- * As a user, I want to be able to play the media related to a benche's QR code, so that I can be guided through the context-specific meditation session.
- * As a Park Manager, I want to be able to create an account for the website and log into it, so that I can get access to priviledged actions (such as the ones in the following bullet points).
+ * As a user, I want to be able to play the media related to a benches' QR code, so that I can be guided through the context-specific meditation session.
+ * As a Park Manager, I want to be able to create an account for the website and log into it, so that I can get access to privileged actions (such as the ones in the following bullet points).
  * As a logged in Park Manager, I want to be able to make up new bench objects for my park within the website, so that I can upload a corresponding audio recording and get a QR code to place on the physical park bench that will guide users to the uploaded audio clip.
  * As a logged in Park Manager, I want to be able to obtain the QR code corresponding to an existing bench, so that in the case of damages being caused to the existing printed version, I can replace it with a working one.
  * As a logged in Park Manager, I want to be able to update the audio-to-QR Code mapping on an existing bench (assign a new audio recording to an existing bench with a QR code in the system), so that I can cycle between themes in these recording based on the season and other special factors (to achieve a more personalized experience for the user). 
@@ -158,13 +160,19 @@ Members:
  * Parth
    - Role: Frontend-User Developer, UI/UX designer.
    - Parth has a lot of experience in frontend user development hence we have chosen him to be a frontend user developer. He is also good with visual design choices and is interested in learning more about UI/UX design so we have chosen him to be the UI/UX designer.
- * Tony - Frontend-User
- * Angad - Frontend-Manager
+ * Tony 
+   - Role: Frontend-User Developer, UI/UX designer, flexible
+   - Tony has experience in frontend development from personal projects and wishes to learn more by taking on this role. He is confident in his ability to learn quickly and is excited to learn.
+ * Angad 
+    - Role: Frontend-Manager
+    - Angad has experience in frontend development from previous work experience and personal projects and enjoys learning new frameworks. He also has experience with UI/UX through course work.
  * Michael 
-    - Role: Frontend-Manager (Team Liason + Co-rep)
-    - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liason.
+    - Role: Frontend-Manager (Team Liaison + Co-rep)
+    - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liaison.
  * Tajwaar - Backend
- * Samantha - Backend
+ * Samantha 
+    - Role: Backend
+    - Samantha has past experience working as a team designing and implementing a backend in past school projects, such as in CSC207. She is interested in acquiring new skills and implementing coursework learned over the past few years to this project.   
  * Michele
    - Role: Backend, Co-rep/PM.
    - Michele has a lot of experience with logically designing and carrying out the execution of backend development for multiple personal and school projects. Additionally, he has lead his respective teams in other software development courses (CSC207 & CSC309) to successful results. Therefore, we have made the choice of picking him as a Co-representative along with Michael, and a backend developer to be the direct connection between the client and the backend.
@@ -190,6 +198,9 @@ Members:
    * **How do you prioritize tasks?**
    * How do tasks get assigned to team members?
    * How do you determine the status of work from inception to completion? -->
+Artifacts:
+  * Our team has a meeting minutes document that serves as a recap to other members on what happened at each meeting with a partner as well as what happened during group meetings. Each team member can contribute towards this doc and can expand on it at any time.
+  * Our team will also be using Notion which will serve as our To-Do list. On notion there is a board where each member can add tasks to, each task gets assigned a tag based on the team that will work on it as well as a priority ranging from low to high. On the board members can see which tasks have yet to be completed as well as which tasks are in progress, which ones need to be reviewed by others and which ones are done. Tasks are usually added to the board and assigned priority after the reps meet with our partner and during our regularly scheduled meetings. Once a task under review has been reviewed by other members it's status will be marked as done. 
 
 ## Q10: What are the rules regarding how your team works?
 
@@ -207,7 +218,7 @@ Communications:
 <img src="./img/Discord.JPG" width="650">
 
  * In terms of meetings, the entire group meets every Saturday from 3-4pm, and every Thursday during our tutorial slot to discuss current goals, how work is going and device a plan for the next couple of days. We also make use of the discord voice channels for quick calls between specific sub-team members.
- * We also have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thurdays from 2-3pm.
+ * We also have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thursdays from 2-3pm.
 
 Collaboration:
  * As discord is our primary form of contact, we will keep each other accountable on discord where we regularly update each other with what we have done and sending reminders to each other for meetings and completing tasks.
