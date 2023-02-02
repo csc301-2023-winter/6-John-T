@@ -166,7 +166,9 @@ Members:
     - Role: Frontend-Manager (Team Liason + Co-rep)
     - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liason.
  * Tajwaar - Backend
- * Samantha - Backend
+ * Samantha 
+    - Role: Backend
+    - Samantha has past experience working as a team designing and implementing a backend in past school projects, such as in CSC207. She is interested in acquiring new skills and implementing coursework learned over the past few years to this project.   
  * Michele
    - Role: Backend, Co-rep/PM.
    - Michele has a lot of experience with logically designing and carrying out the execution of backend development for multiple personal and school projects. Additionally, he has lead his respective teams in other software development courses (CSC207 & CSC309) to successful results. Therefore, we have made the choice of picking him as a Co-representative along with Michael, and a backend developer to be the direct connection between the client and the backend.
