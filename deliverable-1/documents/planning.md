@@ -49,6 +49,8 @@ User side
  * **Feel free to use personas. You can create your personas as part of this Markdown file, or add a link to an external site (for example, [Xtensio](https://xtensio.com/user-persona/)).** -->
 
  The target users for this website are new Canadians coming to John's (our partner's) parks with the idea of leaving the parks in a better place than when they came in.
+
+ [Persona Link](https://EXgoblins.xtensio.com/ztfep6tt)
 <should include links to specific personas we make during the meeting>
 
 ## Q3: Why would your users choose your product? What are they using today to solve their problem/need?
