@@ -139,6 +139,21 @@ We have agreed with our partner John Leadston to stick to the standards of optio
 * Provide a few sentences on what you did and share a picture or other evidence of your team building activity.
 * Share at least three fun facts from members of you team (total not 3 for each member). -->
 
+  ### Team-Building Activity: First Introductions & Video Games 
+
+  As a team, we were able to meet in-person on 1/20 for our first team meeting. During which we were able to discuss potential roles for our submitted preferred projects, in addition to breaking the ice over things that we all had in common. Specifically we were able to bond over video games and reasons we had for taking this course.
+
+  ### Three Fun Facts
+
+  1. One of our members has a built a lifestyle around their own name; the closer something is to it, the more likely he is to choose it
+  2. One of our members has amassed over 600 hours on the tower defense game Bloons TD 
+  3. Two of our members share cognates of the same name
+
+  ### Team Photo
+  Although we met for our first meeting in-person, we forgot to take a group photo. The following is one that we took on Discord instead:
+
+  <img src="./img/group_photo.png" width="650">
+
 
 ## Q7: What are the roles & responsibilities on the team?
 
@@ -169,7 +184,9 @@ Members:
  * Michael 
     - Role: Frontend-Manager (Team Liaison + Co-rep)
     - Michael has experience in frontend development in other software development courses and projects, and is interested in expanding on those skills. He is confident in communication and volunteered to be co-rep and team liaison.
- * Tajwaar - Backend
+  * Tajwaar
+    - Role: Backend Developer, flexible
+    - Tajwaar has experience in both the designing and implementation of backend solutions from courses (such as CSC309) and Hackathons. Furthermore, he has vast previous experience in teamwork, team-building, and leadership, and is confident he can build the team and assist Michael and Michele in this regard.
  * Samantha 
     - Role: Backend
     - Samantha has past experience working as a team designing and implementing a backend in past school projects, such as in CSC207. She is interested in acquiring new skills and implementing coursework learned over the past few years to this project.   
@@ -187,6 +204,25 @@ Members:
  * You should have 2 meetings with your project partner (if you have one) before D1 is due. Describe them here:
    * You must keep track of meeting minutes and add them to your repo under "documents/minutes" folder
    * You must have a regular meeting schedule established for the rest of the term.   -->
+
+### Team Meeting Description
+As discussed in the first team meeting (please see the minutes from 1/20), we will hold a recurring weekly online meeting on Saturdays, from 3-4PM online. This meeting will take place over Discord (see Q10) or Zoom should we want better screen sharing capabilities. Each meeting will begin with a standup where members will list what they have done since the last meeting, in addition to their workload moving forward and bring up any important notes/findings to their team. 
+
+As we have our joint product managers in Michael and Michele split up among the backend and frontend teams, they will also be able to judge the workload of the teammates they work more closely with. Additionally, we will organize coding sessions/reviews on a weekly/bi-weekly basis amongst both Frontend and Backend teams that the respective co-representative will organize once coding begins.
+
+### Partner Meeting Descriptions
+
+  #### Meeting 1:
+
+  Within the first meeting, John described his vision for the project, in addition to his story that lead to him to this idea. He told us about how mindfulness aided his own life in many facets, and how he wanted to spread this idea among park visitors. The park benches dotted throughout the park would provide a great environment for visitors to engage in context-specific audio recordings guiding them through meditative states that engage in mindfulness specifically.
+
+  Furthermore, John also stated that there is no existing code for this project, and that he would be willing to either a phone app or a website.
+
+  Within this meeting, we also determined our regular biweekly meeting time - Thursdays 2-3PM.
+
+  #### Meeting 2:
+
+  *(To be added by Michele)*
   
 ## Q9: How will you organize your team?
 

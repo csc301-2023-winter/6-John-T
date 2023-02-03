@@ -54,3 +54,14 @@ Sub-teams
         Backend: Sam, Tajwaar, Michele
         Frontend (user): Parth, Tony
         Frontend (manager): Michael, Angad
+
+1/20/2023
+Most probable rep + PM: Michael
+Email creation?
+Potential 3-2-2 team split for Ontario Parks Project:
+    3 for manager backend
+    2 for manager frontend
+    2 for user frontend
+Weekly recurring meetings: Saturday 3-4PM
+STAY AWAY FROM BLOONS TD
+Look into Deployment Solutions: GitHub Pages (better versions?), Netlify
