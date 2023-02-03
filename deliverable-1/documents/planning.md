@@ -259,4 +259,5 @@ Communications:
 Collaboration:
  * As discord is our primary form of contact, we will keep each other accountable on discord where we regularly update each other with what we have done and sending reminders to each other for meetings and completing tasks.
  * If a person is not responsive or is not contributing, our primary plan is to keep them updated by updating meeting minutes and our own statuses so that they can catch up easily. If we have contacted them through different channels like discord mentions, email, and they are still not responsive, since our roles are well documented then in an emergency we would able to fill in for their responsibilities.
+  * As representatives to the partner, Michele and Michael will also be acting as moderators and keep track of which members may be failing to complete tasks or miss meetings regularly. If issues arise with members not being responsive and it cannot be solved internally, one of the moderators will escalate the issue to the TA.
  
