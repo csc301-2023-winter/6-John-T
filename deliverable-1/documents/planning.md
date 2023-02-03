@@ -206,7 +206,7 @@ Members:
    * You must have a regular meeting schedule established for the rest of the term.   -->
 
 ### Team Meeting Description
-As discussed in the first team meeting (please see the minutes from 1/20), we will hold a recurring weekly online meeting on Saturdays, from 3-4PM online. This meeting will take place over Discord (see Q10) or Zoom should we want better screen sharing capabilities. Each meeting will begin with a standup where members will list what they have done since the last meeting, in addition to their workload moving forward and bring up any important notes/findings to their team. 
+As discussed in the first team meeting (please see the minutes from 1/20), we will hold a recurring weekly online meeting on Saturdays, from 3-4PM online. This meeting will take place over Discord (see Q10) or Zoom should we want better screen sharing capabilities. Each meeting will begin with a stand-up where members will list what they have done since the last meeting, in addition to their workload moving forward and bring up any important notes/findings to their team. 
 
 As we have our joint product managers in Michael and Michele split up among the backend and frontend teams, they will also be able to judge the workload of the teammates they work more closely with. Additionally, we will organize coding sessions/reviews on a weekly/bi-weekly basis amongst both Frontend and Backend teams that the respective co-representative will organize once coding begins.
 
@@ -237,7 +237,7 @@ As we have our joint product managers in Michael and Michele split up among the 
 Artifacts:
   * Our team has a meeting minutes document that serves as a recap to other members on what happened at each meeting with a partner as well as what happened during group meetings. Each team member can contribute towards this doc and can expand on it at any time.
   * Our team will also be using Notion which will serve as our To-Do list. On notion there is a board where each member can add tasks to, each task gets assigned a tag based on the team that will work on it as well as a priority ranging from low to high. On the board members can see which tasks have yet to be completed as well as which tasks are in progress, which ones need to be reviewed by others and which ones are done. Tasks are usually added to the board and assigned priority after the reps meet with our partner and during our regularly scheduled meetings. Once a task under review has been reviewed by other members it's status will be marked as done. 
-
+<img src="./img/notion_team_board.png" width="650">
 ## Q10: What are the rules regarding how your team works?
 
 <!-- **Communications:**
