@@ -248,7 +248,7 @@ As we have our joint product managers in Michael and Michele split up among the 
 
   During the second meeting, we "pitched" our prototype (mockup) to our partner John, we walked him through our user stories and personas too, and took his feedback on each of these to relegate to the rest of the team. We also got his written agreement on the proposed concepts, which can be verified in the following email (note that the email we sent to him had to get cut-off due to it being too long to fit in a picture):
 
-  <img src="./miscellaneous/proof-of-agreement.jpg" width="650">
+  <img src="./miscellaneous/proof-of-agreement.JPG" width="650">
 
   Additionaly, we gave him access to our GitHub repository, and we discussed the addition of some possible features John would like to see implemented if we manage to get our MVP done early. Some of these suggestions were:
   - Expansion of bench object storage to possibly contain multiple audios at once for the 4 seasons such that they are automatically switched once a new season starts.
