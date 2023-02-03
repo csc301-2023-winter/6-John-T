@@ -242,6 +242,7 @@ Artifacts:
   * Our team has a meeting minutes document that serves as a recap to other members on what happened at each meeting with a partner as well as what happened during group meetings. Each team member can contribute towards this doc and can expand on it at any time.
   * Our team will also be using Notion which will serve as our To-Do list. On notion there is a board where each member can add tasks to, each task gets assigned a tag based on the team that will work on it as well as a priority ranging from low to high. On the board members can see which tasks have yet to be completed as well as which tasks are in progress, which ones need to be reviewed by others and which ones are done. Tasks are usually added to the board and assigned priority after the reps meet with our partner and during our regularly scheduled meetings. Once a task under review has been reviewed by other members it's status will be marked as done. 
 <img src="./img/notion_team_board.png" width="650">
+
 ## Q10: What are the rules regarding how your team works?
 
 <!-- **Communications:**
