@@ -33,14 +33,16 @@
 User side
 
 
- <img src="./img/3.png" width="200"> <img src="./img/2.png" width="200"> <img src="./img/4.png" width="200"> <img src="./img/1.png" width="200">
+ <img src="./mockup/3.png" width="200"> <img src="./mockup/2.png" width="200"> <img src="./mockup/4.png" width="200"> <img src="./mockup/1.png" width="200">
 
  Manager side
 
 
- <img src="./img/5.png" width="500"> <img src="./img/6.png" width="500"> <img src="./img/7.png" width="500">
+ <img src="./mockup/5.png" width="500"> <img src="./mockup/6.png" width="500"> <img src="./mockup/7.png" width="500">
 
-
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Q2: Who are your target users?
 
@@ -55,7 +57,10 @@ User side
  [2. User Persona Link](https://EXgoblins.xtensio.com/ztfep6tt)
 
  [3. Admin Persona Link](https://EXgoblins.xtensio.com/hyk9wqos)
-<should include links to specific personas we make during the meeting>
+
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
@@ -72,22 +77,26 @@ Nowadays there is nothing quite like this product out in the world. Park Mindful
 
 Before Park Mindfulness, people could go onto YouTube or any of the multiple mindfulness applications to access meditation guidance during their visits to the parks; but with our website, everything is laid out for them, saving the users the time of looking for the perfect video, and providing a detailed and context-specific meditation session (unique based on your location within the park) that a generic meditation video or app could not provide. This would include tailored audio recordings for the specific QR Code placed on a bench that would be dependent on its surroundings. Additionally, this would also save time as users would not need to filter/scroll through search results finding an appropriate video/audio recording to use within their meditation.
 
+&nbsp;
+&nbsp;
+&nbsp;
+
 ## Q4: What are the user stories that make up the Minimum Viable Product (MVP)?
 
  <!-- * At least 5 user stories concerning the main features of the application - note that this can broken down further
  * You must follow proper user story format (as taught in lecture) ```As a <user of the app>, I want to <do something in the app> in order to <accomplish some goal>```
  * User stories must contain acceptance criteria. Examples of user stories with different formats can be found here: https://www.justinmind.com/blog/user-story-examples/. **It is important that you provide a link to an artifact containing your user stories**.
  * If you have a partner, these must be reviewed and accepted by them. You need to include the evidence of partner approval (e.g., screenshot from email) or at least communication to the partner (e.g., email you sent)
-
- <Need to make up user stories> -->
- The main functionalities of the Minimum Viable Product as presented to use by our partner John Leadston can be described through the following user stories:
+-->
+ The main functionalities of the Minimum Viable Product as presented to us by our partner John Leadston can be described through the following user stories:
  
  * As a user, I want to be able to scan the QR codes on Ontario Park benches, so that I can access the content behind them.
- * As a user, I want to be able to play the media related to a benches' QR code, so that I can be guided through the context-specific meditation session.
+ * As a user, I want to be able to play the media related to a bench's QR code, so that I can be guided through the context-specific meditation session.
  * As a Park Manager, I want to be able to create an account for the website and log into it, so that I can get access to privileged actions (such as the ones in the following bullet points).
  * As a logged in Park Manager, I want to be able to make up new bench objects for my park within the website, so that I can upload a corresponding audio recording and get a QR code to place on the physical park bench that will guide users to the uploaded audio clip.
+ * As a logged in Park Manager, I want to be able to filter by park when looking through all of the bench objects available in the records, so that I can quickly and easily manage the benches I have jurisdiction over.
  * As a logged in Park Manager, I want to be able to obtain the QR code corresponding to an existing bench, so that in the case of damages being caused to the existing printed version, I can replace it with a working one.
- * As a logged in Park Manager, I want to be able to update the audio-to-QR Code mapping on an existing bench (assign a new audio recording to an existing bench with a QR code in the system), so that I can cycle between themes in these recording based on the season and other special factors (to achieve a more personalized experience for the user). 
+ * As a logged in Park Manager, I want to be able to update the audio-to-QR Code mapping of an existing bench (assign a new audio recording to an existing bench with a QR code in the system), so that I can cycle between themes in these recordings based on the season and other special factors (to achieve a more personalized experience for the user). 
 
  <!-- * user wants to find general information by using the camera on the website
  * user wants to access a context-specific audio recording (using their camera app and the QR Code)
@@ -95,6 +104,9 @@ Before Park Mindfulness, people could go onto YouTube or any of the multiple min
  * existing manager wants to make a new bench and upload a context-specific audio recording and obtain a QR Code for it
  * existing manager wants to obtain the QR Code for an existing bench due to damages caused to a bench's printed version -->
  
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Q5: Have you decided on how you will build it? Share what you know now or tell us the options you are considering.
 
@@ -106,14 +118,14 @@ Before Park Mindfulness, people could go onto YouTube or any of the multiple min
 
 For our application, we will be using the following languages/frameworks for our tech stack:
 
-* Backend: Python (Django), SQLite3
+* Backend: Python (Django), SQLite3 (for development period, our deployment database will be determined later down the line)
 * Frontend: HTML, CSS, and React
   * Potential APIs: `react-qr-reader` for QR Code reading, `qr-code` for QR Code creation, and libraries for camera usage within a website (TBD)
 * Deployment: TBD with partner as we near the deployment stage.
 <!-- * Helpful Diagrams: -->
 In terms of the design and architecture, the following Logical Data Model, showcases our entities and their relationships:
 
-<img src="./img/LDM.jpg" width="650">
+<img src="./miscellaneous/LDM.jpg" width="650">
 
 ----
 ## Intellectual Property Confidentiality Agreement 
@@ -133,7 +145,6 @@ We have agreed with our partner John Leadston to stick to the standards of optio
 &nbsp;
 &nbsp;
 
-
 # Teamwork Details
 
 ## Q6: Have you met with your team?
@@ -145,7 +156,7 @@ We have agreed with our partner John Leadston to stick to the standards of optio
 
   ### Team-Building Activity: First Introductions & Video Games 
 
-  As a team, we were able to meet in-person on 1/20 for our first team meeting. During which we were able to discuss potential roles for our submitted preferred projects, in addition to breaking the ice over things that we all had in common. Specifically we were able to bond over video games and reasons we had for taking this course.
+  As a team, we were able to meet in-person on January 20 for our first team meeting. During which we were able to discuss potential roles for our submitted preferred projects, in addition to breaking the ice over things that we all had in common. Specifically we were able to bond over video games and reasons we had for taking this course.
 
   ### Three Fun Facts
 
@@ -154,10 +165,13 @@ We have agreed with our partner John Leadston to stick to the standards of optio
   3. Two of our members share cognates of the same name
 
   ### Team Photo
-  Although we met for our first meeting in-person, we forgot to take a group photo. The following is one that we took on Discord instead:
+  Although we met for our first meeting in-person, we forgot to take a group photo. The following is one that we took on a later Discord meeting instead:
 
-  <img src="./img/group_photo.png" width="650">
+  <img src="./miscellaneous/group_photo.png" width="650">
 
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Q7: What are the roles & responsibilities on the team?
 
@@ -171,7 +185,8 @@ List each team member and:
  * A description of their role(s) and responsibilities including the components they'll work on and non-software related work
  * Why did you choose them to take that role? Specify if they are interested in learning that part, experienced in it, or any other reasons. Do no make things up. This part is not graded but may be reviewed later. -->
  Different roles:
-  * Frontend-User Developer: we plan to have 2 frontends. 1 for the user to view. The other is for the manager to use.
+  * Note: we plan to have 2 frontends. One for the user to view, and the other for park managers to use.
+  * Frontend-User Developer: this is the fronted users will use to read QR codes on benches and access parkfulness audios.
   * Frontend-Manager: this is the frontend that the manager will use to upload audio recordings and create new benches.
   * Backend: this is the backend that will be used to store the audio recordings and the QR Codes.
 
@@ -198,6 +213,9 @@ Members:
    - Role: Backend, Co-rep/PM.
    - Michele has a lot of experience with logically designing and carrying out the execution of backend development for multiple personal and school projects. Additionally, he has lead his respective teams in other software development courses (CSC207 & CSC309) to successful results. Therefore, we have made the choice of picking him as a Co-representative along with Michael, and a backend developer to be the direct connection between the client and the backend.
 
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Q8: How will you work as a team?
 
@@ -220,14 +238,29 @@ As we have our joint product managers in Michael and Michele split up among the 
 
   Within the first meeting, John described his vision for the project, in addition to his story that lead to him to this idea. He told us about how mindfulness aided his own life in many facets, and how he wanted to spread this idea among park visitors. The park benches dotted throughout the park would provide a great environment for visitors to engage in context-specific audio recordings guiding them through meditative states that engage in mindfulness specifically.
 
-  Furthermore, John also stated that there is no existing code for this project, and that he would be willing to either a phone app or a website.
+  Furthermore, John also stated that there is no existing code for this project, and that he would be willing to start up this project as either a phone app or a website.
 
-  Within this meeting, we also determined our regular biweekly meeting time - Thursdays 2-3PM.
+  Within this meeting, we also determined our regular biweekly meeting time with John - Thursdays 2-3PM.
+
+  &nbsp;
 
   #### Meeting 2:
 
-  *(To be added by Michele)*
+  During the second meeting, we "pitched" our prototype (mockup) to our partner John, we walked him through our user stories and personas too, and took his feedback on each of these to relegate to the rest of the team. We also got his written agreement on the proposed concepts, which can be verified in the following email (note that the email we sent to him had to get cut-off due to it being too long to fit in a picture):
+
+  <img src="./miscellaneous/proof-of-agreement.jpg" width="650">
+
+  Additionaly, we gave him access to our GitHub repository, and we discussed the addition of some possible features John would like to see implemented if we manage to get our MVP done early. Some of these suggestions were:
+  - Expansion of bench object storage to possibly contain multiple audios at once for the 4 seasons such that they are automatically switched once a new season starts.
+  - Storing data regarding how many times a QR code has been scanned / how many visits the page mapped to a QR gets.
+
+  Lastly, we setup our invitations for the next meeting on Thrusday February 16, 2 weeks from this meeting.
   
+  
+&nbsp;
+&nbsp;
+&nbsp;
+
 ## Q9: How will you organize your team?
 
 <!-- List/describe the artifacts you will produce in order to organize your team.       
@@ -241,7 +274,11 @@ As we have our joint product managers in Michael and Michele split up among the 
 Artifacts:
   * Our team has a meeting minutes document that serves as a recap to other members on what happened at each meeting with a partner as well as what happened during group meetings. Each team member can contribute towards this doc and can expand on it at any time.
   * Our team will also be using Notion which will serve as our To-Do list. On notion there is a board where each member can add tasks to, each task gets assigned a tag based on the team that will work on it as well as a priority ranging from low to high. On the board members can see which tasks have yet to be completed as well as which tasks are in progress, which ones need to be reviewed by others and which ones are done. Tasks are usually added to the board and assigned priority after the reps meet with our partner and during our regularly scheduled meetings. Once a task under review has been reviewed by other members it's status will be marked as done. 
-<img src="./img/notion_team_board.png" width="650">
+<img src="./miscellaneous/notion_team_board.png" width="650">
+
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Q10: What are the rules regarding how your team works?
 
@@ -256,10 +293,10 @@ Artifacts:
 Communications:
  * We make use of a discord server on the daily to plan out meetings, ask questions, and collaborate on all aspects of the project. Attached is a screenshot of such server:
 
-<img src="./img/Discord.JPG" width="650">
+<img src="./miscellaneous/Discord.JPG" width="650">
 
  * In terms of meetings, the entire group meets every Saturday from 3-4pm, and every Thursday during our tutorial slot to discuss current goals, how work is going and device a plan for the next couple of days. We also make use of the discord voice channels for quick calls between specific sub-team members.
- * We also have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thursdays from 2-3pm.
+ * Furthermore, we have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thursdays from 2-3pm.
 
 Collaboration:
  * As discord is our primary form of contact, we will keep each other accountable on discord where we regularly update each other with what we have done and sending reminders to each other for meetings and completing tasks.
