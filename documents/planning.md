@@ -296,7 +296,7 @@ Communications:
 <img src="./miscellaneous/Discord.JPG" width="650">
 
  * In terms of meetings, the entire group meets every Saturday from 3-4pm, and every Thursday during our tutorial slot to discuss current goals, how work is going and device a plan for the next couple of days. We also make use of the discord voice channels for quick calls between specific sub-team members.
- * We also have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thursdays from 2-3pm.
+ * Furthermore, we have a scheduled bi-weekly meeting with our partner from Ontario Parks John Leadston that takes place on Thursdays from 2-3pm.
 
 Collaboration:
  * As discord is our primary form of contact, we will keep each other accountable on discord where we regularly update each other with what we have done and sending reminders to each other for meetings and completing tasks.
