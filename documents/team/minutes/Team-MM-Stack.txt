@@ -1,6 +1,21 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+2/4/2023
+    Discuss feedback from John with entire team 
+    Went over what John liked and didn’t
+    Suggestions:
+        One bench as multiple audios due to seasonal reasons (still one QR code)
+            Have automatic switching between audiios dependent on the dates
+    Emphasis on simple interface 
+    Front end - USER 
+        Text on top too wordy 
+        Remove scan button on audio playing screen 
+        Remove unnecessary buttons (like arrow on scan screen)
+    Backend 
+        Generate QR code AND instructions for use 
+    Next meeting with John: Feb 15th 
+
 1/28/2023
     Team Meeting to discuss Deliverable 1 (planning.md) 
         Brainstormed personas (3) and user stories (at least 5) 
