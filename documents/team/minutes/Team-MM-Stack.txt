@@ -1,6 +1,20 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+2/11/2023
+    Pick user stories for each subteam: 
+        6.1 Fe-User (parth and tony): 
+        6.2 Backend (sam, michele, and tajwaar): 
+            As a logged in Park Manager, I want to be able to obtain the QR code corresponding to an existing bench, so that in the case of damages being caused to the existing printed version, I can replace it with a working one + Bench CRUD.
+        6.3 Fe-Manager (michael and angad):
+    Team Report - 3 sections (< 3 pages)
+        3. software architecture diagram and how each component connects to the others.
+            Use miro example made in class
+    Subteam Report
+        Code within separate repo 
+    Ask about grace period policies 
+    Think of any questions/clarifications for John 
+
 2/4/2023
     Discuss feedback from John with entire team 
     Went over what John liked and didn’t
