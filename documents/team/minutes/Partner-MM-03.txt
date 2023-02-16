@@ -1,0 +1,9 @@
+- cabinet office group OPS involved in mindfullness
+- John asked for a guided meditation, waiting to hear back
+- John will run by ministry of health for parks beyond provincial parks, eg city park, hospital
+- asked him how accounts will be created, do we create accounts or let them create accounts
+- his answer for administrator is up to us to implement, administrator just needs to be able to fulfill tasks
+- probably won't have too many administrators
+- emphasis that it should be easy to use, no logging in, just one click
+- john will checkout github when its ready to demonstrate (A2 components)
+- set up next meeting for March 2nd, told John that there will be viewable content regarding the project because A2 will be due before
