@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'Inter';
+    src: local('Inter'), url('../../assets/Inter Web/Inter-Black.woff') format('woff');
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+}
+
+@font-face {
+    font-family: 'Inter-Medium';
+    src: local('Inter-Medium'), url('../../assets/Inter Web/Inter-Medium.woff') format('woff');
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+}
+
+.scan-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100vh; */
+    /* background-color: rgb(219, 255, 213); */
+}
+
+.scan-page {
+    text-align: center;
+    position: relative;
+    top: 65px;
+    /* subtract 20px for the padding on each side */
+    width: calc(100% - 20px);
+    min-height: calc(100vh - 65px - 20px);
+    background-color: rgb(219, 255, 213);
+    padding: 10px;
+}
+
+.scanner {
+    border-radius: 25px;
+    padding: 20px;
+    width: 75%;
+    height: 300px;
+}
+
+.redirect-button {
+    text-align: center;
+    display: block;
+    margin: auto;
+    padding: 5%;
+}
+
+.album {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #241F21;
+}
+
+.author {
+    font-family: 'Inter-Medium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #241F21;
+}
+
+.album-info {
+    display: flex;
+    width: 400px;
+    height: 150px;
+    justify-content: center;
+    background-color: #C4B59B;
+    border-style: hidden;
+    border-radius: 25px;
+}
+
+.scan-album-art {
+    width: 150px;
+    height: 150px;
+    border-radius: 25px;
+}
+
+.album-txt {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: left;
+}
+
+@media screen and (max-width: 400px) {
+
+    .album-info {
+        display: flex;
+        width: 300px;
+        height: 120px;
+        justify-content: center;
+        background-color: #C4B59B;
+        border-style: hidden;
+        border-radius: 25px;
+    }
+
+    .album {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 10px;
+        line-height: 18px;
+        color: #241F21;
+    }
+
+    .author {
+        font-family: 'Inter-Medium';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 17px;
+        color: #241F21;
+    }
+
+    .scan-album-art {
+        width: 120px;
+        height: 120px;
+        border-radius: 25px;
+    }
+}
