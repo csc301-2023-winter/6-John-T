@@ -1,6 +1,38 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+2/25/2023 (Recurring Weekly Team Meeting)
+    Discuss D2 handout 
+        Due: Mar 10, 11:59PM
+    Tajwaar will commit 2 starter files (done)
+    How will FE-User connect with BE?
+        Create QR code tied with bench 
+        FE needs to know what the API calls will look like (parameters…) to get necessary info from a bench
+        Audio image link 
+        Audio link?
+    FE-Manager and BE both made bench creation, so linking the two isn’t too hard 
+    This project will be on the main repo
+        Merge the frontends 
+        Or separate the three subteams into 3 folders (team prefers this)
+    Look into using AWS to deploy React projects 
+    BE
+        Need to upload audio file and send link to FE-User 
+        QR creation 
+    FE-Manager
+        Need to the api calls to get, create, delete, and edit benches 
+    FE-User 
+        Need to specify api calls too 
+    Integration file needs to be revisited before submission 
+    TO DO
+        Create D2 folder 
+        Put all files onto main repo under sub-folders 
+        FE teams communicate what they need from BE 
+
+2/19/2023 (Submission Meeting for A2 group repo)
+    Submission for main project report 
+    Note for TA:
+        Our report is 5 pages with TOC to affirm that it’s less than 4 pages. 
+
 2/11/2023
     Pick user stories for each subteam: 
         6.1 Fe-User (parth and tony): 
