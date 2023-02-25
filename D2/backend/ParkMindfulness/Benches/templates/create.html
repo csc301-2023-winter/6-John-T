@@ -1,0 +1,11 @@
+<!-- Include base for nav bar -->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Fill in the information below to create a new bench object!</h1>
+    <p>Make sure to fill in all fields, otherwise the object won't be created.</p>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+    </form>
+{% endblock %}

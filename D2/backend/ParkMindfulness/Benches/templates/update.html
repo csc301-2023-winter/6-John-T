@@ -1,0 +1,11 @@
+<!-- Include base for nav bar -->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Fill in the information below to update a new bench object!</h1>
+    <p>Make sure to fill in all the fields you want changed, leave the others as they appear.</p>
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+    </form>
+{% endblock %}
