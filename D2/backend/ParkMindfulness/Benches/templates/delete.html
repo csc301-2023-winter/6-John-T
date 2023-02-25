@@ -1,0 +1,11 @@
+<!-- Include base for nav bar -->
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Well, this is kind of awkward, you can go ahead and press the button...</h1>
+    <p>To like you know, confirm deletion you monster...</p>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" value="Delete">Delete</button>
+    </form>
+{% endblock %}
