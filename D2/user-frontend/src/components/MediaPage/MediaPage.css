@@ -1,0 +1,126 @@
+.media-page {
+    position: relative;
+    top: 65px;
+    /* subtract 20px for the padding on each side */
+    width: calc(100% - 20px);
+    min-height: calc(100vh - 65px - 20px);
+    background-color: #DBFFD5;
+    padding: 10px;
+    justify-content: center;
+    display: grid;
+    align-content: flex-start;
+    justify-items: center;
+}
+
+.album-art {
+    position: block;
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+}
+
+.album-title {
+    position: block;
+    max-width: 90vw;
+    max-height: 10vh;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.album-author {
+    position: block;
+    max-width: 90vw;
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.media-buttons {
+    position: block;
+    margin-top: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.no-audio-sign {
+    width: 300px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: #c01717;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 300px) {
+    .media-page {
+        position: relative;
+        top: 65px;
+        /* subtract 20px for the padding on each side */
+        width: calc(100%);
+        min-height: calc(100vh);
+        background-color: #DBFFD5;
+        /* padding: 10px; */
+        justify-content: center;
+        display: grid;
+        align-content: flex-start;
+        justify-items: center;
+    }
+    
+    .album-art {
+        position: block;
+        width: 90vw;
+        height: 90vw;
+        margin-top: 40px;
+    }
+    
+    .album-title {
+        position: block;
+        max-width: 90vw;
+        max-height: 10vh;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .album-author {
+        position: block;
+        max-width: 90vw;
+        font-size: 15px;
+        margin: 0;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .media-buttons {
+        position: block;
+        margin-top: 20px;
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .no-audio-sign {
+        width: 90vw;
+        text-align: center;
+        font-size: 30px;
+        border-radius: 15px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        font-weight: bold;
+        color: #c01717;
+        margin-top: 20px;
+    }
+}
+    
