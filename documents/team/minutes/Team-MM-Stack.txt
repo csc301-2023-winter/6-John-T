@@ -33,6 +33,19 @@ This file is meant to contain the meeting minutes for all the meetings of the se
     Note for TA:
         Our report is 5 pages with TOC to affirm that it’s less than 4 pages. 
 
+2/18/2023 (Recurring Weekly Team Meeting)
+    Went over 2/16 Meeting Minutes with John
+    Discussed Admin Account Creation
+        Make one admin (superuser on Django); where only admins can make more admins; emails are sent with username + temp password to newly created accounts
+    Discussed Backend/Frontend API Communication:
+        React framework is able to encode/decode whatever encoding backend does
+        Backend team should choose a suitable QR encoding framework (one that includes alpha-neumeric characters and /, :, …); primary/popular choice for Django: QR Code
+        Make sure to keep in mind what characters we need in links (with queries in mind) that are to be encoded
+    Discussed A2 Group Project Report
+        Document link in Discord #links channel
+        Division of tasks on Notion/Discord
+    Group Meeting tomorrow: https://www.when2meet.com/?18859486-1hx71
+
 2/11/2023
     Pick user stories for each subteam: 
         6.1 Fe-User (parth and tony): 
