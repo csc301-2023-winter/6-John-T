@@ -22,7 +22,7 @@ jobs:
         # Branch to merge into downstream
         downstream_branch: main
         # GitHub Bot token
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.PAT_FOR_AUTO_SYNC_FORK }}
         # Git fetch arguments
 #         fetch_args: # optional, default is 
         # Git merge arguments
