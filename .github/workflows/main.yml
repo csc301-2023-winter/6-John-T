@@ -21,6 +21,8 @@ jobs:
         upstream_branch: main
         # Branch to merge into downstream
         downstream_branch: main
+        # username testing
+        username: parth-commits
         # GitHub Bot token
         token: ${{ secrets.PAT_FOR_AUTO_SYNC_FORK }}
         # Git fetch arguments
