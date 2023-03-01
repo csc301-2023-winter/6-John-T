@@ -1,0 +1,34 @@
+name: AUTO Sync Fork
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: "0 13 * * 1"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Merge Upstream (mattborghi's Fork)
+      # You may pin to the exact commit or the version.
+      # uses: mattborghi/merge-upstream@248731255d83ac0bfb7e6f88572b7300eaa1094b
+      uses: mattborghi/merge-upstream@v1.2
+      with:
+        # Upstream repository owner/name. For example, exions/merge-upstream
+        upstream: csc301-2023-winter/6-John-T
+        # User email for git commits
+        email: parthpatel1087@gmail.com # optional, default is actions@github.com
+        # User name for git commits
+        name: Merge Upstream Action auto # optional, default is Merge Upstream Action
+        # Upstream branch to merge from. For example, master
+        upstream-branch: main # optional, default is master
+        # Branch to merge to. For example, master
+        branch: main # optional, default is master
+        # Repository to merge from. For example, https://github.com/
+        repository: https://github.com/ # optional, default is https://github.com/
+        # Personal access token (PAT) used to fetch the repository. The PAT is configured with the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the PAT. We recommend using a service account with the least permissions necessary. Also when generating a new PAT, select the least scopes necessary. [Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+
+        token: ${{ secrets.PAT_FOR_AUTO_SYNC_FORK }} # optional, default is ${{ github.token }}
