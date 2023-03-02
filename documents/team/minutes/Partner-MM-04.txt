@@ -1,0 +1,15 @@
+feedback from manager side frontend
+
+- increase visibility of "create new bench" links by turning it into a button, other links as button instead
+- have some picture of a park bench in the create bench page
+- admin login
+- add thumbnail and ability to change thumbnail
+
+feedback from user side frontend
+
+- simplistic is good
+- qr code full functionality? not working on his phone
+- have text or description underneath QR code as well
+- qr codes can stay
+- logo? not specific to ontario parks
+- logo is park specific, different parks can be different logos
