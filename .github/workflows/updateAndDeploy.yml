@@ -2,7 +2,7 @@ name: Auto update and deploy from upstream
 
 on:
   schedule:
-    - cron:  '*/30 * * * *'
+    - cron:  '10 * * * *'
     # scheduled for every 30 mins
 
 jobs:
