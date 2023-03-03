@@ -10,7 +10,6 @@ class BenchCreationSerializer(serializers.ModelSerializer):
         # all needed fields but the qr code should be displayed and required
         fields = ["bench_title", "park_id", "thumbnail"]
 
-
 class BenchViewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Benches
@@ -21,5 +20,5 @@ class BenchViewSerializer(serializers.ModelSerializer):
 class BenchUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Benches
-        fields = ["bench_title", "thumbnail"]
+        fields = ["bench_title", "thumbnail"]  # TODO: should include author and audio file
         
