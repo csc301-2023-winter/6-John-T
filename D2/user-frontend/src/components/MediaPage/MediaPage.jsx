@@ -45,7 +45,7 @@ const useAudio = url => {
 
 const MediaPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
-    const [title, setTitle] = useState("Mindfulness At Charleston Lake");
+    const [title, setTitle] = useState("Mindfulness at Charleston Lake");
     const [author, setAuthor] = useState("Paula Vital");
     const [playing, toggle, skip] = useAudio(mock_audio);
     const navigate = useNavigate();
