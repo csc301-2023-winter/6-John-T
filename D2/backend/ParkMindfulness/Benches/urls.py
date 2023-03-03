@@ -39,4 +39,5 @@ urlpatterns = [
     path("delete_admin_bench/<int:bench_id>/", views.BenchDeleteView_admin.as_view(), name="delete-admin-bench"),
 
     # user side urls (no authentication required)
+    path("get_user_bench/<int:bench_id>/", views.BenchGetView_user.as_view(), name="get-user-benches"),
 ]

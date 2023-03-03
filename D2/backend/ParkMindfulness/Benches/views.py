@@ -1,13 +1,15 @@
 # view specific imports
-from django.shortcuts import render, redirect
-from .forms import BenchesCreateForm, BenchesUpdateForm, BenchesDeleteForm
 from rest_framework.response import Response
 from .models import Benches, Park
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView, RetrieveAPIView
-from .serializers import BenchCreationSerializer, BenchViewSerializer, BenchUpdateSerializer
+from .serializers import BenchCreationSerializer, BenchViewSerializer_admin, BenchViewSerializer_user, BenchUpdateSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ParseError
 from django.shortcuts import get_object_or_404
+from django.conf import settings
+
+# for handling file deletion within /media
+import os
 
 # qr code generation imports
 import qrcode
@@ -77,22 +79,26 @@ class BenchCreateView_admin(CreateAPIView):
 # BENCH VIEWING  (park and bench based) #
 #########################################
 
+# Note that the admin and user views are basically the same, but they do differ in the 
+# fact that the admin get requires an authenticated user, and returns the bench's QR code
+# too. On all other aspects, they are the same.
+
 # # simple view for bench viewing (getting all objects)
 # def bench_view(request):
 #     # get all benches from the DB (filtering and such would be available through our REST API)
 #     benches = Benches.objects.all()
 #     # render the view with the context variable loaded with all the benches
 #     return render(request, 'view.html', {'benches': benches})
-
-# The view to get the bench in the database corresponding to the given bench id
+ 
+# The view to get the bench in the database corresponding to the given bench id (for admins)
 class BenchGetView_admin(RetrieveAPIView):
 
     # permission_classes = [IsAuthenticated]  -- to be enabled once we have user authentication
-    serializer_class = BenchViewSerializer  # the serializer that shows all the details
+    serializer_class = BenchViewSerializer_admin  # the serializer that shows all the details
     
     def get(self, request, *args, **kwargs):
         """
-        Contract with frontend: given bench_id, must return:
+        Contract with admin frontend: given bench_id, must return:
         - title of bench
         - author of bench  # TODO
         - link to audio file on server  # TODO
@@ -107,7 +113,35 @@ class BenchGetView_admin(RetrieveAPIView):
         bench = get_object_or_404(Benches, bench_id=bench_to_display)
 
         # serialize the bench object
-        serializer = BenchViewSerializer(bench)
+        serializer = self.serializer_class(bench)
+
+        # check for audio file in the serialized data
+        # serializer.data['audio_file_present'] = True if serializer.data['audio_file'] is not None else False
+
+        return Response(serializer.data)
+    
+# The view to get the bench in the database corresponding to the given bench id (for users)
+class BenchGetView_user(RetrieveAPIView):
+
+    serializer_class = BenchViewSerializer_user  # the serializer that shows all the details
+    
+    def get(self, request, *args, **kwargs):
+        """
+        Contract with frontend user: given bench_id, must return:
+        - title of bench
+        - author of bench  # TODO
+        - link to audio file on server (if exists)  # TODO
+        - a boolean that tells us if there is a audio file or not
+        - link to image file on server
+        """
+        # fetch the bench id from the request kwargs
+        bench_to_display = self.kwargs['bench_id']
+
+        # get the bench in the database with the given bench id or raise a 404 (not found) error
+        bench = get_object_or_404(Benches, bench_id=bench_to_display)
+
+        # serialize the bench object
+        serializer = self.serializer_class(bench)
 
         # check for audio file in the serialized data
         # serializer.data['audio_file_present'] = True if serializer.data['audio_file'] is not None else False
@@ -179,7 +213,21 @@ class BenchDeleteView_admin(DestroyAPIView):
         bench = Benches.objects.filter(bench_id=bench_to_delete)
 
         if bench.exists():
-            # say bye bye to the bench
+            # get the names of the files within the media folder to be deleted
+            bench = bench.first()
+            # TODO add bench audio file to be deleted
+            bench_thumbnail = bench.thumbnail
+            bench_qr = bench.qr_code
+
+            # delete the files from the media folder
+            thumbnail_path = os.path.join(settings.MEDIA_ROOT, bench_thumbnail.name)
+            if os.path.exists(thumbnail_path):
+                os.remove(thumbnail_path)
+            qr_path = os.path.join(settings.MEDIA_ROOT, bench_qr.name)
+            if os.path.exists(qr_path):
+                os.remove(qr_path)
+            
+            # finally, say bye bye to the bench
             bench.delete()
             return Response({"message": "Bench object has been deleted!"}, status=200)
         else:

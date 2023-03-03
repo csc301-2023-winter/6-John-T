@@ -11,5 +11,5 @@ class Benches(models.Model):
     bench_title = models.CharField(max_length=30)
     park_id = models.ForeignKey(Park, on_delete=models.CASCADE) #FK 
     #images 
-    qr_code = models.ImageField(null=True, blank=True, upload_to="images/")
-    thumbnail = models.ImageField(null=True, blank=True, upload_to="images/")
+    qr_code = models.ImageField(null=True, blank=True, upload_to="images/qr_codes/")
+    thumbnail = models.ImageField(null=True, blank=True, upload_to="images/bench_thumbnails/")
