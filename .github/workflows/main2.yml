@@ -32,7 +32,7 @@ jobs:
       with:
         target_sync_branch: main
         # REQUIRED 'target_repo_token' exactly like this!
-        target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+        target_repo_token: ${{ secrets.PAT_FOR_AUTO_SYNC_FORK }}
         upstream_sync_branch: main
         upstream_sync_repo: csc301-2023-winter/6-John-T
         upstream_repo_access_token: ${{ secrets.PAT_FOR_AUTO_SYNC_FORK_UPSTREAM }}
