@@ -4,6 +4,7 @@ on:
   schedule:
     - cron:  '*/30 * * * *'
     # scheduled for every 30 mins
+  workflow_dispatch:  # click the button on Github repo!
 
 jobs:
   sync_latest_from_upstream:
