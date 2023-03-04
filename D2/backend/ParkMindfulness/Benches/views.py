@@ -2,7 +2,7 @@
 from rest_framework.response import Response
 from .models import Benches, Park
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView, RetrieveAPIView
-from .serializers import BenchCreationSerializer, BenchViewSerializer_admin, BenchViewSerializer_user, BenchUpdateSerializer
+from .serializers import *
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ParseError
 from django.shortcuts import get_object_or_404
@@ -42,10 +42,12 @@ class BenchCreateView_admin(CreateAPIView):
         if not request.data['thumbnail']:
             return Response({"message": "The thumbnail field cannot be empty"}, status=400)
         
-        # TODO: add audio file if uploaded by user
+        # audio file is optional, but check if it exists to set the boolean field to true
+        if request.FILES['secondary_model.audio_file']:
+            request.data['secondary_model.audio_binary'] = True
 
         # take in the data from the request to create a new bench object
-        serializer = BenchCreationSerializer(data=request.data)
+        serializer = FullBenchCreationSerializer(data=request.data)
 
         # save the bench object in the database as is (no qr code yet)
         if not serializer.is_valid():
@@ -53,10 +55,11 @@ class BenchCreateView_admin(CreateAPIView):
         # otw
         bench = serializer.save()
 
-        bench_data = serializer.data
+
         # create the qr code that is to identify this bench object when users scan it
 
         # build the front end link template that we are to make the QR code for
+        # qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}&park_id={bench.park_id}"
         qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}"
 
         # use the qrcode library to make a qr code image through teh qr_class class
@@ -71,6 +74,7 @@ class BenchCreateView_admin(CreateAPIView):
         
         # save the qr code from the buffer to the bench object in the database
         bench.qr_code.save(f"qr_code_{bench.bench_id}.png", ContentFile(buffer.getvalue()), save=True)
+        
 
         return Response({"message": "Bench object has been created!"}, status=201)
 
