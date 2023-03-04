@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Benches.models import Benches
+from Benches.models import Benches, Park
 
 # To be implemented by Michele as part of the CRUD API views
 
@@ -23,3 +23,7 @@ class BenchUpdateSerializer(serializers.ModelSerializer):
         model = Benches
         fields = ["bench_title", "thumbnail"]
         
+class ParkViewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Park
+        fields = "__all__"
