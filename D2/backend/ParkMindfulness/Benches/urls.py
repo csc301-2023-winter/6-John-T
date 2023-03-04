@@ -18,13 +18,10 @@ from django.urls import path, include
 from Benches import views
 
 urlpatterns = [
-    # path("benches-index-test/", views.index, name="test-index"),
-    path("create_bench/", views.bench_create, name="bench_create"),
-    path("view_benches/", views.bench_view, name="bench_view"),
-    path("update_bench/<int:bench_id>/", views.bench_update, name="bench_update"),
-    path("delete_bench/<int:bench_id>/", views.bench_delete, name="bench_delete")
-    # path("create_bench/", views.BenchCreateView.as_view(), name="create-bench"),
-    # path("get_benches/<int:park_id>/", views.BenchGetView.as_view(), name="get-benches"),
-    # path("update_bench/<int:bench_id>/", views.BenchUpdateView.as_view(), name="update-bench"),
-    # path("delete_bench/<int:bench_id>/", views.BenchDeleteView.as_view(), name="delete-bench"),
+    path("create_bench/", views.BenchCreateView.as_view(), name="create-bench"),
+    path("get_benches/<int:park_id>/", views.BenchGetView.as_view(), name="get-benches"),
+    path("get_all_benches/", views.BenchGetAllView.as_view(), name="get-all-benches"),
+    path("update_bench/<int:bench_id>/", views.BenchUpdateView.as_view(), name="update-bench"),
+    path("delete_bench/<int:bench_id>/", views.BenchDeleteView.as_view(), name="delete-bench"),
+    path("get_parks/", views.ParkGetView.as_view(), name="get-parks")
 ]
