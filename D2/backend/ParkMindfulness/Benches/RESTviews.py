@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 from Benches.models import Benches, Park
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView
-from Benches.serializers import BenchCreationSerializer, BenchViewSerializer, BenchUpdateSerializer
+from Benches.serializers import BenchCreationSerializer, BenchViewSerializer, BenchUpdateSerializer, ParkViewSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ParseError
 from django.shortcuts import render
@@ -140,6 +140,3 @@ class BenchDeleteView(DestroyAPIView):
             # Return not found error message if no corresponding bench is found
             return Response({"message": "No bench found for the given bench id"}, status=404)
         
-
-
-

@@ -12,7 +12,7 @@ from django.conf import settings
 import os
 
 # qr code generation imports
-import qrcode
+# import qrcode
 from django.core.files.base import ContentFile
 from io import BytesIO
 
@@ -153,6 +153,46 @@ class BenchGetView_user(RetrieveAPIView):
         return Response(serializer.data)
 
 
+# The view to get all the benches in the database corresponding to the given park id
+class BenchGetAllView_admin(ListAPIView):
+
+    # permission_classes = [IsAuthenticated]
+    serializer_class = BenchViewSerializer_admin  # the serializer that shows all the details
+    
+    def get_queryset(self):
+        # fetch the park id from the request kwargs
+        park_to_display = self.kwargs['park_id']
+        # get all benches in the database with the given park id
+
+        benches = Benches.objects.filter(park_id=park_to_display)
+        park = Park.objects.filter(park_id=park_to_display)  
+        if benches.exists():
+            return benches.order_by('bench_id')
+        elif not park.exists():
+            # when the entered park does not exist in the database
+            raise ParseError({"message": "The park id entered does not exist in the database"})
+        else: 
+            # the park exists but there are no benches in the database, so return an empty list
+            return []
+
+        
+# The view to get all Parks in the database
+class ParkGetAllView_admin(ListAPIView):
+
+    # permission_classes = [IsAuthenticated]
+    serializer_class = ParkViewSerializer  # the serializer that shows all the details
+    
+    def get_queryset(self):
+        # get all parks in the database
+        parks = Park.objects.all()
+        if parks.exists():
+            return parks.order_by('park_id')
+        else: 
+            # the park exists but there are no benches in the database, so return an empty list
+            return []
+
+
+
 ##################
 # BENCH UPDATING #
 ##################
@@ -237,3 +277,4 @@ class BenchDeleteView_admin(DestroyAPIView):
         else:
             # Return not found error message if no corresponding bench is found
             return Response({"message": "No bench found for the given bench id"}, status=404)
+
