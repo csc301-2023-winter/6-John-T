@@ -10,3 +10,12 @@ class AdminProfile(admin.ModelAdmin):
 @admin.register(Park)
 class AdminProfile(admin.ModelAdmin):
     list_display = ['park_id','name', 'location']
+
+@admin.register(Audio)
+class AdminProfile(admin.ModelAdmin):
+    list_display = ['audio_id','bench_id', 'audio_binary', 'audio_file',
+                    'contributor', 'length_category', 'season_category']
+    list_filter = ('bench_id', 'length_category', 'season_category') # allow filtering by bench id, length, season
+
+
+    
