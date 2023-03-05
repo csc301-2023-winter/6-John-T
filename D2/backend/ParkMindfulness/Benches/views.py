@@ -275,7 +275,7 @@ class BenchUpdateView_admin(UpdateAPIView):
 class BenchDeleteView_admin(DestroyAPIView):
     
     # permission_classes = [IsAuthenticated]
-    
+
     def delete(self, request, *args, **kwargs):
         # fetch the bench id from the request kwargs
         bench_to_delete = self.kwargs['bench_id']
