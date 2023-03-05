@@ -1,4 +1,5 @@
 # view specific imports
+from django.forms import model_to_dict
 from rest_framework.response import Response
 from .models import Benches, Park
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView, RetrieveAPIView
@@ -12,7 +13,7 @@ from django.conf import settings
 import os
 
 # qr code generation imports
-# import qrcode
+import qrcode
 from django.core.files.base import ContentFile
 from io import BytesIO
 
@@ -42,9 +43,17 @@ class BenchCreateView_admin(CreateAPIView):
         if not request.data['thumbnail']:
             return Response({"message": "The thumbnail field cannot be empty"}, status=400)
         
-        # audio file is optional, but check if it exists to set the boolean field to true
-        if request.FILES['secondary_model.audio_file']:
+        # audio file is optional, so check if it exists to set the boolean field to true
+        file = request.FILES.get('secondary_model.audio_file', None)
+
+        if file:
             request.data['secondary_model.audio_binary'] = True
+        else:
+            request.data['secondary_model.audio_binary'] = False
+            # if no audio file is provided, set all audio fields to null
+            request.data['secondary_model.contributor'] = None
+            request.data['secondary_model.length_category'] = None
+            request.data['secondary_model.season_category'] = None
 
         # take in the data from the request to create a new bench object
         serializer = FullBenchCreationSerializer(data=request.data)
@@ -54,7 +63,6 @@ class BenchCreateView_admin(CreateAPIView):
             return Response({"message": "Bench creation failed (client error). Make sure to fill out all of the fields!"}, status=400)
         # otw
         bench = serializer.save()
-
 
         # create the qr code that is to identify this bench object when users scan it
 
@@ -74,7 +82,6 @@ class BenchCreateView_admin(CreateAPIView):
         
         # save the qr code from the buffer to the bench object in the database
         bench.qr_code.save(f"qr_code_{bench.bench_id}.png", ContentFile(buffer.getvalue()), save=True)
-        
 
         return Response({"message": "Bench object has been created!"}, status=201)
 
@@ -86,13 +93,6 @@ class BenchCreateView_admin(CreateAPIView):
 # Note that the admin and user views are basically the same, but they do differ in the 
 # fact that the admin get requires an authenticated user, and returns the bench's QR code
 # too. On all other aspects, they are the same.
-
-# # simple view for bench viewing (getting all objects)
-# def bench_view(request):
-#     # get all benches from the DB (filtering and such would be available through our REST API)
-#     benches = Benches.objects.all()
-#     # render the view with the context variable loaded with all the benches
-#     return render(request, 'view.html', {'benches': benches})
  
 # The view to get the bench in the database corresponding to the given bench id (for admins)
 class BenchGetView_admin(RetrieveAPIView):
@@ -113,16 +113,20 @@ class BenchGetView_admin(RetrieveAPIView):
         # fetch the bench id from the request kwargs
         bench_to_display = self.kwargs['bench_id']
 
+        # fetch the audio object from the database
+        audio_object = Audio.objects.filter(bench_id=bench_to_display).first()
+        # we know audio_object exists given the way the creation is done
+
         # get the bench in the database with the given bench id or raise a 404 (not found) error
         bench = get_object_or_404(Benches, bench_id=bench_to_display)
 
-        # serialize the bench object
-        serializer = self.serializer_class(bench)
+        # serialize the bench and audio objects separately
+        bench_data = self.serializer_class(bench).data
+        audio_data = BenchViewAudioSerializer_admin(audio_object).data
 
-        # check for audio file in the serialized data
-        # serializer.data['audio_file_present'] = True if serializer.data['audio_file'] is not None else False
+        bench_data['audio_details'] = audio_data
 
-        return Response(serializer.data)
+        return Response(bench_data, status=200)
     
 # The view to get the bench in the database corresponding to the given bench id (for users)
 class BenchGetView_user(RetrieveAPIView):
@@ -141,16 +145,20 @@ class BenchGetView_user(RetrieveAPIView):
         # fetch the bench id from the request kwargs
         bench_to_display = self.kwargs['bench_id']
 
+        # fetch the audio object from the database
+        audio_object = Audio.objects.filter(bench_id=bench_to_display).first()
+        # we know audio_object exists given the way the creation is done
+
         # get the bench in the database with the given bench id or raise a 404 (not found) error
         bench = get_object_or_404(Benches, bench_id=bench_to_display)
 
         # serialize the bench object
-        serializer = self.serializer_class(bench)
+        bench_data = self.serializer_class(bench).data
+        audio_data = BenchViewAudioSerializer_user(audio_object).data
 
-        # check for audio file in the serialized data
-        # serializer.data['audio_file_present'] = True if serializer.data['audio_file'] is not None else False
+        bench_data['audio_details'] = audio_data
 
-        return Response(serializer.data)
+        return Response(bench_data, status=200)
 
 
 # The view to get all the benches in the database corresponding to the given park id
@@ -192,7 +200,6 @@ class ParkGetAllView_admin(ListAPIView):
             return []
 
 
-
 ##################
 # BENCH UPDATING #
 ##################
@@ -204,13 +211,16 @@ class BenchUpdateView_admin(UpdateAPIView):
     serializer_class = BenchUpdateSerializer
     
     def put(self, request, *args, **kwargs):  # behaves like a post request
+        ### NOTE: that leaving the audio fields empty => audio file erased
+        ###       leaving the other bench fields empty => original values kept
 
         # make mutable copy of the request data
         new_data = request.data.copy()
 
         # otw, fetch the bench id from the request kwargs and get the object from DB
         bench_to_update = self.kwargs['bench_id']  
-        bench = Benches.objects.filter(bench_id=bench_to_update).first()
+        bench = get_object_or_404(Benches, bench_id=bench_to_update)
+        audio = get_object_or_404(Audio, bench_id=bench_to_update)
 
         # determine which fields are to be updated, whichever field has been left empty should not be
         # erased, but rather keep the original value
@@ -218,14 +228,32 @@ class BenchUpdateView_admin(UpdateAPIView):
             new_data['bench_title'] = bench.bench_title
         if not request.data['thumbnail']:
             new_data['thumbnail'] = bench.thumbnail
-        # if not request.data['audio_file']:
-        #     new_data['audio_file'] = bench.audio_file
-        # if not request.data['author']:
-        #     new_data['author'] = bench.author
+        
+        # check for the update on the audios, a file can be updated without necessarily updating the
+        # author, length, or season, this is left to the discretion of the user
+        # if the file is not updated though, then the author, length or season should not be updated
+        file = request.FILES.get('secondary_model.audio_file', None)
+        if not file:
+            # updating to delete the audio file => all None
+            new_data['secondary_model.audio_binary'] = False
+            new_data['secondary_model.audio_file'] = None
+            new_data['secondary_model.contributor'] = None
+            new_data['secondary_model.length_category'] = None
+            new_data['secondary_model.season_category'] = None
+        else:
+            # update file, update other args as needed by user
+            new_data['secondary_model.audio_file'] = file
+            new_data['secondary_model.audio_binary'] = True
+            if not request.data['secondary_model.contributor']:
+                new_data['secondary_model.contributor'] = audio.contributor
+            if not request.data['secondary_model.length_category']:
+                new_data['secondary_model.length_category'] = audio.length_category
+            if not request.data['secondary_model.season_category']:
+                new_data['secondary_model.season_category'] = audio.season_category
 
 
         # take in the data from the request to update the bench object
-        serializer = self.serializer_class(data=new_data)
+        serializer = FullBenchUpdateSerializer(bench, data=new_data, partial=True)
 
         if not serializer.is_valid():
             return Response({"message": "Bench update could not go through (client error)!"}, status=400)
@@ -247,8 +275,6 @@ class BenchUpdateView_admin(UpdateAPIView):
 class BenchDeleteView_admin(DestroyAPIView):
     
     # permission_classes = [IsAuthenticated]
-
-    # queryset = Benches.objects.all()
     
     def delete(self, request, *args, **kwargs):
         # fetch the bench id from the request kwargs
@@ -259,7 +285,6 @@ class BenchDeleteView_admin(DestroyAPIView):
         if bench.exists():
             # get the names of the files within the media folder to be deleted
             bench = bench.first()
-            # TODO add bench audio file to be deleted
             bench_thumbnail = bench.thumbnail
             bench_qr = bench.qr_code
 
@@ -271,7 +296,15 @@ class BenchDeleteView_admin(DestroyAPIView):
             if os.path.exists(qr_path):
                 os.remove(qr_path)
             
-            # finally, say bye bye to the bench
+            # next, delete the audio file
+            audio = get_object_or_404(Audio, bench_id=bench_to_delete)
+            audio_file = audio.audio_file
+            audio_path = os.path.join(settings.MEDIA_ROOT, audio_file.name)
+            if os.path.exists(audio_path):
+                os.remove(audio_path)
+            
+            # finally, say bye bye to the bench and audio objects
+            audio.delete()
             bench.delete()
             return Response({"message": "Bench object has been deleted!"}, status=200)
         else:
