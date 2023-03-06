@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "greg",
     "Benches",
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,20 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://6-john-t-one.vercel.app/",
+    "https://6-john-t-production.up.railway.app/"
+    # TODO: ADD FE MANAGER URL HERE
+]
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = [
+    "https://6-john-t-one.vercel.app/"
+    # TODO: ADD FE MANAGER URL HERE
 ]
 
 ROOT_URLCONF = "ParkMindfulness.urls"
