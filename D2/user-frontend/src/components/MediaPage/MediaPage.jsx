@@ -1,21 +1,19 @@
 import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import './MediaPage.css';
 import { useState, useEffect } from "react";
-import album_art from '../../assets/mock_data/album_art.png';
 import default_album_art from '../../assets/default_album_art.svg';
 import PlayButton from "./media_buttons/PlayButton";
 import PauseButton from "./media_buttons/PauseButton";
 import ForwardButton from "./media_buttons/ForwardButton";
 import RewindButton from "./media_buttons/RewindButton";
-import mock_audio from '../../assets/mock_data/mock_audio.mp3';
+import { BACKEND_URL, BACKEND_PATH_FOR_BENCH_DETAILS } from "../../default_values/constants";
 
 // custom hook for audio
 // this hook is adapted from https://stackoverflow.com/a/47686478 on feb 20 2023
 // i have changed it to add skip functionality and added a few event listeners
 const useAudio = url => {
-    const [audio] = useState(new Audio(url));
+    const [audio, setAudio] = useState(new Audio(url));
     const [playing, setPlaying] = useState(false);
-
     const toggle = () => setPlaying(!playing);
 
     const skip = (time) => {
@@ -39,7 +37,7 @@ const useAudio = url => {
         };
     }, []);
 
-    return [playing, toggle, skip];
+    return [playing, toggle, skip, setAudio];
 };
 
 
@@ -47,8 +45,12 @@ const MediaPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [title, setTitle] = useState("Mindfulness at Charleston Lake");
     const [author, setAuthor] = useState("Paula Vital");
-    const [playing, toggle, skip] = useAudio(mock_audio);
+    const [playing, toggle, skip, setAudio] = useAudio(null);
+    const [loading, setLoading] = useState(true);
+
     const navigate = useNavigate();
+    const [hasAudio, setHasAudio] = useState(false);
+    const [album_art, setAlbumArt] = useState(null);
 
     // color scheme
     const tone1 = "#C4B59B";
@@ -62,6 +64,34 @@ const MediaPage = () => {
         }
         else {
             console.log("x is not null");
+            // fetch the media from the backend
+            fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${x}/`, {
+                method: 'GET',
+            }).then(res => {
+                if (res.status === 404) {
+                    navigate('/');
+                }
+                return res.json()
+            }).then(data => {
+                console.log(data);
+                setTitle(data.bench_title);
+                if (data.thumbnail !== '') {
+                    setAlbumArt(`${BACKEND_URL}${data.thumbnail}`);
+                }
+                if (data.audio_details.audio_binary) {
+                    setAuthor(data.audio_details.contributor);
+                    setHasAudio(true);
+                    fetch(`${BACKEND_URL}/media/audio_files/mindful_park_audio.mp3`).then(r => r.blob()).then(blob => {
+                        const aud = new Audio(URL.createObjectURL(blob));
+                        setAudio(aud);
+                        setLoading(false);
+                    });
+                }
+            }).catch(err => {
+                console.log(err);
+                console.log("error");
+            });
+
         }
     }, []);
 
@@ -96,8 +126,8 @@ const MediaPage = () => {
                 <img src={album_art || default_album_art} alt="" className="album-art" />
                 <p className="album-title">{title}</p>
                 <p className="album-author">{author || ''}</p>
-                {mock_audio
-                    ? <div className="media-buttons">
+                {hasAudio ? (loading ? <div class="mediapage-loader"></div> :
+                    <div className="media-buttons">
                         <div onClick={() => rewindHandler()}>
                             <RewindButton tone1={tone1} tone2={tone2} />
                         </div>
@@ -113,7 +143,7 @@ const MediaPage = () => {
                         <div onClick={() => forwardHandler()}>
                             <ForwardButton tone1={tone1} tone2={tone2} />
                         </div>
-                    </div> :
+                    </div>) :
                     <div className="no-audio-sign">
                         <p>No audio available</p>
                     </div>
