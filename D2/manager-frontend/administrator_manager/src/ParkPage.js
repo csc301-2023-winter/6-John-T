@@ -10,7 +10,7 @@ function ParkPage() {
       <br></br>
     </div>
     <div style = {{'display': 'flex', 'margin-left': '100px','align-items': 'left'}}>
-    <Link to="/assignment-2-6-3-gaomich4-harishan/new_bench">Create new bench</Link>
+    <Link to="/new_bench">Create new bench</Link>
   </div>
   <div>
     <BenchList />
