@@ -10,9 +10,9 @@ function App() {
       <div>
         <Navbar/>
         <Routes>
-          <Route exact path="/assignment-2-6-3-gaomich4-harishan" element={<HomePage />} />
-          <Route path="/assignment-2-6-3-gaomich4-harishan/park" element={<ParkPage />} />
-          <Route path="/assignment-2-6-3-gaomich4-harishan/new_bench" element={<NewBench />} />
+          <Route exact path="/" element={<HomePage />} />
+          <Route path="/park" element={<ParkPage />} />
+          <Route path="/new_bench" element={<NewBench />} />
         </Routes>
       </div>
   );

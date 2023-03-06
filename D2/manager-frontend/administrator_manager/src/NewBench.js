@@ -18,7 +18,7 @@ function NewBench() {
           <p>Audio Contributor (Optional):
           <input type="text" style={{'margin': '10px', 'width': '180px'}} maxLength={30}></input>
           </p>
-          <Link to="/assignment-2-6-3-gaomich4-harishan/park">Add Bench</Link>
+          <Link to="/park">Add Bench</Link>
         </div>
       </div>  
     );
