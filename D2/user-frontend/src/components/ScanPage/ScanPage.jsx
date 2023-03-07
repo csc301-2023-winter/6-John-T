@@ -4,12 +4,15 @@ import { useContext, useState, useEffect } from "react";
 import React, { Component } from 'react'
 import { QrReader } from 'react-qr-reader';
 import button from '../../assets/gobutton2.png'
-import clake from '../../assets/clake.png'
+import { BACKEND_URL, BACKEND_PATH_FOR_BENCH_DETAILS } from "../../default_values/constants";
+
 
 // makes the reader component
 // this is adapted from the examples from both https://www.npmjs.com/package/react-qr-scanner?activeTab=readme and 
 // https://github.com/react-qr-reader/react-qr-reader on feb 20 2023
 // it has been adapted to allow for storage of various album data and the rendering has been greatly changed
+
+
 class Reader extends Component {
     constructor(props){
         super(props)
@@ -23,6 +26,27 @@ class Reader extends Component {
         }
         this.setData = this.setData.bind(this)
         this.handleError = this.handleError.bind(this)
+        this.getInfo = this.getInfo.bind(this)
+    }
+
+    getInfo(){  
+        // edit this later
+        fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${this.state.url}/`, {
+            method: 'GET',
+        }).then(res => {
+            if (res.status === 404) {
+                navigate('/');
+            }
+            return res.json()
+        }).then(data => {
+            console.log(data);
+            setTitle(data.bench_title);
+            setAuthor(data.audio_details.contributor);
+            setAlbumArt(`${BACKEND_URL}${data.thumbnail}`);
+        }).catch(err => {
+            console.log(err);
+            console.log("error");
+        });
     }
 
     // this is what the reader will do when the camera is on and it is trying to scan
@@ -31,19 +55,19 @@ class Reader extends Component {
         if(data){
             this.setState({
                 result: data,
-                album: data.text.split("|")[0],
-                author: data.text.split("|")[1],
-                img: data.text.split("|")[2],
-                url: data.text.split("|")[3],
+                album: data.text.split("=")[1],
+                author: data.text.split("=")[1],
+                img: data.text.split("=")[1],
+                url: data,
             })
         }
-      
       
         if (this.state.result != null){   // when qr code is found, it will do something
             console.log(this.state.result)
         }
-      
     }
+
+    
 
     // error handling
     handleError(err){
