@@ -27,6 +27,27 @@ class Reader extends Component {
         this.setData = this.setData.bind(this)
         this.handleError = this.handleError.bind(this)
         this.getInfo = this.getInfo.bind(this)
+        this.setAlbum = this.setAlbum.bind(this)
+        this.setAuthor = this.setAuthor.bind(this)
+        this.setArt = this.setArt.bind(this)
+    }
+    
+    setAlbum(item){
+        this.setState({
+            album: item
+        })
+    }
+
+    setAuthor(item){
+        this.setState({
+            author: item
+        })
+    }
+
+    setArt(item){
+        this.setState({
+            img: item
+        })
     }
 
     getInfo(){  
@@ -40,9 +61,9 @@ class Reader extends Component {
             return res.json()
         }).then(data => {
             console.log(data);
-            setTitle(data.bench_title);
+            setAlbum(data.bench_title);
             setAuthor(data.audio_details.contributor);
-            setAlbumArt(`${BACKEND_URL}${data.thumbnail}`);
+            setArt(`${BACKEND_URL}${data.thumbnail}`);
         }).catch(err => {
             console.log(err);
             console.log("error");
@@ -55,11 +76,32 @@ class Reader extends Component {
         if(data){
             this.setState({
                 result: data,
+                url: data
+            })
+            fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${this.state.url}/`, {
+                method: 'GET',
+            }).then(res => {
+                if (res.status === 404) {
+                    navigate('/');
+                }
+                return res.json()
+            }).then(data => {
+                console.log(data);
+                setAlbum(data.bench_title);
+                setAuthor(data.audio_details.contributor);
+                setArt(`${BACKEND_URL}${data.thumbnail}`);
+            }).catch(err => {
+                console.log(err);
+                console.log("error");
+            });
+            
+            /*
+                result: data,
                 album: data.text.split("=")[1],
                 author: data.text.split("=")[1],
                 img: data.text.split("=")[1],
                 url: data,
-            })
+            */
         }
       
         if (this.state.result != null){   // when qr code is found, it will do something
