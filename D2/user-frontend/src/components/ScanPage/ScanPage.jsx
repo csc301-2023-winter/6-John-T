@@ -73,7 +73,6 @@ class Reader extends Component {
                 return res.json()
             }).then(data => {
                 console.log(data);
-                this.setURL(id);
                 this.setAlbum(data.bench_title);
                 this.setAuthor(data.audio_details.contributor);
                 this.setArt(`${BACKEND_URL}${data.thumbnail}`);
@@ -118,7 +117,7 @@ class Reader extends Component {
                   }}
 
                   constraints={{
-                            facingMode: "environment"
+                            facingMode: "user"
                     }}
                 />
                 <div className="album-info">
