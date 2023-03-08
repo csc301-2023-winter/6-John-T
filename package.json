@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/csc301-2023-winter/6-John-T/issues"
   },
-  "homepage": "https://github.com/csc301-2023-winter/6-John-T#readme"
+  "homepage": "https://github.com/csc301-2023-winter/6-John-T#readme",
+  "dependencies": {
+    "react-qr-reader": "^3.0.0-beta-1"
+  }
 }
