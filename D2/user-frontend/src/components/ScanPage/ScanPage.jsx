@@ -25,7 +25,6 @@ class Reader extends Component {
         }
         this.setData = this.setData.bind(this)
         this.handleError = this.handleError.bind(this)
-        this.getInfo = this.getInfo.bind(this)
         this.setAlbum = this.setAlbum.bind(this)
         this.setAuthor = this.setAuthor.bind(this)
         this.setArt = this.setArt.bind(this)
