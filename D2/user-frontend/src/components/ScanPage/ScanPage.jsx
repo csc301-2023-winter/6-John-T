@@ -63,7 +63,7 @@ class Reader extends Component {
             let id = new URL(data.text.replace("#/", "")).searchParams;
             this.setState({
                 result: data,
-                url: data.text.split("/")[2]
+                url: data.text.split("/")[4]
             })
             fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${id.get("m")}/`, {
                 method: 'GET',
