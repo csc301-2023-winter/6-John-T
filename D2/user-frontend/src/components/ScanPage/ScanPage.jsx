@@ -1,6 +1,5 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import './ScanPage.css';
-import { useContext, useState, useEffect } from "react";
 import React, { Component } from 'react'
 import { QrReader } from 'react-qr-reader';
 import button from '../../assets/gobutton2.png'
@@ -75,11 +74,12 @@ class Reader extends Component {
     // continuously scans null if there is no qr code
     setData(data){ 
         if(data){
+            let id = new URL(data.text.replace("#/", "")).searchParams;
             this.setState({
                 result: data,
-                url: data
+                url: data.text
             })
-            fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${this.state.url}/`, {
+            fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${id.get("m")}/`, {
                 method: 'GET',
             }).then(res => {
                 if (res.status === 404) {
