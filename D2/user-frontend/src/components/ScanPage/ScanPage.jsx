@@ -30,7 +30,9 @@ class Reader extends Component {
         this.setAlbum = this.setAlbum.bind(this)
         this.setAuthor = this.setAuthor.bind(this)
         this.setArt = this.setArt.bind(this)
+        this.navigate = this.navigate.bind(this)
     }
+    navigate = useNavigate();
     
     setAlbum(item){
         this.setState({
@@ -56,14 +58,14 @@ class Reader extends Component {
             method: 'GET',
         }).then(res => {
             if (res.status === 404) {
-                navigate('/');
+                this.navigate('/');
             }
             return res.json()
         }).then(data => {
             console.log(data);
-            setAlbum(data.bench_title);
-            setAuthor(data.audio_details.contributor);
-            setArt(`${BACKEND_URL}${data.thumbnail}`);
+            this.setAlbum(data.bench_title);
+            this.setAuthor(data.audio_details.contributor);
+            this.setArt(`${BACKEND_URL}${data.thumbnail}`);
         }).catch(err => {
             console.log(err);
             console.log("error");
@@ -82,14 +84,14 @@ class Reader extends Component {
                 method: 'GET',
             }).then(res => {
                 if (res.status === 404) {
-                    navigate('/');
+                    this.navigate('/');
                 }
                 return res.json()
             }).then(data => {
                 console.log(data);
-                setAlbum(data.bench_title);
-                setAuthor(data.audio_details.contributor);
-                setArt(`${BACKEND_URL}${data.thumbnail}`);
+                this.setAlbum(data.bench_title);
+                this.setAuthor(data.audio_details.contributor);
+                this.setArt(`${BACKEND_URL}${data.thumbnail}`);
             }).catch(err => {
                 console.log(err);
                 console.log("error");
