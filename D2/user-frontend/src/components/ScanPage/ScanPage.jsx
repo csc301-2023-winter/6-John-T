@@ -30,6 +30,7 @@ class Reader extends Component {
         this.setAuthor = this.setAuthor.bind(this)
         this.setArt = this.setArt.bind(this)
         this.navigate = useNavigate.bind(this)
+        this.setURL = this.setURL.bind(this)
     }
     
     setAlbum(item){
@@ -50,24 +51,10 @@ class Reader extends Component {
         })
     }
 
-    getInfo(){  
-        // edit this later
-        fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${this.state.url}/`, {
-            method: 'GET',
-        }).then(res => {
-            if (res.status === 404) {
-                this.navigate('/');
-            }
-            return res.json()
-        }).then(data => {
-            console.log(data);
-            this.setAlbum(data.bench_title);
-            this.setAuthor(data.audio_details.contributor);
-            this.setArt(`${BACKEND_URL}${data.thumbnail}`);
-        }).catch(err => {
-            console.log(err);
-            console.log("error");
-        });
+    setURL(item){
+        this.setState({
+            url: item
+        })
     }
 
     // this is what the reader will do when the camera is on and it is trying to scan
@@ -77,7 +64,6 @@ class Reader extends Component {
             let id = new URL(data.text.replace("#/", "")).searchParams;
             this.setState({
                 result: data,
-                url: data.text
             })
             fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${id.get("m")}/`, {
                 method: 'GET',
@@ -88,6 +74,7 @@ class Reader extends Component {
                 return res.json()
             }).then(data => {
                 console.log(data);
+                this.setURL(id);
                 this.setAlbum(data.bench_title);
                 this.setAuthor(data.audio_details.contributor);
                 this.setArt(`${BACKEND_URL}${data.thumbnail}`);
