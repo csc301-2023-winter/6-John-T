@@ -30,9 +30,8 @@ class Reader extends Component {
         this.setAlbum = this.setAlbum.bind(this)
         this.setAuthor = this.setAuthor.bind(this)
         this.setArt = this.setArt.bind(this)
-        this.navigate = this.navigate.bind(this)
+        this.navigate = useNavigate.bind(this)
     }
-    navigate = useNavigate();
     
     setAlbum(item){
         this.setState({
