@@ -119,7 +119,7 @@ class Reader extends Component {
                   }}
 
                   constraints={{
-                            facingMode: "user"
+                            facingMode: "environment"
                     }}
                 />
                 <div className="album-info">
