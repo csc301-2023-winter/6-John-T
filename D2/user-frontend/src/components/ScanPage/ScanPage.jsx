@@ -93,6 +93,7 @@ class Reader extends Component {
       
         if (this.state.result != null){   // when qr code is found, it will do something
             console.log(this.state.result)
+            console.log(this.state.url)
         }
     }
 
