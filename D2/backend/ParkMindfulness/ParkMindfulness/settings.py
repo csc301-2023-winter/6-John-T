@@ -59,16 +59,16 @@ MIDDLEWARE = [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://6-john-t-one.vercel.app",
-    "https://6-john-t-production.up.railway.app"
-    # TODO: ADD FE MANAGER URL HERE
+    "https://6-john-t-production.up.railway.app",
+    "https://6-john-t.vercel.app/"
 ]
 
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = [
     "https://6-john-t-one.vercel.app",
-    "http://localhost:3000"
-    # TODO: ADD FE MANAGER URL HERE
+    "http://localhost:3000",
+    "https://6-john-t.vercel.app/"
 ]
 
 ROOT_URLCONF = "ParkMindfulness.urls"
