@@ -1,0 +1,1 @@
+export const BACKEND_URL = 'https://6-john-t-production.up.railway.app';
