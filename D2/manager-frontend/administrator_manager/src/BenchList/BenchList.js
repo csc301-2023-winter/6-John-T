@@ -1,5 +1,5 @@
 import React from 'react';
-import './Container.css'
+import '../Default/Container.css'
 
 function BenchList() {
   const benches = [    { title: 'Arrowhead Lake Bench', author: 'Paula Vital', audio: "audio/audio1.mp3"}, {title:'Mayflower Lake Bench', author:'Paula Vital', audio: "audio/audio2.mp3"}];

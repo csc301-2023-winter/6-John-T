@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import HomePage from './HomePage';
-import ParkPage from './ParkPage';
-import Navbar from './Navbar';
-import NewBench from './NewBench';
+import HomePage from './ParkList/HomePage';
+import ParkPage from './BenchList/ParkPage';
+import Navbar from './Default/Navbar';
+import NewBench from './NewBench/NewBench';
 
 function App() {
   return (
