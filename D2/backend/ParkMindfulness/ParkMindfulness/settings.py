@@ -59,7 +59,7 @@ MIDDLEWARE = [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://6-john-t-one.vercel.app",
-    "https://6-john-t-production.up.railway.app"
+    "https://6-john-t-production.up.railway.app",
     "https://6-john-t-one.vercel.app"
 ]
 
