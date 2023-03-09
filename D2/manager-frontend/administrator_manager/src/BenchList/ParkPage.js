@@ -1,16 +1,35 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import BenchList from './BenchList'
+import React, { useState, useEffect } from 'react';
+import {BACKEND_URL} from '../Default/urls'
+import { useSearchParams } from 'react-router-dom';
+import '../Default/Container.css'
+
 
 function ParkPage() {
+  const [parkTitle, setParkTitle] = useState('Loading...');
+  const [searchParams] = useSearchParams();
+  const parkId = parseInt(searchParams.get("id"));
+
+  useEffect(() => {
+    fetch(`${BACKEND_URL}/benches/get_all_admin_parks/`)
+      .then(response => response.json())
+      .then(data => {
+        const bench = data.find(item => item.park_id === parkId);
+        if (bench) {
+          setParkTitle(bench.name);
+        }
+      })
+      .catch(error => console.log(error));
+  }, [parkId]);
   return (
     <div>
     <div style = {{'display': 'flex', 'margin-left': '100px','margin-top':'25px','margin-bottom': '25px', 'align-items': 'left'}}>
-      <h1>Arrowhead Provincial Park</h1>
+      <h1>{parkTitle}</h1>
       <br></br>
     </div>
     <div style = {{'display': 'flex', 'margin-left': '100px','align-items': 'left'}}>
-    <Link to="/new_bench">Create new bench</Link>
+    <Link to={`/new_bench?id=${parkId}`}>Create new bench</Link>
   </div>
   <div>
     <BenchList />
