@@ -197,7 +197,16 @@ class BenchGetAllView_admin(ListAPIView):
         benches = Benches.objects.filter(park_id=park_to_display)
         park = Park.objects.filter(park_id=park_to_display)  
         if benches.exists():
-            return benches.order_by('bench_id')
+            benches_data = []
+            for bench in benches:
+                audio_object = Audio.objects.filter(bench_id=bench.bench_id).first()
+                audio_data = BenchViewAudioSerializer_admin(audio_object).data
+                bench_data = self.serializer_class(bench).data
+                bench_data['audio_details'] = audio_data
+                benches_data.append(bench_data)
+            print('benches_data:', benches_data) # print the benches_data list
+            return benches_data
+            # return benches.order_by('bench_id')
         elif not park.exists():
             # when the entered park does not exist in the database
             raise ParseError({"message": "The park id entered does not exist in the database"})
