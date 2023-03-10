@@ -18,7 +18,8 @@ class FullAudioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Audio
         # all except the bench id
-        fields = ["audio_binary", "audio_file", "contributor", "length_category", "season_category"]
+        # fields = ["audio_binary", "audio_file", "contributor", "length_category", "season_category"]
+        fields = "__all__"
 
 
 ### The serializer to be used to show to the admins to create the bench
@@ -32,22 +33,13 @@ class BenchCreationSerializer(serializers.ModelSerializer):
 
 
 ### The serializer to be used to actually create the bench object
-class FullBenchCreationSerializer(serializers.ModelSerializer):
-    secondary_model = FullAudioSerializer()
+class NoAudioBenchCreationSerializer(serializers.ModelSerializer):
+    # secondary_model = FullAudioSerializer()
 
     class Meta:
         model = Benches
         # all needed fields but the qr code should be displayed and required
-        fields = ["bench_title", "park_id", "thumbnail", "secondary_model"]
-
-    def create(self, validated_data):
-        """
-        Modified to create a bench and its associated audio file
-        """
-        audio_data = validated_data.pop('secondary_model')
-        bench = Benches.objects.create(**validated_data)
-        Audio.objects.create(bench_id=bench, **audio_data)
-        return bench
+        fields = ["bench_title", "park_id", "thumbnail"]
 
 
 #################
@@ -71,7 +63,7 @@ class BenchViewSerializer_admin(serializers.ModelSerializer):
         model = Benches
         fields = ["bench_id", "bench_title", "qr_code", "park_id", "thumbnail"]
 
-class BenchViewSerializer_user(serializers.ModelSerializer):
+class BasicBenchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Benches
         # all needed fields BUT the qr code and the bench id
@@ -89,33 +81,7 @@ class BenchUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Benches
         fields = ["bench_title", "thumbnail", "secondary_model"]
-    
-    
-### The serializer to be used to actually create the bench object (using full audio)
-class FullBenchUpdateSerializer(serializers.ModelSerializer):
-    secondary_model = FullAudioSerializer()
-
-    class Meta:
-        model = Benches
-        # all needed fields but the qr code should be displayed and required
-        fields = fields = ["bench_title", "thumbnail", "secondary_model"]
-
-    def update(self, instance, validated_data):
-        """
-        Modified to update a bench and its associated audio file
-        """
-        audio_data = validated_data.pop('secondary_model')
-        audio_instance = Audio.objects.get(bench_id=instance)
-        bench_instance = super().update(instance, validated_data)
-        
-        # update the audio instance by iterating over the dictionary of data passed to us
-        # and updating each field 1 by 1. Not the most efficient way, but given the possible
-        # empty fields and such, this gets it done
-        for column, value in audio_data.items():
-            setattr(audio_instance, column, value)
-        audio_instance.save()
-
-        return bench_instance
+        # fields = ["bench_title", "thumbnail"]
     
 
 #########
