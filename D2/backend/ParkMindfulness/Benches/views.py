@@ -159,8 +159,8 @@ class BenchGetView_user(RetrieveAPIView):
         """
         Contract with frontend user: given bench_id, must return:
         - title of bench
-        - author of bench  # TODO
-        - link to audio file on server (if exists)  # TODO
+        - author of bench
+        - link to audio file on server (if exists)
         - a boolean that tells us if there is a audio file or not
         - link to image file on server
         """
@@ -186,33 +186,31 @@ class BenchGetView_user(RetrieveAPIView):
 # The view to get all the benches in the database corresponding to the given park id
 class BenchGetAllView_admin(ListAPIView):
 
+    queryset = Benches.objects.all()  # dummy queryset to trick the ListAPIView
     # permission_classes = [IsAuthenticated]
     serializer_class = BenchViewSerializer_admin  # the serializer that shows all the details
-    
-    def get_queryset(self):
-        # fetch the park id from the request kwargs
-        park_to_display = self.kwargs['park_id']
-        # get all benches in the database with the given park id
 
+    def list(self, request, *args, **kwargs):
+
+        # The method actually handling the GET request. By not being the get_queryset method,
+        # its not limited to just returning a queryset, so it lets us add the audio details
+        # to the response.
+        
+        park_to_display = self.kwargs['park_id']
         benches = Benches.objects.filter(park_id=park_to_display)
-        park = Park.objects.filter(park_id=park_to_display)  
-        if benches.exists():
-            benches_data = []
-            for bench in benches:
-                audio_object = Audio.objects.filter(bench_id=bench.bench_id).first()
-                audio_data = BenchViewAudioSerializer_admin(audio_object).data
-                bench_data = self.serializer_class(bench).data
-                bench_data['audio_details'] = audio_data
-                benches_data.append(bench_data)
-            print('benches_data:', benches_data) # print the benches_data list
-            return benches_data
-            # return benches.order_by('bench_id')
-        elif not park.exists():
-            # when the entered park does not exist in the database
-            raise ParseError({"message": "The park id entered does not exist in the database"})
-        else: 
-            # the park exists but there are no benches in the database, so return an empty list
-            return []
+        get_object_or_404(Park, park_id=park_to_display)
+
+        if not benches.exists():
+            raise ParseError({"message": "There are no benches in this park"})
+
+        benches_data = []
+        for bench in benches:
+            audio_object = Audio.objects.filter(bench_id=bench.bench_id).first()
+            audio_data = BenchViewAudioSerializer_admin(audio_object).data
+            bench_data = self.serializer_class(bench).data
+            bench_data['audio_details'] = audio_data
+            benches_data.append(bench_data)
+        return Response(benches_data)
 
         
 # The view to get all Parks in the database

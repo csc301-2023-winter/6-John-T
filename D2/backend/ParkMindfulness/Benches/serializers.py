@@ -51,6 +51,7 @@ class BenchViewAudioSerializer_admin(serializers.ModelSerializer):
     class Meta:
         model = Audio
         fields = ["audio_id", "audio_binary", "audio_file", "contributor", "length_category", "season_category"]
+        # fields = "__all__"
 
 class BenchViewAudioSerializer_user(serializers.ModelSerializer):
     class Meta:
