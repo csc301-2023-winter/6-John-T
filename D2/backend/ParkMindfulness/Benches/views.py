@@ -46,23 +46,45 @@ class BenchCreateView_admin(CreateAPIView):
         # audio file is optional, so check if it exists to set the boolean field to true
         file = request.FILES.get('secondary_model.audio_file', None)
 
+        bench_data = {
+            'bench_title': request.data.get('bench_title', None),
+            'thumbnail': request.data.get('thumbnail', None),
+            'park_id': request.data.get('park_id', None),
+        }
+
+        audio_data = {
+            # 'audio_file': request.data.get('secondary_model.audio_file', None),
+            'contributor': request.data.get('secondary_model.contributor', None),
+            'length_category': request.data.get('secondary_model.length_category', None),
+            'season_category': request.data.get('secondary_model.season_category', None),
+        }
         if file:
-            request.data['secondary_model.audio_binary'] = True
+            audio_data['audio_binary'] = True
+            audio_data['audio_file'] = file
         else:
-            request.data['secondary_model.audio_binary'] = False
+            audio_data['audio_binary'] = False
             # if no audio file is provided, set all audio fields to null
-            request.data['secondary_model.contributor'] = None
-            request.data['secondary_model.length_category'] = None
-            request.data['secondary_model.season_category'] = None
+            audio_data['contributor'] = None
+            audio_data['length_category'] = None
+            audio_data['season_category'] = None
 
         # take in the data from the request to create a new bench object
-        serializer = FullBenchCreationSerializer(data=request.data)
+        # serializer = FullBenchCreationSerializer(data=request.data)
+        serializer1 = NoAudioBenchCreationSerializer(data=bench_data)
+        serializer2 = FullAudioSerializer(data=audio_data)
 
         # save the bench object in the database as is (no qr code yet)
-        if not serializer.is_valid():
+        if not serializer1.is_valid():
             return Response({"message": "Bench creation failed (client error). Make sure to fill out all of the fields!"}, status=400)
         # otw
-        bench = serializer.save()
+        bench = serializer1.save()
+        
+        # add bench id to the audio data and save the audio object in the database
+        audio_data['bench_id'] = bench.bench_id
+        if not serializer2.is_valid():
+            return Response({"message": "Audio creation failed (client error). Make sure to fill out all of the fields!"}, status=400)
+        
+        serializer2.save()
 
         # create the qr code that is to identify this bench object when users scan it
 
@@ -131,14 +153,14 @@ class BenchGetView_admin(RetrieveAPIView):
 # The view to get the bench in the database corresponding to the given bench id (for users)
 class BenchGetView_user(RetrieveAPIView):
 
-    serializer_class = BenchViewSerializer_user  # the serializer that shows all the details
+    serializer_class = BasicBenchSerializer  # the serializer that shows all the details
     
     def get(self, request, *args, **kwargs):
         """
         Contract with frontend user: given bench_id, must return:
         - title of bench
-        - author of bench  # TODO
-        - link to audio file on server (if exists)  # TODO
+        - author of bench
+        - link to audio file on server (if exists)
         - a boolean that tells us if there is a audio file or not
         - link to image file on server
         """
@@ -164,24 +186,31 @@ class BenchGetView_user(RetrieveAPIView):
 # The view to get all the benches in the database corresponding to the given park id
 class BenchGetAllView_admin(ListAPIView):
 
+    queryset = Benches.objects.all()  # dummy queryset to trick the ListAPIView
     # permission_classes = [IsAuthenticated]
     serializer_class = BenchViewSerializer_admin  # the serializer that shows all the details
-    
-    def get_queryset(self):
-        # fetch the park id from the request kwargs
-        park_to_display = self.kwargs['park_id']
-        # get all benches in the database with the given park id
 
+    def list(self, request, *args, **kwargs):
+
+        # The method actually handling the GET request. By not being the get_queryset method,
+        # its not limited to just returning a queryset, so it lets us add the audio details
+        # to the response.
+        
+        park_to_display = self.kwargs['park_id']
         benches = Benches.objects.filter(park_id=park_to_display)
-        park = Park.objects.filter(park_id=park_to_display)  
-        if benches.exists():
-            return benches.order_by('bench_id')
-        elif not park.exists():
-            # when the entered park does not exist in the database
-            raise ParseError({"message": "The park id entered does not exist in the database"})
-        else: 
-            # the park exists but there are no benches in the database, so return an empty list
-            return []
+        get_object_or_404(Park, park_id=park_to_display)
+
+        if not benches.exists():
+            raise ParseError({"message": "There are no benches in this park"})
+
+        benches_data = []
+        for bench in benches:
+            audio_object = Audio.objects.filter(bench_id=bench.bench_id).first()
+            audio_data = BenchViewAudioSerializer_admin(audio_object).data
+            bench_data = self.serializer_class(bench).data
+            bench_data['audio_details'] = audio_data
+            benches_data.append(bench_data)
+        return Response(benches_data)
 
         
 # The view to get all Parks in the database
@@ -214,8 +243,17 @@ class BenchUpdateView_admin(UpdateAPIView):
         ### NOTE: that leaving the audio fields empty => audio file erased
         ###       leaving the other bench fields empty => original values kept
 
-        # make mutable copy of the request data
-        new_data = request.data.copy()
+        bench_data = {
+            'bench_title': request.data.get('bench_title', None),
+            'thumbnail': request.data.get('thumbnail', None),
+        }
+
+        audio_data = {
+            # 'audio_file': request.data.get('secondary_model.audio_file', None),
+            'contributor': request.data.get('secondary_model.contributor', None),
+            'length_category': request.data.get('secondary_model.length_category', None),
+            'season_category': request.data.get('secondary_model.season_category', None),
+        }
 
         # otw, fetch the bench id from the request kwargs and get the object from DB
         bench_to_update = self.kwargs['bench_id']  
@@ -225,9 +263,9 @@ class BenchUpdateView_admin(UpdateAPIView):
         # determine which fields are to be updated, whichever field has been left empty should not be
         # erased, but rather keep the original value
         if not request.data['bench_title']:
-            new_data['bench_title'] = bench.bench_title
+            bench_data['bench_title'] = bench.bench_title
         if not request.data['thumbnail']:
-            new_data['thumbnail'] = bench.thumbnail
+            bench_data['thumbnail'] = bench.thumbnail
         
         # check for the update on the audios, a file can be updated without necessarily updating the
         # author, length, or season, this is left to the discretion of the user
@@ -235,32 +273,36 @@ class BenchUpdateView_admin(UpdateAPIView):
         file = request.FILES.get('secondary_model.audio_file', None)
         if not file:
             # updating to delete the audio file => all None
-            new_data['secondary_model.audio_binary'] = False
-            new_data['secondary_model.audio_file'] = None
-            new_data['secondary_model.contributor'] = None
-            new_data['secondary_model.length_category'] = None
-            new_data['secondary_model.season_category'] = None
+            audio_data['audio_binary'] = False
+            audio_data['audio_file'] = None
+            audio_data['contributor'] = None
+            audio_data['length_category'] = None
+            audio_data['season_category'] = None
         else:
             # update file, update other args as needed by user
-            new_data['secondary_model.audio_file'] = file
-            new_data['secondary_model.audio_binary'] = True
+            audio_data['audio_file'] = file
+            audio_data['audio_binary'] = True
             if not request.data['secondary_model.contributor']:
-                new_data['secondary_model.contributor'] = audio.contributor
+                audio_data['contributor'] = audio.contributor
             if not request.data['secondary_model.length_category']:
-                new_data['secondary_model.length_category'] = audio.length_category
+                audio_data['length_category'] = audio.length_category
             if not request.data['secondary_model.season_category']:
-                new_data['secondary_model.season_category'] = audio.season_category
+                audio_data['season_category'] = audio.season_category
 
 
         # take in the data from the request to update the bench object
-        serializer = FullBenchUpdateSerializer(bench, data=new_data, partial=True)
+        serializer1 = BasicBenchSerializer(bench, data=bench_data, partial=True)
+        serializer2 = FullAudioSerializer(audio, data=audio_data, partial=True)
 
-        if not serializer.is_valid():
+        if not serializer1.is_valid() or not serializer2.is_valid():
+            # print errors
+            # print(serializer.errors)
             return Response({"message": "Bench update could not go through (client error)!"}, status=400)
 
         if bench:
             # then we can update the bench object (the first and only one that should exist) with the given data
-            serializer.update(bench, serializer.validated_data)
+            serializer1.update(bench, serializer1.validated_data)
+            serializer2.update(audio, serializer2.validated_data)
             return Response({"message": "Bench object has been updated!"}, status=200)
         else:
             # Return not found error message
