@@ -7,6 +7,8 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
 """
 
+# ANYONE WHO CHANGES THIS FILE THAT IS NOT TAJWAAR GETS PUT INTO ZOOM CALL WITH JOKER MICHELE
+
 import os
 
 from django.core.wsgi import get_wsgi_application
