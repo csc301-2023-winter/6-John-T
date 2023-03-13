@@ -138,19 +138,19 @@ Once you have the basic tools, you can start setting up for frontend development
  * Don't forget to **briefly justify why** you chose this workflow or particular aspects of it! -->
 - Overall Workflow/Naming Conventions: &nbsp;
 
-For each sub-team (Frontend User, Frontend Manager, and Backend), we will use branches when in need of major functionality implementations. Additionally, we will also try to include the assignment that it is relevant for, the subteam that will be working on it, and the reasoning behind doing so, e.g. `backend-upgrades-d2`. Upon successful implementation and testing, a member of that sub-team will create Pull Requests that must be approved and reviewed by another member from the same sub-team before they merge with `main`.
+  - For each sub-team (Frontend User, Frontend Manager, and Backend), we will use branches when in need of major functionality implementations. Additionally, we will also try to include the assignment that it is relevant for, the subteam that will be working on it, and the reasoning behind doing so, e.g. `backend-upgrades-d2`. Upon successful implementation and testing, a member of that sub-team will create Pull Requests that must be approved and reviewed by another member from the same sub-team before they merge with `main`.
 
 - Frontend User:&nbsp;
 
-We have a branch that we make our initial code changes on called “qrscanner_change”. And once the changes are ready, we merge to the main branch if the change is small (hotfix), and make a PR for large potentially code breaking changes. Because one of us will be making the change, the other person has to review it. Anyone can merge once ready. &nbsp;
+  - We have a branch that we make our initial code changes on called “qrscanner_change”. And once the changes are ready, we merge to the main branch if the change is small (hotfix), and make a PR for large potentially code breaking changes. Because one of us will be making the change, the other person has to review it. Anyone can merge once ready. &nbsp;
 
-For deployment, we are deploying on Vercel. We chose Vercel because Vercel looks for commits/merges to the main branch and runs build everytime main updates. This makes it very convenient as there isn't much for us to do to deploy other than merge to the main branch. Because this repo is on an organization account, we first forked it out to Parth’s personal account, and connected Vercel from there. But because it is from a fork, we must first update the fork from upstream. To automate this process, there is a github action on Parth’s fork that checks for updates every 30 minutes and updates accordingly. The action file is in “main/.github/workflows/updateAndDeploy.yml”. 
+  - For deployment, we are deploying on Vercel. We chose Vercel because Vercel looks for commits/merges to the main branch and runs build everytime main updates. This makes it very convenient as there isn't much for us to do to deploy other than merge to the main branch. Because this repo is on an organization account, we first forked it out to Parth’s personal account, and connected Vercel from there. But because it is from a fork, we must first update the fork from upstream. To automate this process, there is a github action on Parth’s fork that checks for updates every 30 minutes and updates accordingly. The action file is in “main/.github/workflows/updateAndDeploy.yml”. 
 
 - Backend:&nbsp;
 
-The majority of our submitted code for the backend was implemented within the `backend-upgrades-d2` branch. We later merged this functionality with the code we brought forward from A2 through a Pull Request to main. For hotfixes, we did so on the `d2-backend-hotfixes` branch, first ensuring they worked as intended, before creating a PR to merge. All merging was done in accordance to our Overall Workflow (see above).&nbsp;
+    - The majority of our submitted code for the backend was implemented within the `backend-upgrades-d2` branch. We later merged this functionality with the code we brought forward from A2 through a Pull Request to main. For hotfixes, we did so on the `d2-backend-hotfixes` branch, first ensuring they worked as intended, before creating a PR to merge. All merging was done in accordance to our Overall Workflow (see above).&nbsp;
 
-For deployment, we chose to deploy on Railway. This ensures that our deployment builds are automated upon commits to `main`. Additionally, we chose Railway over Vercel due to storage capacity since our backend is also hosting our database. Furthermore, this allows us to communicate with both the Frontend User (FE-U) and Frontend Manager (FE-M) over HTTPS without having to invest into a domain (a requirement to obtain a SSL certificate over AWS EC2). Much like the FE-U hosting, the Railway build is linked to a fork on Tajwaar’s GitHub account that is auto deployed using a GitHub Action. (Note: This is currently not enabled as per our partner’s request due to an upcoming presentation in which he plans to showcase our work so far)
+  - For deployment, we chose to deploy on Railway. This ensures that our deployment builds are automated upon commits to `main`. Additionally, we chose Railway over Vercel due to storage capacity since our backend is also hosting our database. Furthermore, this allows us to communicate with both the Frontend User (FE-U) and Frontend Manager (FE-M) over HTTPS without having to invest into a domain (a requirement to obtain a SSL certificate over AWS EC2). Much like the FE-U hosting, the Railway build is linked to a fork on Tajwaar’s GitHub account that is auto deployed using a GitHub Action. (Note: This is currently not enabled as per our partner’s request due to an upcoming presentation in which he plans to showcase our work so far)
 
 ​
 &nbsp;
@@ -163,8 +163,9 @@ For deployment, we chose to deploy on Railway. This ensures that our deployment 
 ​
  * What type of license will you apply to your codebase? And why?
  * What affect does it have on the development and use of your codebase? -->
-Suggestion: https://choosealicense.com/licenses/gpl-3.0/
-- Allows us to use the codebase for commercial purposes.
-- Additionally, allows for modification and private use upon a disclosure and copyright notice while implementing a patent.
-- From a development perspective, we can all contribute privately while others can contribute as well towards features that can be used for commercial purposes by our partner and also allows us to distribute this code to hand it off to the next group working on it (whether that be CSC301 students or otherwise).
+* Chosen License: [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
+* Reasoning:
+  * GNU v3.0 allows us to use the codebase for commercial purposes as requested by our partner
+  * Additionally, it allows for modification and private use upon a disclosure and copyright notice while implementing a patent - essentially future-proofing for the implementation of future functionality
+  * From a development perspective, we can all contribute privately while others can contribute as well towards features that can be used for commercial purposes by our partner and also allows us to distribute this code to hand it off to the next group working on it (whether that be CSC301 students or otherwise)
 
