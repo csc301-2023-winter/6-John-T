@@ -6,7 +6,8 @@
 Keep this section very brief.
  * Provide a high-level description of your application and it's value from an end-user's perspective
  * What is the problem you're trying to solve? Is there any context required to understand **why** the application solves this problem?
-​
+ 
+  In a time where mental health is a very high priority to many, practices such as mindfulness can go a long way in helping people. Forest therapy or forest bathing, as it is known in Japan, is one such practice. The intention of this project is to allow users to initiate guided meditation based on where they are in the park. Users can scan a QR code at a bench which will take them to an audio file for that specific bench, which will lead them through the exercise. From the admin side, they can create new benches, update existing benches, edit the details of a given bench, and they can also delete benches. 
 ## Key Features
  * Describe the key features in the application that the user can access.
  * Provide a breakdown or detail for each feature.
