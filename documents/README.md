@@ -18,6 +18,10 @@ Keep this section very brief.
  * Provide clear steps for using each feature described in the previous section.
  * This section is critical to testing your application and must be done carefully and thoughtfully.
  
+ To access the project, first, either go to https://6-john-t-one.vercel.app/#/. When prompted, grant the webpage access to your phone camera. Then, use your phone camera to scan one of the QR codes given. Alternatively, you can scan a QR code straight from your camera without going to the website above. \
+ Doing either of the steps above will bring you to the corresponding media page where you can listen to a small meditative audio clip. You can rewind or fast forward 10 seconds by clicking the corresponding buttons. \
+ To scan another QR code, either go back to https://6-john-t-one.vercel.app/#/ or open your phone camera app, and scan another QR code.
+ 
  ## Development requirements
  * What are the technical requirements for a developer to set up on their machine or server (e.g. OS, libraries, etc.)?
  * Briefly describe instructions for setting up and running the application. You should address this part like how one would expect a README doc of real-world deployed application would be.

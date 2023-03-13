@@ -1,6 +1,16 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+3/11/2023 (Recurring Weekly Team Meeting)
+D2 writeup, people finish parts by Sunday night so that we can review it on Monday
+Frontend manager on track for finishing
+D3, due to frontend user side likely having less work in the future, we are having a person swap to frontend manager side (Parth)
+D3 tasks set up on notion by Michele
+ Backend splitting into bench park user app (for audio) and manager app (for authentication)
+frontend waiting to hear back from Tony before splitting work
+backend split work, on notion, not touching backend deployment before Monday for John's presentation
+ finishing readme parts, parts split on notion
+
 2/25/2023 (Recurring Weekly Team Meeting)
     Discuss D2 handout 
         Due: Mar 10, 11:59PM

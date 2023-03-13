@@ -35,7 +35,7 @@ const useAudio = url => {
         return () => {
             audio.removeEventListener('ended', () => setPlaying(false));
         };
-    }, []);
+    }, [audio]);
 
     return [playing, toggle, skip, setAudio];
 };
@@ -81,7 +81,7 @@ const MediaPage = () => {
                 if (data.audio_details.audio_binary) {
                     setAuthor(data.audio_details.contributor);
                     setHasAudio(true);
-                    fetch(`${BACKEND_URL}/media/audio_files/mindful_park_audio.mp3`).then(r => r.blob()).then(blob => {
+                    fetch(`${BACKEND_URL}${data.audio_details.audio_file}`).then(r => r.blob()).then(blob => {
                         const aud = new Audio(URL.createObjectURL(blob));
                         setAudio(aud);
                         setLoading(false);
@@ -126,7 +126,7 @@ const MediaPage = () => {
                 <img src={album_art || default_album_art} alt="" className="album-art" />
                 <p className="album-title">{title}</p>
                 <p className="album-author">{author || ''}</p>
-                {hasAudio ? (loading ? <div class="mediapage-loader"></div> :
+                {hasAudio ? (loading ? <div className="mediapage-loader"></div> :
                     <div className="media-buttons">
                         <div onClick={() => rewindHandler()}>
                             <RewindButton tone1={tone1} tone2={tone2} />
