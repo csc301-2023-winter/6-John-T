@@ -8,7 +8,7 @@ function BenchList() {
   const [benches, setBenches] = useState([]);
   const [searchParams] = useSearchParams();
   useEffect(() => {
-    fetch(`${BACKEND_URL}${'/benches/get_all_admin_benches/'}${searchParams.get("id")}`)
+    fetch(`${BACKEND_URL}${'/benches/get_all_admin_benches/'}${searchParams.get("id")}${'/'}`)
       .then(response => response.json())
       .then(data => {
         const benches = data.map(item => ({
@@ -38,7 +38,7 @@ function BenchList() {
             </audio>
           </div>
           <div style={{ gridColumn: "3 / 4", gridRow: "3 / 4" }}>
-            <a href={bench.qr_code}>Download QR code</a>
+            <a href={BACKEND_URL+bench.qr_code}>Download QR code</a>
           </div>
           <div style={{ gridColumn: "4 / 5", gridRow: "3 / 4" }}>
             <a href="#">Edit Bench</a>
