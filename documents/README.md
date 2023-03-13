@@ -11,6 +11,18 @@ Keep this section very brief.
  * Describe the key features in the application that the user can access.
  * Provide a breakdown or detail for each feature.
  * This section will be used to assess the value of the features built
+ 
+ Users can scan QR codes on Ontario Park benches either via their phone's camera app or the website to access the media behind them. A small preview of the media's album name, author and an album image can be previewed before continuing if on the website.
+ 
+ Users can play the media behind a bench's QR code and can be guided through context-specific meditation sessions. The page displays the album art, author, and will have buttons that will rewind, pause and fast forward the media. The media can be rewinded or fast forwarded by 10 seconds.
+ 
+ Park managers can make manager accounts for the website, be able to log into said website and get access to manager actions. The actions are listed below:
+ - Park managers can make new bench objects for their park in the database
+ - Park managers can upload corresponding audio recordings and get a corresponding QR code to place on the physical park bench
+ - Park managers can view and filter parks in the database so they can quickly and easily manage their benches
+ - Park managers can obtain copies of existing QR codes in case the existing printed version is damaged
+ - Park managers can create audio-to-QR code mapping to an existing bench (assigning a new audio recording to an existing bench with a QR code in the database) so they can cycle between themes based on certain occasions
+ 
 ​
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
@@ -18,7 +30,7 @@ Keep this section very brief.
  * Provide clear steps for using each feature described in the previous section.
  * This section is critical to testing your application and must be done carefully and thoughtfully.
  
- To access the project, first, either go to https://6-john-t-one.vercel.app/#/. When prompted, grant the webpage access to your phone camera. Then, use your phone camera to scan one of the QR codes given. Alternatively, you can scan a QR code straight from your camera without going to the website above. \
+ To access the website, first, either go to https://6-john-t-one.vercel.app/#/. When prompted, grant the webpage access to your phone camera. Then, use your phone camera to scan one of the QR codes given. Alternatively, you can scan a QR code straight from your camera without going to the website above. \
  Doing either of the steps above will bring you to the corresponding media page where you can listen to a small meditative audio clip. You can rewind or fast forward 10 seconds by clicking the corresponding buttons. \
  To scan another QR code, either go back to https://6-john-t-one.vercel.app/#/ or open your phone camera app, and scan another QR code.
  
