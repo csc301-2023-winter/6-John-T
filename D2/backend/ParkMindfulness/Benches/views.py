@@ -329,6 +329,7 @@ class BenchDeleteView_admin(DestroyAPIView):
             bench = bench.first()
             bench_thumbnail = bench.thumbnail
             bench_qr = bench.qr_code
+            audio = get_object_or_404(Audio, bench_id=bench_to_delete)
 
             # delete the files from the media folder
             thumbnail_path = os.path.join(settings.MEDIA_ROOT, bench_thumbnail.name)
@@ -339,11 +340,11 @@ class BenchDeleteView_admin(DestroyAPIView):
                 os.remove(qr_path)
             
             # next, delete the audio file
-            audio = get_object_or_404(Audio, bench_id=bench_to_delete)
-            audio_file = audio.audio_file
-            audio_path = os.path.join(settings.MEDIA_ROOT, audio_file.name)
-            if os.path.exists(audio_path):
-                os.remove(audio_path)
+            if audio.audio_binary:
+                audio_file = audio.audio_file
+                audio_path = os.path.join(settings.MEDIA_ROOT, audio_file.name)
+                if os.path.exists(audio_path):
+                    os.remove(audio_path)
             
             # finally, say bye bye to the bench and audio objects
             audio.delete()
