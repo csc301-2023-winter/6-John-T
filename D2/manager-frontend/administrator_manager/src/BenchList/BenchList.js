@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {BACKEND_URL} from '../Default/urls'
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import '../Default/Container.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPencil, faArrowsRotate, faTrash, faEraser, faDownload} from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,7 @@ function BenchList() {
 
   const [benches, setBenches] = useState([]);
   const [searchParams] = useSearchParams();
+  const parkId = parseInt(searchParams.get("id"));
   useEffect(() => {
     fetch(`${BACKEND_URL}${'/benches/get_all_admin_benches/'}${searchParams.get("id")}${'/'}`)
       .then(response => response.json())
@@ -32,7 +33,7 @@ function BenchList() {
       {benches.map((bench) => (
 
 <div  style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)",  gap: "10px", padding: "10px", borderBottom: "1px solid #000000" }}>
-          <div style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }}><h2>{bench.bench_title}</h2></div>
+          <div style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }}><h2>{bench.bench_title+" id: "+bench.bench_id}</h2></div>
           <div style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }}>Contributor: {bench.contributor}</div>
           <div style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }}>
             <audio controls>
@@ -48,7 +49,7 @@ function BenchList() {
           </div>
           <div style={{ gridColumn: "4 / 5", gridRow: "3 / 4" }}>
             <FontAwesomeIcon icon={faPencil}/>
-            <a href="#">Edit Bench</a>
+            <Link to={`/edit_bench?id=${bench.bench_id}&parkid=${parkId}`}>Edit Bench</Link>
           </div>
         </div>
     

@@ -4,6 +4,7 @@ import HomePage from './ParkList/HomePage';
 import ParkPage from './BenchList/ParkPage';
 import Navbar from './Default/Navbar';
 import NewBench from './NewBench/NewBench';
+import EditBench from './EditBench/EditBench'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/park" element={<ParkPage />} />
           <Route path="/new_bench" element={<NewBench />} />
+          <Route path="/edit_bench" element={<EditBench />} />
         </Routes>
       </div>
   );
