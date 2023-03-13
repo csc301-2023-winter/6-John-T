@@ -39,6 +39,9 @@ function BenchList() {
               <source src={BACKEND_URL+bench.audio} type="audio/mpeg" />
             </audio>
           </div>
+          <div style={{ gridColumn: "2 / 3", gridRow: "1 / 4" }}>
+            <img src={BACKEND_URL+bench.thumbnail} style={{ height: "200px", width: "200px"}} />
+          </div>
           <div style={{ gridColumn: "3 / 4", gridRow: "3 / 4" }}>
             <FontAwesomeIcon icon={faDownload}/>
             <a href={BACKEND_URL+bench.qr_code}>Download QR code</a>
