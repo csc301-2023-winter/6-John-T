@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useSearchParams } from 'react-router-dom';
 import '../Default/Container.css'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPlus} from '@fortawesome/free-solid-svg-icons';
 
 
 function ParkPage() {
@@ -29,6 +31,7 @@ function ParkPage() {
       <br></br>
     </div>
     <div style = {{'display': 'flex', 'margin-left': '100px','align-items': 'left'}}>
+    <FontAwesomeIcon icon={faPlus}/>
     <Link to={`/new_bench?id=${parkId}`}>Create new bench</Link>
   </div>
   <div>
