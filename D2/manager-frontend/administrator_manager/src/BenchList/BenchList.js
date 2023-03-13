@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useSearchParams } from 'react-router-dom';
-import '../Default/Container.css'
+import '../Default/Container.css';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPencil, faArrowsRotate, faTrash, faEraser, faDownload} from '@fortawesome/free-solid-svg-icons';
 
 function BenchList() {
 
@@ -38,9 +40,11 @@ function BenchList() {
             </audio>
           </div>
           <div style={{ gridColumn: "3 / 4", gridRow: "3 / 4" }}>
+            <FontAwesomeIcon icon={faDownload}/>
             <a href={BACKEND_URL+bench.qr_code}>Download QR code</a>
           </div>
           <div style={{ gridColumn: "4 / 5", gridRow: "3 / 4" }}>
+            <FontAwesomeIcon icon={faPencil}/>
             <a href="#">Edit Bench</a>
           </div>
         </div>
