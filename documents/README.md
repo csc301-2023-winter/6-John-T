@@ -104,6 +104,23 @@ Once you have those basic tools, you can start setting up for backend developmen
 
 
 ### Frontend Development Requirements:
+Setting up the developing environment for the frontend of the application is simple. In terms of tools, you will need:
+* OS & hardware: Any computer is fine.
+
+* `Node` installed
+
+Once you have the basic tools, you can start setting up for frontend development. Follow these instructions:
+* First clone the repository onto your machine by running the following command on your terminal:&nbsp;
+
+  git clone git@github.com:csc301-2023-winter/6-John-T.git
+* Next, navigate onto the following path (which will take you onto the base of the Django project):&nbsp;
+
+  `cd 6-John-T/D2/user-frontend` for user side frontend.
+  `cd 6-John-T/D2/manager-frontend` for manager side frontend.
+* Here, run `npm install --legacy-peer-deps` to install all the dependencies and `node_modules` for `user-frontend` project and `npm install` to install all the dependencies and `node_modules` for `manager-frontend` project.
+
+* Now run `npm start` and a localhost version of the user frontend should open up in your default browser. If the setup was successful, you are good to go on and make changes to the project code!
+
 
  
 &nbsp;
