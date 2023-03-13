@@ -21,17 +21,14 @@
 * Give a supporting argument about what makes you think that way.
 * Feel free to refer/link to process artifact(s). -->
 
-
-- Front-end deployment was relatively easy on Vercel. So Vercel was a good choice. For example, creating a Vercel account to get the project up and deployed took a few minutes. Also, it is free, which keeps us stress-free looking in the long run.
-- Django/React allowed us to get a good amount of work done due to prior familiarity and experience, which allowed us to debug other issues (e.g. DevOps) effectively.
-   - We already know how they behave and what we can and cannot do with each framework.
-   - Tons of previous experience from 309.
-- A 3-2-2 split has worked very well so far (each team has had a balanced workload, it seems).
-   - Everyone has been able to finish everything with their respective sub-teams and had a partner to rely on.
-- Regular meetings over Zoom and the discord server helped communicate deadlines and kept the entire team up-to-date with other sub team's progress.
+- The front-end deployment was efficiently executed on Vercel, making it a favourable choice for the project. The platform facilitated easy account creation and deployment, requiring only a few minutes, and its free service provided a sense of long-term stability.
+- Django/React allowed us to get a substantial amount of work done due to prior familiarity and experience. Therefore, this allowed us to debug other issues (e.g. DevOps) effectively.
+   - The team had considerable prior experience from their work in 309, thus knowing how Django/React will behave and what we can and cannot do with each framework.
+- Allocation of work with a 3-2-2 split proved to be very effective, as each sub-team carried out their responsibilities without experiencing an overwhelming workload
+   - Each team member was able to rely on their respective partner(s), and this resulted in a balanced workload for all 
+- Regular meetings via Zoom and the discord server helped communicate deadlines and kept the team up-to-date with other sub-team progress.
    - Fast and effective at keeping everyone updated with each other's contracts and our partner, John's, feedback and new ideas.
    - Small quick decisions, such as the format of JSON, are discussed fluidly over discord chat.
-
 
 &nbsp;
 &nbsp;
