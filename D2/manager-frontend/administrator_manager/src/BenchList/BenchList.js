@@ -14,12 +14,12 @@ function BenchList() {
       .then(response => response.json())
       .then(data => {
         const benches = data.map(item => ({
-          audio: 'replace later',
+          audio: item.audio_details.audio_file,
           bench_id: item.bench_id,
           bench_title: item.bench_title,
           qr_code: item.qr_code,
           thumbnail: item.thumbnail,
-          contributor: 'Paula Vital'
+          contributor: item.audio_details.contributor
         }));
         setBenches(benches);
       })
@@ -36,7 +36,7 @@ function BenchList() {
           <div style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }}>Contributor: {bench.contributor}</div>
           <div style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }}>
             <audio controls>
-              <source src={bench.audio} type="audio/mpeg" />
+              <source src={BACKEND_URL+bench.audio} type="audio/mpeg" />
             </audio>
           </div>
           <div style={{ gridColumn: "3 / 4", gridRow: "3 / 4" }}>
