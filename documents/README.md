@@ -146,6 +146,13 @@ Once you have the basic tools, you can start setting up for frontend development
 
   - For deployment, we are deploying on Vercel. We chose Vercel because Vercel looks for commits/merges to the main branch and runs build everytime main updates. This makes it very convenient as there isn't much for us to do to deploy other than merge to the main branch. Because this repo is on an organization account, we first forked it out to Parth’s personal account, and connected Vercel from there. But because it is from a fork, we must first update the fork from upstream. To automate this process, there is a github action on Parth’s fork that checks for updates every 30 minutes and updates accordingly. The action file is in “main/.github/workflows/updateAndDeploy.yml”. 
 
+- Frontend Manager:&nbsp;
+
+  - Code changes were pushed to main. When creating larger merges, we created a PR request that a teammate can review and accept. &nbsp;
+
+  - For deployment, we are deploying on Vercel. We forked the main branch to a personal github page to link to Vercel, and then to deploy, we manually sync the fork with the main repo. We consulted the frontend user team regarding this, as they also are deploying Vercel which makes things easier when both teams are using the same thing.
+
+
 - Backend:&nbsp;
 
     - The majority of our submitted code for the backend was implemented within the `backend-upgrades-d2` branch. We later merged this functionality with the code we brought forward from A2 through a Pull Request to main. For hotfixes, we did so on the `d2-backend-hotfixes` branch, first ensuring they worked as intended, before creating a PR to merge. All merging was done in accordance to our Overall Workflow (see above).&nbsp;
