@@ -81,24 +81,24 @@ Setting up the developing environment for the backend of the application is simp
 Once you have those basic tools, you can start setting up for backend development. Just follow the instructions below:
 * First clone the repository onto your machine by running the following command on your terminal:&nbsp;
 
-  git clone git@github.com:csc301-2023-winter/6-John-T.git
+  `git clone git@github.com:csc301-2023-winter/6-John-T.git`
 * Next, navigate onto the following path (which will take you onto the base of the Django project):&nbsp;
 
-  cd 6-John-T/D2/backend/ParkMindfulness
+  `cd 6-John-T/D2/backend/ParkMindfulness`
 * Here, create a virtual environment to store the packages the application will need:&nbsp;
 
-  virtualenv venv
+  `virtualenv venv`
 * Next activate this virtual environment:&nbsp;
 
-  Windows: venv\Scripts\activate&nbsp;
+  Windows: `venv\Scripts\activate&nbsp`
 
-  Linux: source venv/bin/activate
+  Linux: `source venv/bin/activate`
 * Now install the requirements for the project by running:&nbsp;
 
-  pip install -r requirements.txt
+  `pip install -r requirements.txt`
 * After this, the Django project should be fully set up. To check the installation worked, you can try running the project on your local server through the command:&nbsp;
 	
-  python manage.py runserver
+  `python manage.py runserver`
 * Then you can open the link: http://127.0.0.1:8000/benches/get_all_admin_parks/ where, if everything went right, you should be presented with the Django Rest Framework page template, and possibly some data about the Park objects currently in the database.
 * If the setup was successful, then you should be ready to start writing code for the project within any of the existing Django applications (such as Benches).
 
@@ -112,12 +112,12 @@ Setting up the developing environment for the frontend of the application is sim
 Once you have the basic tools, you can start setting up for frontend development. Follow these instructions:
 * First clone the repository onto your machine by running the following command on your terminal:&nbsp;
 
-  git clone git@github.com:csc301-2023-winter/6-John-T.git
-* Next, navigate onto the following path (which will take you onto the base of the Django project):&nbsp;
+  `git clone git@github.com:csc301-2023-winter/6-John-T.git`
+* Next, navigate onto the following path (which will take you onto the base of the Node project/s) [keep in mind there's two node projects for the two separate frontends, given how different they are]:&nbsp;
 
   `cd 6-John-T/D2/user-frontend` for user side frontend.
   `cd 6-John-T/D2/manager-frontend` for manager side frontend.
-* Here, run `npm install --legacy-peer-deps` to install all the dependencies and `node_modules` for `user-frontend` project and `npm install` to install all the dependencies and `node_modules` for `manager-frontend` project.
+* Here, run `npm install --legacy-peer-deps` to install all the dependencies and `node_modules` for `user-frontend` project; and `npm install` to install all the dependencies and `node_modules` for `manager-frontend` project.
 
 * Now run `npm start` and a localhost version of the user frontend should open up in your default browser. If the setup was successful, you are good to go on and make changes to the project code!
 
@@ -174,5 +174,5 @@ Once you have the basic tools, you can start setting up for frontend development
 * Reasoning:
   * GNU v3.0 allows us to use the codebase for commercial purposes as requested by our partner
   * Additionally, it allows for modification and private use upon a disclosure and copyright notice while implementing a patent - essentially future-proofing for the implementation of future functionality
-  * From a development perspective, we can all contribute privately while others can contribute as well towards features that can be used for commercial purposes by our partner and also allows us to distribute this code to hand it off to the next group working on it (whether that be CSC301 students or otherwise)
+  * From a development perspective, we can all contribute privately while others can contribute as well towards features that can be used for commercial purposes by our partner and also allows us to distribute this code to hand it off to the next group working on it (whether that be CSC301 students or other parties).
 
