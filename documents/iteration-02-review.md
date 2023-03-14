@@ -65,7 +65,7 @@ List **process-related** (i.e. team organization and how you work) decisions and
 
 
 1) Swap a member from Front End-User (FE-U) to Front End-Manager (FE-M), as FE-U does not require as much work as FE-M moving forward.
-2) Switching our weekly meeting from Saturday afternoons to Thursday after class such that we can maximize the number of members present and get feedback to the team from partner meetings (Thursdays 2-3PM) quicker.
+2) Switching our weekly meeting from Saturday afternoons to Thursday after class such that we can maximize the number of members present and the representatives can share the feedback from partner meetings (Thursdays 2-3PM) to the team quicker.
 
 
 
@@ -75,8 +75,8 @@ List **process-related** (i.e. team organization and how you work) decisions and
 
 
 * Keep this very short (1-3 lines). -->
-- Established the FE to BE contracts (which resulted in backend having to support a few more pieces of functionality for FE-U to be included)
-- FE-U and FE-M changed from using mock data to using API links from backend to get real data from the database
+- Established the FE-to-BE contracts (which resulted in backend sub team having to support a few more pieces of functionality such that the FE-U could be included in this deliverable).
+- FE-U and FE-M changed from using mock data to using API links from the deployed backend to get real data from the database.
 
 
 &nbsp;
