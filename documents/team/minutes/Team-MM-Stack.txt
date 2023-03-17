@@ -1,6 +1,12 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+3/16/2023 (Recurring Weekly Team Meeting)
+- Changing theme colors for frontend
+- Organize FE manager side work for upcoming weeks
+- Start working right away on all the final stage MVP features remaining
+
+
 3/11/2023 (Recurring Weekly Team Meeting)
 D2 writeup, people finish parts by Sunday night so that we can review it on Monday
 Frontend manager on track for finishing
