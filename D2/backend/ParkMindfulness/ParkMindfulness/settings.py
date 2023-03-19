@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "greg",
     "Benches",
+    "ParkAdmin",
     "corsheaders",
     "whitenoise.runserver_nostatic"
 ]
+
+AUTH_USER_MODEL = "ParkAdmin.CustomAdminUser"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -167,3 +169,13 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ), 
 }
+
+
+# Email server settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ParkMindfulness-Team-6@outlook.com' # team email
+EMAIL_HOST_PASSWORD = 'EXGoblins987'
