@@ -23,6 +23,6 @@ from Benches import views
 urlpatterns = [
     # path('', views.index, name = 'test'), # for initial runserver url
     path("admin/", admin.site.urls),
-    path("benches/", include("Benches.urls"), name="benches"),
-    path("park_admin/", include("ParkAdmin.urls"), name="park_admin"),
+    path("benches/", include("Benches.urls")),
+    path("park_admin/", include("ParkAdmin.urls")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
