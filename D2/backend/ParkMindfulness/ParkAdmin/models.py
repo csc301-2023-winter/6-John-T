@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
 from Benches.models import Park
 
 # Create your models here.
@@ -29,7 +30,7 @@ class CustomAdminUser(AbstractUser):
     REQUIRED_FIELDS = []  # none 
 
     def __str__(self):
-        return f"Admin {self.id} - {self.email}"
+        return f"Admin {self.id} - {self.username}"
 
     def has_perm(self, perm, obj=None):
         # since our only users are either superusers (John) or not (regular admins)
@@ -60,7 +61,7 @@ class CustomAdminUserManager(BaseUserManager):
         user = self.model(username=self.normalize_email(username), **extra)
 
         # set the password for the user
-        user.set_password(password)
+        user.set_password(make_password(password))
         user.save(using=self._db)
         return user  # return user id 
     

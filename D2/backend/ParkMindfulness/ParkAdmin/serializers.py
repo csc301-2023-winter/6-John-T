@@ -13,27 +13,31 @@ class UserCreationSerializer(serializers.ModelSerializer):
         model = CustomAdminUser
         fields = ["username"] # which really means email
 
-# class FullUserSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = CustomAdminUser
-#         fields = "__all__"
+
+################
+# LOGIN/LOGOUT #
+################
 
 class UserLoginSerializer(serializers.Serializer):
     class Meta:
         model = CustomAdminUser
         fields = ["username", "password"]
 
-class SetupFinishSerializer(serializers.ModelSerializer):
+
+###################
+# USER MANAGEMENT #
+###################
+
+class UpdateInfoSerializer(serializers.ModelSerializer):
     old_password = serializers.CharField(required=True)
     new_password = serializers.CharField(required=True)
     confirm_password = serializers.CharField(required=True)
 
     class Meta:
         model = CustomAdminUser
-        fields = UserCreationSerializer.Meta.fields + ["old_password", "new_password", "confirm_password"]
+        fields = UserCreationSerializer.Meta.fields + ["old_password", "new_password", "confirm_password"] + ["manages_park"]
 
-
-# class SetupFinishSerializer_out(serializers.ModelSerializer):
-#     class Meta:
-#         model = CustomAdminUser
-#         fields = ["password, manages_park"]
+class GetInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomAdminUser
+        fields = ["id", "username", "manages_park"]
