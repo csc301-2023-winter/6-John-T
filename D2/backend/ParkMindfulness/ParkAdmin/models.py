@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
-from Benches.models import Park
+from Parks.models import Park
 
 # Create your models here.
 

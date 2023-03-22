@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 # ANYONE WHO CHANGES THIS FILE THAT IS NOT TAJWAAR GETS PUT INTO ZOOM CALL WITH JOKER MICHELE
 
+from datetime import timedelta
 from pathlib import Path
 import os
 
@@ -169,7 +170,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
-    'DEFAULT_TOKEN_EXPIRY': 3600,  # valid for 1 hour
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
 }
 
 

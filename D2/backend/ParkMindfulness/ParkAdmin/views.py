@@ -53,7 +53,7 @@ class NewUserCreateView(CreateAPIView):
         # send email to the target user with the temporary password so that they can log in
         # and finish setting up their account
 
-        url = "http://127.0.0.1:8000/park_admin/login_admin/"
+        url = "some_login_url/"
 
         subject = "Welcome, new admin, to Park Mindfulness!"
         message = CREATION_MESSAGE.format(url, email, password)
@@ -70,51 +70,6 @@ class NewUserCreateView(CreateAPIView):
 
 # LOGIN/LOGOUT functionality is now handled through tokens
 
-# class AdminLoginView(APIView):
-
-#     # permission_classes = [IsAuthenticated]
-#     serializer_class = UserLoginSerializer
-
-#     def get(self, request, *args, **kwargs):
-#         # return csrf token to the user that is to login by using post
-#         return Response({"csrf token": get_token(request)}, status=200)
-    
-#     def post(self, request, *args, **kwargs):
-
-#         # get the email and password from the user
-#         serializer = self.serializer_class(data=request.data)
-#         if not serializer.is_valid():
-#             return Response({"message": "Make sure you have properly setup the fields"}, status=400)
-
-#         email = request.data.get('username', None)
-#         password = request.data.get('password', None)
-
-#         print(email, password)
-
-#         user = get_object_or_404(CustomAdminUser, username=email)
-#         # check if the password is correct
-#         if not user.check_password(password):
-#             return Response({"message": "Invalid username-password combination"}, status=400)
-
-#         # if successful, authenticate the user
-#         user = authenticate(username=email, password=password)
-#         login(request, user)
-
-#         return Response({"message": "The user has been logged in successfully"}, status=200)
-
-
-# class AdminLogoutView(APIView):
-
-#     permission_classes = [IsAuthenticated]  # you must be logged in to log out
-#     serializer_class = UserLoginSerializer
-
-#     def post(self, request, *args, **kwargs):
-
-#         # logout the user
-#         logout(request)
-
-#         return Response({"message": "The user has been logged out successfully"}, status=200)
-    
 
 ###################
 # USER MANAGEMENT #
