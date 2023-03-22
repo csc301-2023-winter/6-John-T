@@ -27,6 +27,7 @@ urlpatterns = [
     ## Application URLS ##
     path("benches/", include("Benches.urls")),
     path("park_admin/", include("ParkAdmin.urls")),
+    path("parks/", include("Parks.urls"), name="parks"),
 
     ## TOKEN URLS ##
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name ='token_obtain_pair'),

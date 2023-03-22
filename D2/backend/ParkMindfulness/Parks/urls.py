@@ -1,4 +1,4 @@
-"""Benches URL Configuration
+"""Parks URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Benches import views
+from Parks import views
 
 urlpatterns = [
 
@@ -24,12 +24,7 @@ urlpatterns = [
     #################
 
     # admin side urls (all require authentication)
-    path("get_admin_bench/<int:bench_id>/", views.BenchGetView_admin.as_view(), name="get-admin-benches"),
-    path("create_admin_bench/", views.BenchCreateView_admin.as_view(), name="create-admin-bench"),
-    path("update_admin_bench/<int:bench_id>/", views.BenchUpdateView_admin.as_view(), name="update-admin-bench"),
-    path("delete_admin_bench/<int:bench_id>/", views.BenchDeleteView_admin.as_view(), name="delete-admin-bench"),
-    path("get_all_admin_benches/<int:park_id>/", views.BenchGetAllView_admin.as_view(), name="get-all-admin-benches"),
+    path("get_all_admin_parks/", views.ParkGetAllView_admin.as_view(), name="get-all-admin-parks")
 
     # user side urls (no authentication required)
-    path("get_user_bench/<int:bench_id>/", views.BenchGetView_user.as_view(), name="get-user-benches"),
 ]

@@ -1,7 +1,8 @@
 # view specific imports
 from django.forms import model_to_dict
 from rest_framework.response import Response
-from .models import Benches, Park
+from .models import Benches, Audio
+from Parks.models import Park
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView, RetrieveAPIView
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
@@ -213,20 +214,20 @@ class BenchGetAllView_admin(ListAPIView):
         return Response(benches_data)
 
         
-# The view to get all Parks in the database
-class ParkGetAllView_admin(ListAPIView):
+# # The view to get all Parks in the database
+# class ParkGetAllView_admin(ListAPIView):
 
-    # permission_classes = [IsAuthenticated]
-    serializer_class = ParkViewSerializer  # the serializer that shows all the details
+#     # permission_classes = [IsAuthenticated]
+#     serializer_class = ParkViewSerializer  # the serializer that shows all the details
     
-    def get_queryset(self):
-        # get all parks in the database
-        parks = Park.objects.all()
-        if parks.exists():
-            return parks.order_by('park_id')
-        else: 
-            # the park exists but there are no benches in the database, so return an empty list
-            return []
+#     def get_queryset(self):
+#         # get all parks in the database
+#         parks = Park.objects.all()
+#         if parks.exists():
+#             return parks.order_by('park_id')
+#         else: 
+#             # the park exists but there are no benches in the database, so return an empty list
+#             return []
 
 
 ##################

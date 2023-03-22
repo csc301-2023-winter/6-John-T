@@ -1,10 +1,5 @@
 from django.db import models
-
-# Here would go the bench model to be created by Sam
-class Park(models.Model):
-    park_id = models.AutoField(primary_key=True) #PK 
-    name = models.CharField(max_length=30)
-    location = models.CharField(max_length=30)
+from Parks.models import Park
 
 class Benches(models.Model):
     bench_id = models.AutoField(primary_key=True) #PK 
