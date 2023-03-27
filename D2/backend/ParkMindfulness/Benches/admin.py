@@ -7,10 +7,6 @@ from .models import *
 class AdminProfile(admin.ModelAdmin):
     list_display = ['bench_id','bench_title', 'park_id', 'qr_code', 'thumbnail']
 
-@admin.register(Park)
-class AdminProfile(admin.ModelAdmin):
-    list_display = ['park_id','name', 'location']
-
 @admin.register(Audio)
 class AdminProfile(admin.ModelAdmin):
     list_display = ['audio_id','bench_id', 'audio_binary', 'audio_file',

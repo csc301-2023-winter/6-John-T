@@ -18,10 +18,19 @@ from django.urls import path, include
 # imports for images 
 from django.conf import settings
 from django.conf.urls.static import static
-from Benches import views
+from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
-    # path('', views.index, name = 'test'), # for initial runserver url
+    ## Admin Panel URL ##
     path("admin/", admin.site.urls),
-    path("benches/", include("Benches.urls"), name="benches")
+
+    ## Application URLS ##
+    path("benches/", include("Benches.urls")),
+    path("park_admin/", include("ParkAdmin.urls")),
+    path("parks/", include("Parks.urls"), name="parks"),
+
+    ## TOKEN URLS ##
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name ='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name ='token_refresh'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
