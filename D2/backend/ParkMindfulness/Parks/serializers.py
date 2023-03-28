@@ -9,6 +9,12 @@ from Parks.models import Park
 
 # Park creation serializers to be implemented by Sam as part of the CRUD API views
 
+class ParkCreationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Park
+        fields = ["name", "location"]
+
+
 ################
 # PARK VIEWING #
 ################
@@ -26,3 +32,7 @@ class ParkViewSerializer(serializers.ModelSerializer):
 #################
 
 # Park updating serializers to be implemented by Sam as part of the CRUD API views
+class ParkUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Park
+        fields = ["name", "location"]
