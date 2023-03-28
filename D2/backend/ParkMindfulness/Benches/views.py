@@ -1,7 +1,8 @@
 # view specific imports
 from django.forms import model_to_dict
 from rest_framework.response import Response
-from .models import Benches, Park
+from .models import Benches, Audio
+from Parks.models import Park
 from rest_framework.generics import CreateAPIView, ListAPIView, UpdateAPIView, DestroyAPIView, RetrieveAPIView
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
@@ -27,7 +28,7 @@ from io import BytesIO
 
 class BenchCreateView_admin(CreateAPIView):
 
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = BenchCreationSerializer
     
     def post(self, request, *args, **kwargs):
@@ -119,7 +120,7 @@ class BenchCreateView_admin(CreateAPIView):
 # The view to get the bench in the database corresponding to the given bench id (for admins)
 class BenchGetView_admin(RetrieveAPIView):
 
-    # permission_classes = [IsAuthenticated]  -- to be enabled once we have user authentication
+    permission_classes = [IsAuthenticated]
     serializer_class = BenchViewSerializer_admin  # the serializer that shows all the details
     
     def get(self, request, *args, **kwargs):
@@ -187,7 +188,7 @@ class BenchGetView_user(RetrieveAPIView):
 class BenchGetAllView_admin(ListAPIView):
 
     queryset = Benches.objects.all()  # dummy queryset to trick the ListAPIView
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = BenchViewSerializer_admin  # the serializer that shows all the details
 
     def list(self, request, *args, **kwargs):
@@ -213,20 +214,20 @@ class BenchGetAllView_admin(ListAPIView):
         return Response(benches_data)
 
         
-# The view to get all Parks in the database
-class ParkGetAllView_admin(ListAPIView):
+# # The view to get all Parks in the database
+# class ParkGetAllView_admin(ListAPIView):
 
-    # permission_classes = [IsAuthenticated]
-    serializer_class = ParkViewSerializer  # the serializer that shows all the details
+#     # permission_classes = [IsAuthenticated]
+#     serializer_class = ParkViewSerializer  # the serializer that shows all the details
     
-    def get_queryset(self):
-        # get all parks in the database
-        parks = Park.objects.all()
-        if parks.exists():
-            return parks.order_by('park_id')
-        else: 
-            # the park exists but there are no benches in the database, so return an empty list
-            return []
+#     def get_queryset(self):
+#         # get all parks in the database
+#         parks = Park.objects.all()
+#         if parks.exists():
+#             return parks.order_by('park_id')
+#         else: 
+#             # the park exists but there are no benches in the database, so return an empty list
+#             return []
 
 
 ##################
@@ -236,7 +237,7 @@ class ParkGetAllView_admin(ListAPIView):
 # The view to update a bench object in the database (can only update the name, audio, author, and thumbnail)
 class BenchUpdateView_admin(UpdateAPIView):
 
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     serializer_class = BenchUpdateSerializer
     
     def put(self, request, *args, **kwargs):  # behaves like a post request
@@ -316,7 +317,7 @@ class BenchUpdateView_admin(UpdateAPIView):
 # The view to delete a bench object in the database
 class BenchDeleteView_admin(DestroyAPIView):
     
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def delete(self, request, *args, **kwargs):
         # fetch the bench id from the request kwargs
@@ -329,7 +330,7 @@ class BenchDeleteView_admin(DestroyAPIView):
             bench = bench.first()
             bench_thumbnail = bench.thumbnail
             bench_qr = bench.qr_code
-            audio = get_object_or_404(Audio, bench_id=bench_to_delete)
+            audio = Audio.objects.filter(bench_id=bench_to_delete)
 
             # delete the files from the media folder
             thumbnail_path = os.path.join(settings.MEDIA_ROOT, bench_thumbnail.name)
@@ -340,7 +341,8 @@ class BenchDeleteView_admin(DestroyAPIView):
                 os.remove(qr_path)
             
             # next, delete the audio file
-            if audio.audio_binary:
+            if audio.exists():
+                audio = get_object_or_404(Audio, bench_id=bench_to_delete)
                 audio_file = audio.audio_file
                 audio_path = os.path.join(settings.MEDIA_ROOT, audio_file.name)
                 if os.path.exists(audio_path):

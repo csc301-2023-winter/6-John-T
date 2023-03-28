@@ -1,10 +1,3 @@
-# Assignment 2 - Group 6.1
-
-
-## Group Members
-
-- Parth Patel (patel937)
-- Tony Li (litony7)
 
 ## Our User Stories
 - As a user, I want to be able to scan the QR codes on Ontario Park benches, so that I can access the content behind them.
@@ -12,5 +5,5 @@
 
 
 ## Detailed Instructions
-- Visit https://csc301-2023-winter.github.io/assignment-2-6-1-patel937-litony7/#/ to view the head of the site. 
-- The `submission-written.pdf` file contains the written portion of the assignment including design decisions and more.
+- Visit https://6-john-t-one.vercel.app/#/ to view the head of the site. 
+- Find a QR code to scan. Hint: the QR codes are made by the manager at https://6-john-t.vercel.app/
