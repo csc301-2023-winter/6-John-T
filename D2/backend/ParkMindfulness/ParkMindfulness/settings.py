@@ -71,6 +71,8 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ORIGIN_ALLOW_ALL = False
 
+CORS_ALLOW_CREDENTIALS = True
+
 CORS_ORIGIN_WHITELIST = [
     "https://6-john-t-one.vercel.app",
     "http://localhost:3000",
