@@ -53,7 +53,7 @@ class NewUserCreateView(CreateAPIView):
         # send email to the target user with the temporary password so that they can log in
         # and finish setting up their account
 
-        url = "some_login_url/"
+        url = "https://6-john-t.vercel.app/login"
 
         subject = "Welcome, new admin, to Park Mindfulness!"
         message = CREATION_MESSAGE.format(url, email, password)
