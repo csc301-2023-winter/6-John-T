@@ -1,6 +1,12 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+3/25/2023 (Recurring Weekly Team Meeting)
+- Leave Parks and FE park customization for D4 if needed
+- Division of work for D3 can be found on Notion
+    - You must add the slides and slide notes for your assigned work
+
+
 3/16/2023 (Recurring Weekly Team Meeting)
 - Changing theme colors for frontend
 - Organize FE manager side work for upcoming weeks
