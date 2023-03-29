@@ -4,6 +4,7 @@ import { useSearchParams, Link } from 'react-router-dom';
 import '../Default/Container.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPencil, faArrowsRotate, faTrash, faEraser, faDownload} from '@fortawesome/free-solid-svg-icons';
+import Cookies from 'js-cookie';
 
 function BenchList() {
 
@@ -11,7 +12,15 @@ function BenchList() {
   const [searchParams] = useSearchParams();
   const parkId = parseInt(searchParams.get("id"));
   useEffect(() => {
-    fetch(`${BACKEND_URL}${'/benches/get_all_admin_benches/'}${searchParams.get("id")}${'/'}`)
+    const access_token = Cookies.get('access_token');
+    fetch(`${BACKEND_URL}${'/benches/get_all_admin_benches/'}${searchParams.get("id")}${'/'}`, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${access_token}`,
+      },
+    })
       .then(response => response.json())
       .then(data => {
         const benches = data.map(item => ({

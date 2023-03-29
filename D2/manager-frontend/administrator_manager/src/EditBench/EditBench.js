@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 
 function EditBench() {
@@ -13,8 +14,14 @@ function EditBench() {
   const [contributor, setAudioContributor] = useState('');
   const parkId = parseInt(searchParams.get("parkid"));
   const history = useNavigate();
+  const access_token = Cookies.get('access_token');
   useEffect(() => {
-    fetch(`${BACKEND_URL}${'/benches/get_admin_bench/'}${searchParams.get("id")}${'/'}`)
+    fetch(`${BACKEND_URL}${'/benches/get_admin_bench/'}${searchParams.get("id")}${'/'}`, {
+      credentials: "include",
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      }
+    })
       .then(response => response.json())
       .then(data => {
         if (data.audio_details.audio_file != null){fetch(`${BACKEND_URL}${data.audio_details.audio_file}`).then(response => response.blob())
@@ -32,7 +39,11 @@ function EditBench() {
 const handleDeleteBench = (event) => {event.preventDefault();
 
     fetch(`${BACKEND_URL}/benches/delete_admin_bench/${benchId}/`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        credentials: "include",
+        headers: {
+        Authorization: `Bearer ${access_token}`,
+      }
       })
       .then(response => {
         if (response.ok) {
@@ -53,7 +64,11 @@ const handleDeleteAudio = (event) => {event.preventDefault();
     formData.append('secondary_model.season_category', '');
     fetch(`${BACKEND_URL}/benches/update_admin_bench/${benchId}/`, {
       method: 'PUT',
-      body: formData
+      body: formData,
+      credentials: "include",
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      }
     })
     .then(response => {
       if (response.ok) {
@@ -76,7 +91,11 @@ const handleSubmit = (event) => {
     formData.append('secondary_model.season_category', '');
     fetch(`${BACKEND_URL}/benches/update_admin_bench/${benchId}/`, {
       method: 'PUT',
-      body: formData
+      body: formData,
+      credentials: "include",
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      }
     })
     .then(response => {
       if (response.ok) {
