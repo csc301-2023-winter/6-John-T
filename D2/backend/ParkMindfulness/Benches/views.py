@@ -320,6 +320,7 @@ class BenchDeleteView_admin(DestroyAPIView):
     permission_classes = [IsAuthenticated]
 
     def delete(self, request, *args, **kwargs):
+        print("HERE")
         # fetch the bench id from the request kwargs
         bench_to_delete = self.kwargs['bench_id']
         # get the bench object with the given bench id
@@ -331,6 +332,7 @@ class BenchDeleteView_admin(DestroyAPIView):
             bench_thumbnail = bench.thumbnail
             bench_qr = bench.qr_code
             audio = Audio.objects.filter(bench_id=bench_to_delete)
+            print(audio)
 
             # delete the files from the media folder
             thumbnail_path = os.path.join(settings.MEDIA_ROOT, bench_thumbnail.name)
@@ -340,13 +342,17 @@ class BenchDeleteView_admin(DestroyAPIView):
             if os.path.exists(qr_path):
                 os.remove(qr_path)
             
+            
             # next, delete the audio file
             if audio.exists():
                 audio = get_object_or_404(Audio, bench_id=bench_to_delete)
-                audio_file = audio.audio_file
-                audio_path = os.path.join(settings.MEDIA_ROOT, audio_file.name)
-                if os.path.exists(audio_path):
-                    os.remove(audio_path)
+                if audio.audio_binary:
+                    # only when a file is registered in the database, delete it
+                    audio_file = audio.audio_file
+                    audio_path = os.path.join(settings.MEDIA_ROOT, audio_file.name)
+                    print(audio_path)
+                    if os.path.exists(audio_path):
+                        os.remove(audio_path)
             
             # finally, say bye bye to the bench and audio objects
             audio.delete()
