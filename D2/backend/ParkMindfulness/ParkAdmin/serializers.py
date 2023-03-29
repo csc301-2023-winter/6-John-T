@@ -40,4 +40,4 @@ class UpdateInfoSerializer(serializers.ModelSerializer):
 class GetInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomAdminUser
-        fields = ["id", "username", "manages_park"]
+        fields = ["id", "username", "manages_park", "is_superuser"]
