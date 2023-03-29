@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 function NewBench() {
   const [searchParams] = useSearchParams();
@@ -21,9 +22,15 @@ const handleSubmit = (event) => {
     formData.append('secondary_model.contributor', contributor);
     formData.append('secondary_model.length_category', '0-5');
     formData.append('secondary_model.season_category', 'SP');
+
+    const access_token = Cookies.get('access_token');
     fetch(`${BACKEND_URL}/benches/create_admin_bench/`, {
       method: 'POST',
-      body: formData
+      body: formData,
+      credentials: "include",
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      }
     })
     .then(response => {
       if (response.ok) {
@@ -57,10 +64,10 @@ const handleSubmit = (event) => {
           <form onSubmit={handleSubmit}>
           <h1>New Bench Creation</h1>
           <p>Bench Name(Required):
-          <input name ="bench_title" onChange={handleNameChange} type="text" style={{'margin': '10px' ,'width': '180px'}} maxLength={30}></input>
+          <input required name ="bench_title" onChange={handleNameChange} type="text" style={{'margin': '10px' ,'width': '180px'}} maxLength={30}></input>
           </p>
           <p>Thumbnail (Required):
-          <input name ="thumbnail" onChange={handleThumbnailChange} type="file" accept="image/png, image/jpeg" style={{'margin': '10px'}}></input>
+          <input required name ="thumbnail" onChange={handleThumbnailChange} type="file" accept="image/png, image/jpeg" style={{'margin': '10px'}}></input>
           </p>
           <p>Audio (Optional):
           <input name ="audio_file" onChange={handleAudioChange} type="file" accept="audio/mpeg" style={{'margin': '10px'}}></input>
@@ -68,7 +75,7 @@ const handleSubmit = (event) => {
           <p>Audio Contributor (Optional):
           <input name ="contributor" onChange={handleAudioContributorChange} type="text" style={{'margin': '10px', 'width': '180px'}} maxLength={30}></input>
           </p>
-          <button type="submit" onClick={handleSubmit}>Add Bench</button>
+          <button type="submit" >Add Bench</button>
           </form>
         </div>
       </div>  

@@ -14,7 +14,7 @@ function ParkPage() {
   const parkId = parseInt(searchParams.get("id"));
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}/benches/get_all_admin_parks/`)
+    fetch(`${BACKEND_URL}/parks/get_all_admin_parks/`)
       .then(response => response.json())
       .then(data => {
         const bench = data.find(item => item.park_id === parkId);

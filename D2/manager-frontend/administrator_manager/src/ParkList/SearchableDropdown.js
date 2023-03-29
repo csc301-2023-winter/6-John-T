@@ -6,7 +6,7 @@ function SearchableDropdown(props) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    fetch(`${BACKEND_URL}${'/benches/get_all_admin_parks/'}`)
+    fetch(`${BACKEND_URL}${'/parks/get_all_admin_parks/'}`)
       .then(response => response.json())
       .then(data => {
         const options = data.map(item => ({
