@@ -10,6 +10,11 @@ from rest_framework.exceptions import ParseError
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 
+# for image editing within QR
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+
 # for handling file deletion within /media
 import os
 
@@ -19,7 +24,9 @@ from django.core.files.base import ContentFile
 from io import BytesIO
 
 
-## Merge of RESTviews.py and views.py (to make use of the REST API approach)
+## Constants for QR
+QR_NAME = "Ontario Parks"
+QR_DESC = "Scan code with phone camera for Park Mindfulness Experience\nOR visit https://6-john-t-one.vercel.app"
 
 
 ##################
@@ -94,11 +101,18 @@ class BenchCreateView_admin(CreateAPIView):
         qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}"
 
         # use the qrcode library to make a qr code image through teh qr_class class
-        qr_class = qrcode.QRCode(version=1, box_size=20, border=4)
+        qr_class = qrcode.QRCode(version=1, box_size=30)
         qr_class.add_data(qr_link)
         qr_class.make(fit=True)
-        # actually create the image
+
         bench_qr = qr_class.make_image(fill_color="black", back_color="white")
+
+        # edit image
+        draw = ImageDraw.Draw(bench_qr)
+
+        draw.text((50,50), QR_NAME, fill="black", font=ImageFont.truetype("arial.ttf",size=36))
+        draw.text((200,1150), QR_DESC, fill="black", font=ImageFont.truetype("arial.ttf",size=30), align="center")
+
         # save the image to a buffer in PNG format
         buffer = BytesIO()
         bench_qr.save(buffer, format='PNG')
