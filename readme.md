@@ -179,6 +179,11 @@ Once you have the basic tools, you can start setting up for frontend development
 &nbsp;
 &nbsp;
 
+ ## D3 Project Presentation
+The project presentation slides can be found [here.](https://docs.google.com/presentation/d/14_JEcf6IkPbPF1X6nKMcgveBcGSnCMCEuoDxEFHLq-0/edit?usp=sharing)
+
+The slides are also available on github [here.](https://github.com/csc301-2023-winter/6-John-T/blob/main/documents/D3%20slides.pdf)
+
  ## Licenses 
 
  <!-- Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
