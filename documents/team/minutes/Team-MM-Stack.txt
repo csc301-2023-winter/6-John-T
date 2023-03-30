@@ -1,6 +1,32 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+3/30/2023 (D4 Handout Readthrough)
+    Talked about David’s feedback from D3 presentation 
+        UX
+        Change colour of frontend manager
+        File directory clean up on github
+        Add QR instructions on downloadable image 
+        ReadMe is too lengthy, divide and carry over to specific sections
+    Meet with John to get feedback from him
+    Notion tasks created for D4 
+    To Do
+        Email David about feedback/recording so John can get access 
+        Split up tasks:
+            Automated testing and Deployment for FE and BE (github actions)
+                BE: Tajwaar
+                FE-U: Parth
+                FE-M: Micheal/Tony/Angad (need to discuss) 
+            QR code to include instructions - Michele/Parth
+            Park FE manager - Micheal/Tony/Angad (need to discuss) 
+            Colour of FE manager - Micheal/Tony/Angad (need to discuss) 
+            Restructuring 
+                BE: Sam
+                FE-U: Parth
+                FE-M: Micheal/Tony/Angad (need to discuss) 
+            Video script and recording - TBD 
+
+
 3/29/2023 (D3 Rehearsal)
 - Link: 
     - https://docs.google.com/presentation/d/14_JEcf6IkPbPF1X6nKMcgveBcGSnCMCEuoDxEFHLq-0/edit?usp=sharing
