@@ -109,9 +109,9 @@ class BenchCreateView_admin(CreateAPIView):
 
         # edit image
         draw = ImageDraw.Draw(bench_qr)
-
-        draw.text((50,50), QR_NAME, fill="black", font=ImageFont.truetype("arial.ttf",size=36))
-        draw.text((200,1150), QR_DESC, fill="black", font=ImageFont.truetype("arial.ttf",size=30), align="center")
+        font_path = os.path.join(settings.STATIC_ROOT, 'fonts/ourfont.ttf')
+        draw.text((50,25), QR_NAME, fill="black", font=ImageFont.truetype(font_path, size=42))
+        draw.text((185,1100), QR_DESC, fill="black", font=ImageFont.truetype(font_path, size=30), align="center")
 
         # save the image to a buffer in PNG format
         buffer = BytesIO()
