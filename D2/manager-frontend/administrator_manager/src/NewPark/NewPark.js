@@ -18,7 +18,7 @@ function NewPark() {
     formData.append('location', location);
 
     const access_token = Cookies.get('access_token');
-    fetch(`${BACKEND_URL}/benches/create_admin_bench/`, {
+    fetch(`${BACKEND_URL}/parks/create_admin_park/`, {
       method: 'POST',
       body: formData,
       credentials: "include",
