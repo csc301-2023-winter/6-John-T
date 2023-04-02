@@ -25,6 +25,7 @@ function App() {
           <Route path="/edit_bench" element={<EditBench />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/new_user" element={<NewUser />} />
           <Route path="/new_park" element={<NewPark />} />
           <Route path="/edit_park" element={<EditPark />} />
         </Routes>

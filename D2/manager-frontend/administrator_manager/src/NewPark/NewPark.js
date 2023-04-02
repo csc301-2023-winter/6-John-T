@@ -6,15 +6,15 @@ import Cookies from 'js-cookie';
 function NewPark() {
   const [searchParams] = useSearchParams();
   const parkId = parseInt(searchParams.get("id"));
-  const [park_name, setName] = useState('');
-  const [park_location, setLocation] = useState(null);
+  const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
   const history = useNavigate();
   
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('park_name', park_name);
-    formData.append('park_location', park_location);
+    formData.append('name', name);
+    formData.append('location', location);
 
     const access_token = Cookies.get('access_token');
     fetch(`${BACKEND_URL}/parks/create_admin_park/`, {
@@ -27,7 +27,7 @@ function NewPark() {
     })
     .then(response => {
       if (response.ok) {
-        history(`/park?id=${parkId}`);
+        history(`/`);
       }
     })
     .catch(error => console.log(error));
