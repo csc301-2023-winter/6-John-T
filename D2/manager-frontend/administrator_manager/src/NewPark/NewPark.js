@@ -6,16 +6,15 @@ import Cookies from 'js-cookie';
 function NewPark() {
   const [searchParams] = useSearchParams();
   const parkId = parseInt(searchParams.get("id"));
-  const [bench_title, setName] = useState('');
-  const [location, setLocation] = useState(null);
+  const [park_name, setName] = useState('');
+  const [park_location, setLocation] = useState(null);
   const history = useNavigate();
   
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('park_id', parkId);
-    formData.append('bench_title', bench_title);
-    formData.append('location', location);
+    formData.append('park_name', park_name);
+    formData.append('park_location', park_location);
 
     const access_token = Cookies.get('access_token');
     fetch(`${BACKEND_URL}/parks/create_admin_park/`, {
@@ -44,7 +43,7 @@ function NewPark() {
 
     return (
         <div>
-        <div class="flex" style={{'background': 'lightgrey', 'alignItems': 'left', 'margin': '30px ', 'padding': '10px'}}>
+        <div className="flex" style={{'background': 'lightgrey', 'alignItems': 'left', 'margin': '30px ', 'padding': '10px'}}>
         <form onSubmit={handleSubmit}> 
           <h1>New Park Creation</h1>
           <p>Park Name(Required):
