@@ -82,12 +82,19 @@ function Navbar() {
         <a href="/" className="navbar-item">
           Select Park
         </a>
+
+        {isSU && (
+          <a href="/new_park" className="navbar-item">
+          Create New Park
+        </a>
+        )}
+
         {isSU && (
           <a href="/new_user" className="navbar-item">
           Create New User
         </a>
         )}
-
+        
         {isAuthenticated && (
         <a href="/profile" className="navbar-item">
           Profile
