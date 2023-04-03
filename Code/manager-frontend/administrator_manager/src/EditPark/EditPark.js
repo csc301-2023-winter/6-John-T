@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
 
 function EditPark() {
   const [park_name, setName] = useState('');
@@ -68,8 +70,9 @@ const handleSubmit = (event) => {
           <p>Park Location:
           <input name="park_location" onChange={handlelocationChange}></input>  
           </p>
-          <button type="submit" onClick={handleSubmit}>Update Park</button> 
-          <p><button style={{'color':'red'}} onClick={handleDeletepark}><b>Delete Park</b></button></p>       
+          <button type="submit" onClick={handleSubmit}>Update Park</button>
+          
+          <p><button style={{'color':'red'}} onClick={handleDeletepark}><b><FontAwesomeIcon icon={faTrash}/>Delete Park</b></button></p>       
       </div>  
     );
   }
