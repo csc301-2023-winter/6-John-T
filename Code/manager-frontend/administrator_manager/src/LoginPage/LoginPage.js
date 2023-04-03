@@ -66,7 +66,7 @@ function LoginPage() {
   };
 
   return (
-    <div style={{'background': 'lightgrey', 'display':'flex','margin': '30px ', 'padding': '10px'}}>
+    <div class="formDiv">
         <form onSubmit={handleSubmit}>
         <p>Email:
             <input name="email" type="email" required/>
