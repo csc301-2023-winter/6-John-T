@@ -1,6 +1,0 @@
-04/03/2023 (Final Partner Meeting)
-
-- Did demo for backend
-- John chose color palette that matched the accessibility requirements
-- Discussed possible extensions for John's future CSC301 group to take over this application
-- Discussed the main details of how the handoff will work

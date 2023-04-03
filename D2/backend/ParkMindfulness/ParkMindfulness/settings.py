@@ -177,8 +177,8 @@ REST_FRAMEWORK = {
 # Email server settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ParkMindfulness-Team-6@outlook.com' # team email
-EMAIL_HOST_PASSWORD = 'EXGoblins987'
+EMAIL_HOST_PASSWORD = '6QSO0nvN4EPF3UDt'
