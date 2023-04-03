@@ -41,7 +41,7 @@ function BenchList() {
     <div class = 'container'>
       {benches.map((bench) => (
 
-<div  style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)",  gap: "10px", padding: "10px", borderBottom: "1px solid #000000" }}>
+<div  style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)",  gap: "10px", padding: "10px", borderBottom: "1px solid #c4b59b" }}>
           <div style={{ gridColumn: "1 / 2", gridRow: "1 / 2" }}><h2>{bench.bench_title+" id: "+bench.bench_id}</h2></div>
           <div style={{ gridColumn: "1 / 2", gridRow: "2 / 3" }}>Contributor: {bench.contributor}</div>
           <div style={{ gridColumn: "1 / 2", gridRow: "3 / 4" }}>
