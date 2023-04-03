@@ -5,7 +5,7 @@ import {BACKEND_URL} from '../Default/urls'
 import { useSearchParams } from 'react-router-dom';
 import '../Default/Container.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPlus} from '@fortawesome/free-solid-svg-icons';
+import {faPlus, faPencil} from '@fortawesome/free-solid-svg-icons';
 
 
 function ParkPage() {
@@ -26,8 +26,10 @@ function ParkPage() {
   }, [parkId]);
   return (
     <div>
-    <div style = {{'display': 'flex', 'margin-left': '100px','margin-top':'25px','margin-bottom': '25px', 'align-items': 'left'}}>
+    <div style = {{'display': 'inline-block', 'margin-left': '100px','margin-top':'25px','margin-bottom': '25px', 'align-items': 'left'}}>
       <h1>{parkTitle}</h1>
+      <FontAwesomeIcon icon={faPencil}/>
+      <Link to={`/edit_park?id=${parkId}`}>Edit Park</Link>
       <br></br>
     </div>
     <div style = {{'display': 'flex', 'margin-left': '100px','align-items': 'left'}}>

@@ -60,7 +60,7 @@ const handleSubmit = (event) => {
 
     return (
       <div>
-        <div class="flex" style={{'background': 'lightgrey', 'alignItems': 'left', 'margin': '30px ', 'padding': '10px'}}>
+        <div class="formDiv">
           <form onSubmit={handleSubmit}>
           <h1>New Bench Creation</h1>
           <p>Bench Name(Required):

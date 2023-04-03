@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTrash} from '@fortawesome/free-solid-svg-icons';
 
 
 function EditBench() {
@@ -125,7 +127,7 @@ const handleSubmit = (event) => {
 
     return (
       <div>
-        <div class="flex" style={{'background': 'lightgrey', 'alignItems': 'left', 'margin': '30px ', 'padding': '10px'}}>
+        <div class="formDiv">
           <form onSubmit={handleSubmit}>
           <h1>Update Bench</h1>
           <p>Bench Name:
@@ -136,13 +138,13 @@ const handleSubmit = (event) => {
           </p>
           <p>Audio:
           <input name ="audio_file" onChange={handleAudioChange} type="file" accept="audio/mpeg" style={{'margin': '10px'}}></input>
-          <button type="submit" onClick={handleDeleteAudio}>Delete Current Audio</button>
+          <button type="submit" onClick={handleDeleteAudio}><FontAwesomeIcon icon={faTrash}/>Delete Current Audio</button>
           </p>
           <p>Audio Contributor:
           <input name ="contributor" onChange={handleAudioContributorChange} type="text" style={{'margin': '10px', 'width': '180px'}} maxLength={30}></input>
           </p>
           <button type="submit" onClick={handleSubmit}>Update Bench</button>
-          <p><a href="" onClick={handleDeleteBench}>Delete Bench</a></p>
+          <p><button style={{'color':'red'}} onClick={handleDeleteBench}><b><FontAwesomeIcon icon={faTrash}/>Delete Bench</b></button></p>
 
           </form>
         </div>
