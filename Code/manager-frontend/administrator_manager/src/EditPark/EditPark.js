@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 function EditPark() {
   const [park_name, setName] = useState('');
   const [searchParams] = useSearchParams();
-  const parkId = parseInt(searchParams.get("parkid"));
+  const parkId = parseInt(searchParams.get("id"));
   const [park_location, setLocation] = useState('');
   const history = useNavigate();
   const access_token = Cookies.get('access_token');
@@ -22,7 +22,7 @@ const handleDeletepark = (event) => {event.preventDefault();
       })
       .then(response => {
         if (response.ok) {
-          history(`/park?id=${parkId}`);
+          history(`/`);
         }
       })
       .catch(error => console.log(error));
@@ -62,14 +62,14 @@ const handleSubmit = (event) => {
     return (
         <div class="formDiv">       
           <h1>Update Park</h1>
-          <p>Park Name:{parkId}
+          <p>Park Name:
           <input name="park_name"  type="text" style={{'margin': '10px' ,'width': '180px'}} onChange={handleNameChange}></input>
           </p>
           <p>Park Location:
           <input name="park_location" onChange={handlelocationChange}></input>  
           </p>
           <button type="submit" onClick={handleSubmit}>Update Park</button> 
-          <p><button style={{'color':'red'}} onClick={handleDeletepark}><b>Delete Bench</b></button></p>       
+          <p><button style={{'color':'red'}} onClick={handleDeletepark}><b>Delete Park</b></button></p>       
       </div>  
     );
   }
