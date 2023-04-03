@@ -26,15 +26,15 @@ function ParkPage() {
   }, [parkId]);
   return (
     <div>
-    <div style = {{'display': 'flex', 'margin-left': '100px','margin-top':'25px','margin-bottom': '25px', 'align-items': 'left'}}>
+    <div style = {{'display': 'inline-block', 'margin-left': '100px','margin-top':'25px','margin-bottom': '25px', 'align-items': 'left'}}>
       <h1>{parkTitle}</h1>
+      <FontAwesomeIcon icon={faPencil}/>
+      <Link to={`/edit_park?id=${parkId}`}>Edit Park</Link>
       <br></br>
     </div>
     <div style = {{'display': 'flex', 'margin-left': '100px','align-items': 'left'}}>
     <FontAwesomeIcon icon={faPlus}/>
     <Link to={`/new_bench?id=${parkId}`}>Create new bench</Link>
-    <FontAwesomeIcon icon={faPencil}/>
-    <Link to={`/edit_park?id=${parkId}`}>Edit Park</Link>
   </div>
   <div>
     <BenchList />
