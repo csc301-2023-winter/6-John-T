@@ -91,7 +91,7 @@ function Profile() {
   }, []);
 
   return (
-    <div style={{'background': 'lightgrey','margin': '30px ', 'padding': '10px'}}>
+    <div class="formDiv">
         <p>Your Email: {email}</p>
         {/* Once manages_park is implemented, add later */}
 
