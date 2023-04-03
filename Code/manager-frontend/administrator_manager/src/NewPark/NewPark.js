@@ -43,7 +43,7 @@ function NewPark() {
 
     return (
         <div>
-        <div className="flex" style={{'background': 'lightgrey', 'alignItems': 'left', 'margin': '30px ', 'padding': '10px'}}>
+        <div class="formDiv">
         <form onSubmit={handleSubmit}> 
           <h1>New Park Creation</h1>
           <p>Park Name(Required):

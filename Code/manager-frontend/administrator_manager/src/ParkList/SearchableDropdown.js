@@ -5,6 +5,20 @@ import Select from 'react-select';
 function SearchableDropdown(props) {
   const [options, setOptions] = useState([]);
 
+  const styles = {
+    control: (base, state) => ({
+      ...base,
+      background: "rgb(196, 181, 155)",
+    }),
+    menu: base => ({
+      ...base,
+      borderRadius: 0,
+      marginTop: 0,
+      background: "rgb(196, 181, 155)",
+      color: "rgb(96, 81, 55)",
+    })
+  }
+
   useEffect(() => {
     fetch(`${BACKEND_URL}${'/parks/get_all_admin_parks/'}`)
       .then(response => response.json())
@@ -28,6 +42,7 @@ function SearchableDropdown(props) {
         options={options}
         onChange={handleChange}
         placeholder="Select a park"
+        styles={styles}
       />
     </div>
   );

@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #E0E0E0;
+    background-color: rgb(196, 181, 155);
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -29,8 +29,8 @@
     color: #333;
     text-decoration: none;
     padding: 10px;
-    background-color: #e0e0e0;
-    border: 1px solid #CCC;
+    background-color: rgb(196, 181, 155);
+    border: 1px solid rgb(96, 81, 55);
     border-radius: 5px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   }

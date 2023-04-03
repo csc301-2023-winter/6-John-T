@@ -125,7 +125,7 @@ const handleSubmit = (event) => {
 
     return (
       <div>
-        <div class="flex" style={{'background': 'lightgrey', 'alignItems': 'left', 'margin': '30px ', 'padding': '10px'}}>
+        <div class="formDiv">
           <form onSubmit={handleSubmit}>
           <h1>Update Bench</h1>
           <p>Bench Name:
@@ -142,7 +142,7 @@ const handleSubmit = (event) => {
           <input name ="contributor" onChange={handleAudioContributorChange} type="text" style={{'margin': '10px', 'width': '180px'}} maxLength={30}></input>
           </p>
           <button type="submit" onClick={handleSubmit}>Update Bench</button>
-          <p><a href="" onClick={handleDeleteBench}>Delete Bench</a></p>
+          <p><button style={{'color':'red'}} onClick={handleDeleteBench}><b>Delete Bench</b></button></p>
 
           </form>
         </div>
