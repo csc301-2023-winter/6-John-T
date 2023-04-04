@@ -15,7 +15,6 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - run: cd Code/user-frontend
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
