@@ -17,15 +17,16 @@ const useAudio = url => {
     const toggle = () => setPlaying(!playing);
 
     const skip = (time) => {
-        if (time == 'back') {
+        if (time === 'back') {
             audio.currentTime = audio.currentTime - 10;
-        } else if (time == 'fwd') {
+        } else if (time === 'fwd') {
             audio.currentTime = audio.currentTime + 10;
         }
     };
 
     useEffect(() => {
         playing ? audio.play() : audio.pause();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [playing]);
 
     useEffect(() => {
@@ -42,7 +43,7 @@ const useAudio = url => {
 
 
 const MediaPage = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const [title, setTitle] = useState("Mindfulness at Charleston Lake");
     const [author, setAuthor] = useState("Paula Vital");
     const [playing, toggle, skip, setAudio] = useAudio(null);
@@ -93,6 +94,7 @@ const MediaPage = () => {
             });
 
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // pauses the song

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should test Navbar component 1`] = `
+<Fragment>
+  <nav
+    className="nav"
+    style={
+      {
+        "align-items": "center",
+        "background-color": "#fff",
+        "box-shadow": "0 0.1vw 0.5vw 0 #00000066",
+        "display": "flex",
+        "height": "80px",
+        "position": "fixed",
+        "top": "0px",
+        "width": "100%",
+        "z-index": 99999,
+      }
+    }
+  >
+    <Link
+      to="/"
+    >
+      <img
+        alt=""
+        className="logo-main"
+        src=""
+        style={
+          {
+            "display": "block",
+            "height": "50px",
+            "margin-left": "auto",
+            "margin-right": "auto",
+            "z-index": 999999,
+          }
+        }
+      />
+    </Link>
+  </nav>
+  <Outlet />
+</Fragment>
+`;
