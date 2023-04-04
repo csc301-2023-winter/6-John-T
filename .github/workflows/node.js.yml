@@ -31,11 +31,5 @@ jobs:
         cache: 'npm'
         cache-dependency-path: Code/user-frontend
     - run: ls
-    - run: cd ./Code/user-frontend
-    - run: ls
     - run: npm ci
-      working-directory: Code/user-frontend
-    - run: npm run build --if-present
-      working-directory: Code/user-frontend
     - run: npm test
-      working-directory: Code/user-frontend
