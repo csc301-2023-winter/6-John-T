@@ -31,5 +31,5 @@ jobs:
         cache: 'npm'
         cache-dependency-path: Code/user-frontend
     - run: ls
-    - run: npm ci
+    - run: npm install --legacy-peer-deps
     - run: npm test
