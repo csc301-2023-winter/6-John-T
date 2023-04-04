@@ -14,7 +14,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    steps:
+    - run: cd Code/user-frontend
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
@@ -30,5 +31,8 @@ jobs:
     - run: cd Code/user-frontend
     - run: ls
     - run: npm ci
+      working-directory: Code/user-frontend
     - run: npm run build --if-present
+      working-directory: Code/user-frontend
     - run: npm test
+      working-directory: Code/user-frontend
