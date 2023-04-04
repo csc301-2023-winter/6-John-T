@@ -4,13 +4,13 @@
     /* subtract 20px for the padding on each side */
     width: calc(100% - 20px);
     min-height: calc(100vh - 65px - 20px);
-    background-color: #024830;
+    background-color: #405c45;
     padding: 10px;
     justify-content: center;
     display: grid;
     align-content: flex-start;
     justify-items: center;
-    color: rgb(196, 181, 155);
+    color: #C4B59B;
 }
 
 .mediapage-loader {
