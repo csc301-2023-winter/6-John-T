@@ -1,6 +1,27 @@
 This file is to be used as a record of the team meetings (without the partner) we will regularly hold on Thursdays and Saturdays throughout the semester to touch  base.
 This file is meant to contain the meeting minutes for all the meetings of the semester in the form of a stack (the first meeting is at the bottom of the file, the most recent meeting is at the top of the file). This stack is to be updated after each meeting.
 
+4/06/2023 (Recurring Weekly Meeting)
+    Updating everyone on D4 tasks 
+        Write the script sections due Fri before meeting  
+    Reminder about office hours with David on Friday
+        Front end colours 
+        background color: #405c45
+        text color: #C4B59B
+        the buttons background color is same as text color
+        the buttons darker brown color: #241F21
+        and nav bar is white
+    Backend view/Rest stuff can be removed
+        Readme can be reviewed and moved
+        delete pycache
+        add to gitignore 
+    Task breakdown on Notion 
+    Handoff email
+    Individual activities 
+        Peer Review 
+        Reflection Survey  
+
+
 3/30/2023 (D4 Handout Readthrough)
     Talked about David’s feedback from D3 presentation 
         UX
