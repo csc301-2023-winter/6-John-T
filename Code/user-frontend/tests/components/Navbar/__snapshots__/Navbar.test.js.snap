@@ -6,15 +6,15 @@ exports[`should test Navbar component 1`] = `
     className="nav"
     style={
       {
-        "align-items": "center",
-        "background-color": "#fff",
-        "box-shadow": "0 0.1vw 0.5vw 0 #00000066",
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "boxShadow": "0 0.1vw 0.5vw 0 #00000066",
         "display": "flex",
         "height": "80px",
         "position": "fixed",
         "top": "0px",
         "width": "100%",
-        "z-index": 99999,
+        "zIndex": 99999,
       }
     }
   >
@@ -29,9 +29,9 @@ exports[`should test Navbar component 1`] = `
           {
             "display": "block",
             "height": "50px",
-            "margin-left": "auto",
-            "margin-right": "auto",
-            "z-index": 999999,
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "zIndex": 999999,
           }
         }
       />

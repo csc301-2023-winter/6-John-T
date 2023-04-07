@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-# ANYONE WHO CHANGES THIS FILE THAT IS NOT TAJWAAR GETS PUT INTO ZOOM CALL WITH JOKER MICHELE
 
 from datetime import timedelta
 from pathlib import Path
@@ -66,7 +65,8 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     "https://6-john-t-one.vercel.app",
     "https://6-john-t-production.up.railway.app",
-    "https://6-john-t.vercel.app"
+    "https://6-john-t.vercel.app",
+    "https://main--parkmindfulness-user.netlify.app"
 ]
 
 CORS_ORIGIN_ALLOW_ALL = False
@@ -76,7 +76,8 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     "https://6-john-t-one.vercel.app",
     "http://localhost:3000",
-    "https://6-john-t.vercel.app"
+    "https://6-john-t.vercel.app",
+    "https://main--parkmindfulness-user.netlify.app"
 ]
 
 ROOT_URLCONF = "ParkMindfulness.urls"

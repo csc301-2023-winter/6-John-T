@@ -27,7 +27,7 @@ from io import BytesIO
 ## Constants for QR
 QR_NAME = "Ontario Parks"
 QR_DESC = "Scan code with phone camera for Park Mindfulness Experience\nOR visit https://6-john-t-one.vercel.app"
-
+TRY_ME = "TRY ME"
 
 ##################
 # BENCH CREATION #
@@ -98,24 +98,51 @@ class BenchCreateView_admin(CreateAPIView):
 
         # build the front end link template that we are to make the QR code for
         # qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}&park_id={bench.park_id}"
-        qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}"
+        if settings.DEBUG == True:
+            qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}"
+        else:
+            qr_link = f"https://main--parkmindfulness-user.netlify.app/#/media?m={bench.bench_id}"
 
         # use the qrcode library to make a qr code image through teh qr_class class
-        qr_class = qrcode.QRCode(version=1, box_size=30)
+        qr_class = qrcode.QRCode(version=1, box_size=30, border=0)
         qr_class.add_data(qr_link)
         qr_class.make(fit=True)
 
         bench_qr = qr_class.make_image(fill_color="black", back_color="white")
 
-        # edit image
-        draw = ImageDraw.Draw(bench_qr)
+        # get the logo image to put on the top right of the qr code
+        logo_path = os.path.join(settings.STATIC_ROOT, 'logos/ON_logo.JPG')
+        logo = Image.open(logo_path)
+        logo = logo.resize((300,90))
+        # bench_qr.paste(logo, (880, 10))
+        # place logo in top right
+
+        # # create the full image to merge with the qr code and logo
+        new_img_size = (bench_qr.size[0] + 210, bench_qr.size[1] + 280) # 140 on top and bottom, 105 on left and right
+        new_img = Image.new('RGB', new_img_size, color = 'white')
+
+        print(new_img.size)
+
+        new_img.paste(logo, (795, 20))  # paste the logo
+        new_img.paste(bench_qr, (105, 130)) # paste the qr code
+
+        # add text to the new image
+        draw = ImageDraw.Draw(new_img)
         font_path = os.path.join(settings.STATIC_ROOT, 'fonts/ourfont.ttf')
-        draw.text((50,25), QR_NAME, fill="black", font=ImageFont.truetype(font_path, size=42))
-        draw.text((185,1100), QR_DESC, fill="black", font=ImageFont.truetype(font_path, size=30), align="center")
+        park_name = park.first().name
+        
+        # name of the park at the top left
+        draw.text((105, 85), park_name, fill="black", font=ImageFont.truetype(font_path, size=20))
+
+        # try me at the top center
+        draw.text((460, -30), TRY_ME, fill="black", font=ImageFont.truetype(font_path, size=76))
+
+        # qr code description at the bottom center
+        draw.text((140,1130), QR_DESC, fill="black", font=ImageFont.truetype(font_path, size=32), align="center")
 
         # save the image to a buffer in PNG format
         buffer = BytesIO()
-        bench_qr.save(buffer, format='PNG')
+        new_img.save(buffer, format='PNG')
         
         # save the qr code from the buffer to the bench object in the database
         bench.qr_code.save(f"qr_code_{bench.bench_id}.png", ContentFile(buffer.getvalue()), save=True)
