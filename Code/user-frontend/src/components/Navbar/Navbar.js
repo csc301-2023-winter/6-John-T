@@ -13,10 +13,10 @@ const Navbar = () => {
                     width: "100%",
                     display: "flex",
                     height: "80px",
-                    "box-shadow": "0 0.1vw 0.5vw 0 #00000066",
-                    "z-index": 99999,
-                    "background-color": "#fff",
-                    "align-items": "center"
+                    "boxShadow": "0 0.1vw 0.5vw 0 #00000066",
+                    "zIndex": 99999,
+                    "backgroundColor": "#fff",
+                    "alignItems": "center"
                 }}
             >
                 <Link to="/">
@@ -25,10 +25,10 @@ const Navbar = () => {
                         alt=""
                         style={{
                             display: "block",
-                            "margin-left": "auto",
-                            "margin-right": "auto",
+                            "marginLeft": "auto",
+                            "marginRight": "auto",
                             height: "50px",
-                            "z-index": 999999
+                            "zIndex": 999999
                         }} />
                 </Link>
             </nav>

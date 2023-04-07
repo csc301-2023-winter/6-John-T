@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { QrReader } from 'react-qr-reader';
 import button from '../../assets/gobutton2.png'
 import { BACKEND_URL, BACKEND_PATH_FOR_BENCH_DETAILS } from "../../default_values/constants";
+import { consoleWrapper } from "../../utils/ConsoleWrapper";
 
 
 // makes the reader component
@@ -73,27 +74,19 @@ class Reader extends Component {
                 }
                 return res.json()
             }).then(data => {
-                console.log(data);
+                consoleWrapper.log(data);
                 this.setAlbum(data.bench_title);
                 this.setAuthor(data.audio_details.contributor);
                 this.setArt(`${BACKEND_URL}${data.thumbnail}`);
             }).catch(err => {
-                console.log(err);
-                console.log("error");
+                consoleWrapper.log(err);
+                consoleWrapper.log("error");
             });
-            
-            /*
-                result: data,
-                album: data.text.split("=")[1],
-                author: data.text.split("=")[1],
-                img: data.text.split("=")[1],
-                url: data,
-            */
         }
       
         if (this.state.result != null){   // when qr code is found, it will do something
-            console.log(this.state.result)
-            console.log(this.state.url)
+            consoleWrapper.log(this.state.result)
+            consoleWrapper.log(this.state.url)
         }
     }
 
@@ -101,7 +94,7 @@ class Reader extends Component {
 
     // error handling
     handleError(err){
-        // console.error(err)
+        consoleWrapper.error(err)
     }
 
     // renders the scanner 
