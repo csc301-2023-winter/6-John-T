@@ -254,23 +254,6 @@ class BenchGetAllView_admin(ListAPIView):
             benches_data.append(bench_data)
         return Response(benches_data)
 
-        
-# # The view to get all Parks in the database
-# class ParkGetAllView_admin(ListAPIView):
-
-#     # permission_classes = [IsAuthenticated]
-#     serializer_class = ParkViewSerializer  # the serializer that shows all the details
-    
-#     def get_queryset(self):
-#         # get all parks in the database
-#         parks = Park.objects.all()
-#         if parks.exists():
-#             return parks.order_by('park_id')
-#         else: 
-#             # the park exists but there are no benches in the database, so return an empty list
-#             return []
-
-
 ##################
 # BENCH UPDATING #
 ##################
