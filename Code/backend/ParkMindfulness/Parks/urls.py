@@ -28,6 +28,4 @@ urlpatterns = [
     path("get_all_admin_parks/", views.ParkGetAllView_admin.as_view(), name="get-all-admin-parks"),
     path("update_admin_park/<int:park_id>/", views.ParkUpdateView_admin.as_view(), name="update-admin-park"),
     path("delete_admin_park/<int:park_id>/", views.ParkDeleteView_admin.as_view(), name="delete-admin-park"),
-
-    # user side urls (no authentication required)
 ]
