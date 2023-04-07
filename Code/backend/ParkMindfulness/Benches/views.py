@@ -9,7 +9,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ParseError
 from django.shortcuts import get_object_or_404
 from django.conf import settings
-from ..ParkMindfulness.settings import DEBUG
 
 # for image editing within QR
 from PIL import Image
@@ -99,7 +98,7 @@ class BenchCreateView_admin(CreateAPIView):
 
         # build the front end link template that we are to make the QR code for
         # qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}&park_id={bench.park_id}"
-        if DEBUG == True:
+        if settings.DEBUG == True:
             qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}"
         else:
             qr_link = f"https://main--parkmindfulness-user.netlify.app/#/media?m={bench.bench_id}"
