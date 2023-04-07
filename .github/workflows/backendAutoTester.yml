@@ -32,4 +32,3 @@ jobs:
     - name: Backend Testing
       run: |
         python3 manage.py test
-        
