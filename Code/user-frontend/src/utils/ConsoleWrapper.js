@@ -30,6 +30,5 @@ class ConsoleWrapper{
     }
 }
 
-// export default ConsoleWrapper;
 const consoleWrapper = new ConsoleWrapper();
 export { consoleWrapper };
