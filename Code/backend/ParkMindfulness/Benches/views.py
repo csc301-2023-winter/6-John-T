@@ -34,6 +34,13 @@ TRY_ME = "TRY ME"
 ##################
 
 class BenchCreateView_admin(CreateAPIView):
+    """
+    API view to create a new bench object and generates a QR code.
+    
+    Returns:
+    - On success: A success message and a status code 201.  
+    - On failure: An error message and status code 400 if validation fails.
+    """
 
     permission_classes = [IsAuthenticated]
     serializer_class = BenchCreationSerializer
@@ -61,7 +68,6 @@ class BenchCreateView_admin(CreateAPIView):
         }
 
         audio_data = {
-            # 'audio_file': request.data.get('secondary_model.audio_file', None),
             'contributor': request.data.get('secondary_model.contributor', None),
             'length_category': request.data.get('secondary_model.length_category', None),
             'season_category': request.data.get('secondary_model.season_category', None),
@@ -77,7 +83,6 @@ class BenchCreateView_admin(CreateAPIView):
             audio_data['season_category'] = None
 
         # take in the data from the request to create a new bench object
-        # serializer = FullBenchCreationSerializer(data=request.data)
         serializer1 = NoAudioBenchCreationSerializer(data=bench_data)
         serializer2 = FullAudioSerializer(data=audio_data)
 
@@ -114,7 +119,6 @@ class BenchCreateView_admin(CreateAPIView):
         logo_path = os.path.join(settings.STATIC_ROOT, 'logos/ON_logo.JPG')
         logo = Image.open(logo_path)
         logo = logo.resize((300,90))
-        # bench_qr.paste(logo, (880, 10))
         # place logo in top right
 
         # # create the full image to merge with the qr code and logo
@@ -158,22 +162,23 @@ class BenchCreateView_admin(CreateAPIView):
 # fact that the admin get requires an authenticated user, and returns the bench's QR code
 # too. On all other aspects, they are the same.
  
-# The view to get the bench in the database corresponding to the given bench id (for admins)
 class BenchGetView_admin(RetrieveAPIView):
+    """
+    API view to get the bench in the database corresponding to the given bench id (for admins).
+    
+    Returns the following details:
+        - title of bench
+        - author of bench
+        - link to audio file on server
+        - link to image file on server
+        - link to QR code file
+        - a boolean that tells you if there is an audio file or not
+    """
 
     permission_classes = [IsAuthenticated]
     serializer_class = BenchViewSerializer_admin  # the serializer that shows all the details
     
     def get(self, request, *args, **kwargs):
-        """
-        Contract with admin frontend: given bench_id, must return:
-        - title of bench
-        - author of bench  # TODO
-        - link to audio file on server  # TODO
-        - link to image file on server
-        - link to QR code file
-        - a boolean that tells you if there is a audio file or not  # TODO
-        """
         # fetch the bench id from the request kwargs
         bench_to_display = self.kwargs['bench_id']
 
@@ -192,20 +197,21 @@ class BenchGetView_admin(RetrieveAPIView):
 
         return Response(bench_data, status=200)
     
-# The view to get the bench in the database corresponding to the given bench id (for users)
 class BenchGetView_user(RetrieveAPIView):
+    """
+    API view to get the bench in the database corresponding to the given bench id (for users).
+
+    Returns the following details:
+        - title of bench
+        - author of bench
+        - link to audio file on server (if exists)
+        - a boolean that tells us if there is an audio file or not
+        - link to image file on server
+    """
 
     serializer_class = BasicBenchSerializer  # the serializer that shows all the details
     
     def get(self, request, *args, **kwargs):
-        """
-        Contract with frontend user: given bench_id, must return:
-        - title of bench
-        - author of bench
-        - link to audio file on server (if exists)
-        - a boolean that tells us if there is a audio file or not
-        - link to image file on server
-        """
         # fetch the bench id from the request kwargs
         bench_to_display = self.kwargs['bench_id']
 
@@ -224,9 +230,13 @@ class BenchGetView_user(RetrieveAPIView):
 
         return Response(bench_data, status=200)
 
-
-# The view to get all the benches in the database corresponding to the given park id
 class BenchGetAllView_admin(ListAPIView):
+    """
+    API view to get all the benches in the database corresponding to the given park id.
+
+    Response data:
+    - a list of serialized bench objects, each containing all bench information
+    """
 
     queryset = Benches.objects.all()  # dummy queryset to trick the ListAPIView
     permission_classes = [IsAuthenticated]
@@ -254,29 +264,18 @@ class BenchGetAllView_admin(ListAPIView):
             benches_data.append(bench_data)
         return Response(benches_data)
 
-        
-# # The view to get all Parks in the database
-# class ParkGetAllView_admin(ListAPIView):
-
-#     # permission_classes = [IsAuthenticated]
-#     serializer_class = ParkViewSerializer  # the serializer that shows all the details
-    
-#     def get_queryset(self):
-#         # get all parks in the database
-#         parks = Park.objects.all()
-#         if parks.exists():
-#             return parks.order_by('park_id')
-#         else: 
-#             # the park exists but there are no benches in the database, so return an empty list
-#             return []
-
-
 ##################
 # BENCH UPDATING #
 ##################
 
-# The view to update a bench object in the database (can only update the name, audio, author, and thumbnail)
 class BenchUpdateView_admin(UpdateAPIView):
+    """
+    API view to update a bench object in the database (can only update the name, audio, author, and thumbnail).
+    
+    Returns:
+    - On success: A success message and a 200 status code.
+    - On failure: An error message and a 400 or 404 status code.
+    """
 
     permission_classes = [IsAuthenticated]
     serializer_class = BenchUpdateSerializer
@@ -355,8 +354,15 @@ class BenchUpdateView_admin(UpdateAPIView):
 # BENCH DELETION #
 ##################
 
-# The view to delete a bench object in the database
 class BenchDeleteView_admin(DestroyAPIView):
+    """
+    API view to delete a bench object in the database. 
+
+    Returns:
+    - A message indicating whether the bench object was deleted or not
+    - On success: The status code is 200
+    - On failure: The status code is 404 if no bench was found with given bench ID.
+    """
     
     permission_classes = [IsAuthenticated]
 

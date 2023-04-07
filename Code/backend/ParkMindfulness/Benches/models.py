@@ -2,6 +2,10 @@ from django.db import models
 from Parks.models import Park
 
 class Benches(models.Model):
+    """
+    Model class for Benches.
+    """
+
     bench_id = models.AutoField(primary_key=True) #PK 
     bench_title = models.CharField(max_length=30)
     park_id = models.ForeignKey(Park, on_delete=models.CASCADE) #FK 
@@ -9,20 +13,13 @@ class Benches(models.Model):
     qr_code = models.ImageField(null=True, blank=True, upload_to="images/qr_codes/")
     thumbnail = models.ImageField(null=True, blank=True, upload_to="images/bench_thumbnails/")
 
-# Audio Model
-# Length_Category: The 1st value is the actual value and 
-# the 2nd value is displayed on Django Admin
-# https://stackoverflow.com/questions/18676156/how-to-properly-use-the-choices-field-option-in-django
-# Season_Category
-# bench_id: related_name = 'audios' allows for reverse relationship (get all audios related to one bench)
-# audio_binary: whether audio exists (True) or not (False)
-# audio_file: store under 'media/audio_files/'
-# length_category: 0-5, 5-10, >10 # TODO clarify categories with others 
-# season_category: spring, summer, fall, winter 
-
 class Audio(models.Model):
     """
     Model representing an audio file that is associated with a bench.
+
+    The audio_binary describes if the audio exists and is False by default.
+    The audio_file, contributor, length_category, and season_category are
+    all optional fields.
     """
     class Length_Category(models.TextChoices):
         SHORT = "0-5", "0-5 minutes"
@@ -50,8 +47,14 @@ class Audio(models.Model):
                                        null=True) #optional 
     
     def get_length_category(self): 
+        """
+        Returns the length category for the Audio model.
+        """
         return Audio.Length_Category(self.length_category)
     
     def get_season_category(self): 
+        """
+        Returns the season category for the Audio model.
+        """
         return Audio.Season_Category(self.season_category)
     

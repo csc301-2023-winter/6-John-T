@@ -7,8 +7,10 @@ from .models import CustomAdminUser
 # USER CREATION #
 #################
 
-### The custom user model creation serializer
 class UserCreationSerializer(serializers.ModelSerializer):
+    """
+    Serializer for creating a new user.
+    """
     class Meta:
         model = CustomAdminUser
         fields = ["username"] # which really means email
@@ -19,6 +21,9 @@ class UserCreationSerializer(serializers.ModelSerializer):
 ################
 
 class UserLoginSerializer(serializers.Serializer):
+    """
+    Serializer for user login.
+    """
     class Meta:
         model = CustomAdminUser
         fields = ["username", "password"]
@@ -29,6 +34,9 @@ class UserLoginSerializer(serializers.Serializer):
 ###################
 
 class UpdateInfoSerializer(serializers.ModelSerializer):
+    """
+    Serializer for updating user information.
+    """
     old_password = serializers.CharField(required=True)
     new_password = serializers.CharField(required=True)
     confirm_password = serializers.CharField(required=True)
@@ -38,6 +46,9 @@ class UpdateInfoSerializer(serializers.ModelSerializer):
         fields = UserCreationSerializer.Meta.fields + ["old_password", "new_password", "confirm_password"] + ["manages_park"]
 
 class GetInfoSerializer(serializers.ModelSerializer):
+    """
+    Serializer to get user information.
+    """
     class Meta:
         model = CustomAdminUser
         fields = ["id", "username", "manages_park", "is_superuser"]
