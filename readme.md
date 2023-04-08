@@ -1,19 +1,16 @@
 # Group 6: EXgoblins
 Ontario Parks 'Park Mindfulness' project, developed by EXgoblins (#6).
 
-As of Deliverable 2, the details on the operation and usage of the program are now available for the first time in the main repo.
+Quickstart guide to locate parts of repo:
 
-To make locating parts of the repo a little easier, we provide the following quickstart guide (extended from our D1):
-
-1) The /documents folder is where everything concerned with planning of the project, team details, the D2 only readme.md, and our first iteration reflection.
+1) The /documents folder contains everything related to project planning, team details, D2-only readme, and project reflection.
 2) Within /documents/plannin.md, the logical structure for the project is laid out.
 3) /miscellaneous and /mockup within /documents both contain images used throughout planning.md.
 4) /documents/team/Team-6-EXgoblins.csv and Stakeholders.txt contain information on all of the team members making up EXgoblins, and the stakeholders of the project.
-5) /documents/README.md contains the D2 only readme.md (a subset of this readme as mandated by D2).
+5) /documents/README.md contains the D2 only readme.md.
 6) /documents/iteration-02-review.md contains our first project reflection as per D2.
-8) The meeting minutes can be found at /documents/team/minutes, and there are two types of files there. There are the Partner-MM type, which contain records of our bi-weekly meetings with out partner and Ontario Parks Representative, John Leadston; and then there is the Team-MM-Stack, which is where team meeting minutes are collected in the form of a stack, such that the details on our most recent team meeting can be found at the top of the txt file.
-9) Lastly, in terms of code, everything can be found under teh D2 folder at /main/D2. It is here that you can access the backend project (at subdirectory /backend), and the two frontend projects (at subdirectories /user-frontend and /manager-frontend).
-
+7) Meeting minutes can be found at /documents/team/minutes. Two file types are available: Partner-MM (bi-weekly meeting with Ontario Parks Representative, John Leadston) and Team-MM-Stack.
+8) In terms of code, everything can be found under /main/code. Access the backend project at /backend and the two frontend projects at /user-frontend and /manager-frontend.
 ​
 <!-- > _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical.  -->
 ​
@@ -86,37 +83,7 @@ To make locating parts of the repo a little easier, we provide the following qui
  * You can see this [example](https://github.com/alichtman/shallow-backup#readme) to get started. -->
 
  ### Backend Development Requirements:
-Setting up the developing environment for the backend of the application is simple. In terms of tools, you will need:
-* OS: development has been tested on Windows 10, Ubuntu 22.04 and MacOS.
-* Python 3.11.1
-* Virtualenv (tested with version 20.17.1).
-* Pip 22.3.1 (or latest version).
-* All of the libraries and packages within requirements.txt (keep reading for installation instructions).
-
-Once you have those basic tools, you can start setting up for backend development. Just follow the instructions below:
-* First clone the repository onto your machine by running the following command on your terminal:&nbsp;
-
-  `git clone git@github.com:csc301-2023-winter/6-John-T.git`
-* Next, navigate onto the following path (which will take you onto the base of the Django project):&nbsp;
-
-  `cd 6-John-T/D2/backend/ParkMindfulness`
-* Here, create a virtual environment to store the packages the application will need:&nbsp;
-
-  `virtualenv venv`
-* Next activate this virtual environment:&nbsp;
-
-  Windows: `venv\Scripts\activate&nbsp`
-
-  Linux: `source venv/bin/activate`
-* Now install the requirements for the project by running:&nbsp;
-
-  `pip install -r requirements.txt`
-* After this, the Django project should be fully set up. To check the installation worked, you can try running the project on your local server through the command:&nbsp;
-	
-  `python manage.py runserver`
-* Then you can open the link: http://127.0.0.1:8000/benches/get_all_admin_parks/ where, if everything went right, you should be presented with the Django Rest Framework page template, and possibly some data about the Park objects currently in the database.
-* If the setup was successful, then you should be ready to start writing code for the project within any of the existing Django applications (such as Benches).
-
+See Code/backend/readme.md for detailed instructions on setting up backend development
 
 ### Frontend Development Requirements:
 Setting up the developing environment for the frontend of the application is simple. In terms of tools, you will need:
@@ -130,8 +97,8 @@ Once you have the basic tools, you can start setting up for frontend development
   `git clone git@github.com:csc301-2023-winter/6-John-T.git`
 * Next, navigate onto the following path (which will take you onto the base of the Node project/s) [keep in mind there's two node projects for the two separate frontends, given how different they are]:&nbsp;
 
-  `cd 6-John-T/D2/user-frontend` for user side frontend.
-  `cd 6-John-T/D2/manager-frontend` for manager side frontend.
+  `cd 6-John-T/Code/user-frontend` for user side frontend.
+  `cd 6-John-T/Code/manager-frontend` for manager side frontend.
 * Here, run `npm install --legacy-peer-deps` to install all the dependencies and `node_modules` for `user-frontend` project; and `npm install` to install all the dependencies and `node_modules` for `manager-frontend` project.
 
 * Now run `npm start` and a localhost version of the user frontend should open up in your default browser. If the setup was successful, you are good to go on and make changes to the project code!
@@ -169,10 +136,9 @@ Once you have the basic tools, you can start setting up for frontend development
 
 
 - Backend:&nbsp;
-
-    - The majority of our submitted code for the backend was implemented within the `backend-upgrades-d2` branch. We later merged this functionality with the code we brought forward from A2 through a Pull Request to main. For hotfixes, we did so on the `d2-backend-hotfixes` branch, first ensuring they worked as intended, before creating a PR to merge. All merging was done in accordance to our Overall Workflow (see above).&nbsp;
-
-  - For deployment, we chose to deploy on Railway. This ensures that our deployment builds are automated upon commits to `main`. Additionally, we chose Railway over Vercel due to storage capacity since our backend is also hosting our database. Furthermore, this allows us to communicate with both the Frontend User (FE-U) and Frontend Manager (FE-M) over HTTPS without having to invest into a domain (a requirement to obtain a SSL certificate over AWS EC2). Much like the FE-U hosting, the Railway build is linked to a fork on Tajwaar’s GitHub account that is auto deployed using a GitHub Action. (Note: This is currently not enabled as per our partner’s request due to an upcoming presentation in which he plans to showcase our work so far)
+  - Backend code was developed on backend-upgrades-d2 branch and deployed to main.
+  - Railway was chosen for deployment due to automated builds and storage capacity for the backend database.
+  - see Code/backend/readme.md more more details 
 
 ​
 &nbsp;
