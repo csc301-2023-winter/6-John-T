@@ -83,27 +83,20 @@ Quickstart guide to locate parts of repo:
  * You can see this [example](https://github.com/alichtman/shallow-backup#readme) to get started. -->
 
  ### Backend Development Requirements:
+Requires the following tool(s):
+* OS: tested on Windows 10, Ubuntu 22.04 and MacOS
+* Python 3.11.1
+* Virtualenv (tested with v20.17.1)
+* Pip 22.3.1 (or newer)
+* Install all libraries and packages in Code/backend/ParkMindfulness/requirements.txt
+
 See Code/backend/readme.md for detailed instructions on setting up backend development
 
 ### Frontend Development Requirements:
-Setting up the developing environment for the frontend of the application is simple. In terms of tools, you will need:
-* OS & hardware: Any computer is fine.
-
+Requires the following tool(s):
 * `Node` installed
 
-Once you have the basic tools, you can start setting up for frontend development. Follow these instructions:
-* First clone the repository onto your machine by running the following command on your terminal:&nbsp;
-
-  `git clone git@github.com:csc301-2023-winter/6-John-T.git`
-* Next, navigate onto the following path (which will take you onto the base of the Node project/s) [keep in mind there's two node projects for the two separate frontends, given how different they are]:&nbsp;
-
-  `cd 6-John-T/Code/user-frontend` for user side frontend.
-  `cd 6-John-T/Code/manager-frontend` for manager side frontend.
-* Here, run `npm install --legacy-peer-deps` to install all the dependencies and `node_modules` for `user-frontend` project; and `npm install` to install all the dependencies and `node_modules` for `manager-frontend` project.
-
-* Now run `npm start` and a localhost version of the user frontend should open up in your default browser. If the setup was successful, you are good to go on and make changes to the project code!
-
-
+Both frontends use the same tools and instructions. See within Code/manager-frontend/README.md or Code/user-frontend/README.md for more instructions.
  
 &nbsp;
 &nbsp;
@@ -124,21 +117,21 @@ Once you have the basic tools, you can start setting up for frontend development
 
 - Frontend User:&nbsp;
 
-  - We have a branch that we make our initial code changes on called “qrscanner_change”. And once the changes are ready, we merge to the main branch if the change is small (hotfix), and make a PR for large potentially code breaking changes. Because one of us will be making the change, the other person has to review it. Anyone can merge once ready. &nbsp;
-
-  - For deployment, we are deploying on Vercel. We chose Vercel because Vercel looks for commits/merges to the main branch and runs build everytime main updates. This makes it very convenient as there isn't much for us to do to deploy other than merge to the main branch. Because this repo is on an organization account, we first forked it out to Parth’s personal account, and connected Vercel from there. But because it is from a fork, we must first update the fork from upstream. To automate this process, there is a github action on Parth’s fork that checks for updates every 30 minutes and updates accordingly. The action file is in “main/.github/workflows/updateAndDeploy.yml”. 
+  - We make initial code changes on "qrscanner_change" and merge small changes directly to the main branch. &nbsp;
+  - Deployed on Vercel. 
+  - See Code/user-frontend/README.md for more details.
 
 - Frontend Manager:&nbsp;
 
   - Code changes were pushed to main. When creating larger merges, we created a PR request that a teammate can review and accept. &nbsp;
-
-  - For deployment, we are deploying on Vercel. We forked the main branch to a personal github page to link to Vercel, and then to deploy, we manually sync the fork with the main repo. We consulted the frontend user team regarding this, as they also are deploying Vercel which makes things easier when both teams are using the same thing.
-
+  - Deployed on Vercel. 
+  - See Code/manager-frontend/README.md for more details.
 
 - Backend:&nbsp;
+
   - Backend code was developed on backend-upgrades-d2 branch and deployed to main.
   - Railway was chosen for deployment due to automated builds and storage capacity for the backend database.
-  - see Code/backend/readme.md more more details 
+  - See Code/backend/readme.md for more details.
 
 ​
 &nbsp;
