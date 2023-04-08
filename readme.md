@@ -3,14 +3,14 @@ Ontario Parks 'Park Mindfulness' project, developed by EXgoblins (#6).
 
 Quickstart guide to locate parts of repo:
 
-1) The /documents folder contains everything related to project planning, team details, D2-only readme, and project reflection.
-2) Within /documents/plannin.md, the logical structure for the project is laid out.
-3) /miscellaneous and /mockup within /documents both contain images used throughout planning.md.
-4) /documents/team/Team-6-EXgoblins.csv and Stakeholders.txt contain information on all of the team members making up EXgoblins, and the stakeholders of the project.
-5) /documents/README.md contains the D2 only readme.md.
-6) /documents/iteration-02-review.md contains our first project reflection as per D2.
-7) Meeting minutes can be found at /documents/team/minutes. Two file types are available: Partner-MM (bi-weekly meeting with Ontario Parks Representative, John Leadston) and Team-MM-Stack.
-8) In terms of code, everything can be found under /main/code. Access the backend project at /backend and the two frontend projects at /user-frontend and /manager-frontend.
+1) The [/documents](/documents) folder contains everything related to project planning, team details, D2-only readme, and project reflection.
+2) Within [/documents/planning.md](/documents/planning.md), the logical structure for the project is laid out.
+3) [/miscellaneous](/documents/miscellaneous) and [/mockup](/documents/mockup) within /documents both contain images used throughout planning.md.
+4) [/documents/team/Team-6-EXgoblins.csv](/documents/team/Team-6-EXgoblins.csv) and [Stakeholders.txt](/documents/team/Stakeholders.txt) contain information on all of the team members making up EXgoblins, and the stakeholders of the project.
+5) [/documents/README.md](/documents/README.md) contains the D2 only readme.md.
+6) [/documents/iteration-02-review.md](/documents/iteration-02-review.md) contains our first project reflection as per D2.
+7) Meeting minutes can be found at [/documents/team/minutes](/documents/team/minutes). Two file types are available: Partner-MM (bi-weekly meeting with Ontario Parks Representative, John Leadston) and Team-MM-Stack.
+8) In terms of code, everything can be found under [/Code](/Code). Access the backend project at [/backend](/Code/backend) and the two frontend projects at [/user-frontend](/Code/user-frontend) and [/manager-frontend](/Code/manager-frontend).
 ​
 <!-- > _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical.  -->
 ​
@@ -90,13 +90,13 @@ Requires the following tool(s):
 * Pip 22.3.1 (or newer)
 * Install all libraries and packages in Code/backend/ParkMindfulness/requirements.txt
 
-See Code/backend/readme.md for detailed instructions on setting up backend development
+See [Code/backend/readme.md](Code/backend/readme.md) for detailed instructions on setting up backend development
 
 ### Frontend Development Requirements:
 Requires the following tool(s):
 * `Node` installed
 
-Both frontends use the same tools and instructions. See within Code/manager-frontend/README.md or Code/user-frontend/README.md for more instructions.
+Both frontends use the same tools and instructions. See within [Code/manager-frontend/README.md](Code/manager-frontend/README.md) or [Code/user-frontend/README.md](Code/user-frontend/README.md) for more instructions.
  
 &nbsp;
 &nbsp;
@@ -119,19 +119,19 @@ Both frontends use the same tools and instructions. See within Code/manager-fron
 
   - We make initial code changes on "qrscanner_change" and merge small changes directly to the main branch. &nbsp;
   - Deployed on Vercel. 
-  - See Code/user-frontend/README.md for more details.
+  - See [Code/user-frontend/README.md](Code/user-frontend/README.md) for more details.
 
 - Frontend Manager:&nbsp;
 
   - Code changes were pushed to main. When creating larger merges, we created a PR request that a teammate can review and accept. &nbsp;
   - Deployed on Vercel. 
-  - See Code/manager-frontend/README.md for more details.
+  - See [Code/manager-frontend/README.md](Code/manager-frontend/README.md) for more details.
 
 - Backend:&nbsp;
 
   - Backend code was developed on backend-upgrades-d2 branch and deployed to main.
   - Railway was chosen for deployment due to automated builds and storage capacity for the backend database.
-  - See Code/backend/readme.md for more details.
+  - See [Code/backend/readme.md](Code/backend/readme.md) for more details.
 
 ​
 &nbsp;
