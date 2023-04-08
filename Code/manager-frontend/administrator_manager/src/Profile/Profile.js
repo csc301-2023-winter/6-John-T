@@ -29,6 +29,7 @@ function Profile() {
         setErrorMessage('Is Strong Password')
       } else {
         setErrorMessage('Password needs to be at least 8 characters, with a number, uppercase letter, and lowercase letter.')
+        return;
       }
 
     // Proceed with form submission, e.g., send data to the server
