@@ -26,7 +26,8 @@ from io import BytesIO
 
 ## Constants for QR
 QR_NAME = "Ontario Parks"
-QR_DESC = "Scan code with phone camera for Park Mindfulness Experience\nOR visit https://6-john-t-one.vercel.app"
+QR_STAGING_DESC = "Scan code with phone camera for Park Mindfulness Experience\nOR visit https://6-john-t-one.vercel.app"
+QR_PROD_DESC = "Scan code with phone camera for Park Mindfulness Experience\nOR visit https://parkmindfulness-user.netlify.app"
 TRY_ME = "TRY ME"
 
 ##################
@@ -106,7 +107,7 @@ class BenchCreateView_admin(CreateAPIView):
         if settings.DEBUG == True:
             qr_link = f"https://6-john-t-one.vercel.app/#/media?m={bench.bench_id}"
         else:
-            qr_link = f"https://main--parkmindfulness-user.netlify.app/#/media?m={bench.bench_id}"
+            qr_link = f"https://parkmindfulness-user.netlify.app/#/media?m={bench.bench_id}"
 
         # use the qrcode library to make a qr code image through teh qr_class class
         qr_class = qrcode.QRCode(version=1, box_size=30, border=0)
@@ -141,8 +142,11 @@ class BenchCreateView_admin(CreateAPIView):
         # try me at the top center
         draw.text((460, -30), TRY_ME, fill="black", font=ImageFont.truetype(font_path, size=76))
 
-        # qr code description at the bottom center
-        draw.text((140,1130), QR_DESC, fill="black", font=ImageFont.truetype(font_path, size=32), align="center")
+        # qr code description at the bottom center dependent on whether user is using production or staging mode
+        if settings.DEBUG == True:
+            draw.text((140,1130), QR_STAGING_DESC, fill="black", font=ImageFont.truetype(font_path, size=32), align="center")
+        else:
+            draw.text((140,1130), QR_PROD_DESC, fill="black", font=ImageFont.truetype(font_path, size=32), align="center")
 
         # save the image to a buffer in PNG format
         buffer = BytesIO()
