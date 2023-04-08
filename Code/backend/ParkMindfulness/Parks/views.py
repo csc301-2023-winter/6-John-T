@@ -22,9 +22,14 @@ from io import BytesIO
 # PARK CREATION #
 #################
 
-# Park creation views to be implemented by Sam as part of the CRUD API views
-
 class ParkCreateView_admin(CreateAPIView):
+    """
+    API view to create a new park object in the database.
+
+    Returns:
+    - On success: A success message, the ID of created park object, and the status cose 201
+    - On failure: An error message  and the status codes 400
+    """
 
     permission_classes = [IsAuthenticated]
     serializer_class = ParkCreationSerializer
@@ -42,9 +47,10 @@ class ParkCreateView_admin(CreateAPIView):
 # PARK VIEWING #
 ################
 
-# The view to get all Parks in the database
 class ParkGetAllView_admin(ListAPIView):
-
+    """
+    API view to get all Parks in the database.
+    """
     # permission_classes = [IsAuthenticated]
     serializer_class = ParkViewSerializer  # the serializer that shows all the details
     
@@ -63,9 +69,14 @@ class ParkGetAllView_admin(ListAPIView):
 # PARK UPDATING #
 #################
 
-# Park updating views to be implemented by Sam as part of the CRUD API views
-
 class ParkUpdateView_admin(UpdateAPIView):
+    """
+    API view to update an existing park object.
+
+    Returns:
+    - On success: A success message with status code 200
+    - On failure: An error message and status code 404
+    """
     permission_classes = [IsAuthenticated]
     serializer_class = ParkUpdateSerializer
 
@@ -101,12 +112,18 @@ class ParkUpdateView_admin(UpdateAPIView):
 # PARK DELETION #
 #################
 
-# Park deletion views to be implemented by Sam as part of the CRUD API views
 class ParkDeleteView_admin(DestroyAPIView):
+    """
+    API view to delete a park object in the database and all the benches associated with it.
+    """
 
     permission_classes = [IsAuthenticated]
 
     def delete(self, request, *args, **kwargs):
+        """
+        Deletes Park with all associated Benches.
+        """
+
         # fetch the park id from the request kwargs
         park_to_delete = self.kwargs['park_id']
 

@@ -30,6 +30,11 @@ password and the park you manage.\n\n"
 #########################
 
 class NewUserCreateView(CreateAPIView):
+    """
+    API view to create a new user.
+
+    A password is randomly generating and information is sent to user's email.
+    """
 
     permission_classes = [IsAuthenticated]
     serializer_class = UserCreationSerializer
@@ -76,6 +81,9 @@ class NewUserCreateView(CreateAPIView):
 ###################
 
 class UpdateAdminInfoView(UpdateAPIView):
+    """
+    API view to update user's information like passwords. 
+    """
     
     permission_classes = [IsAuthenticated]
     serializer_class = UpdateInfoSerializer
@@ -132,6 +140,9 @@ class UpdateAdminInfoView(UpdateAPIView):
     
 
 class GetAdminInfoView(RetrieveAPIView):
+        """
+        API view to retrieve user information.
+        """
     
         permission_classes = [IsAuthenticated]
         serializer_class = GetInfoSerializer
@@ -151,6 +162,9 @@ class GetAdminInfoView(RetrieveAPIView):
         
 
 class DeleteAdminView(DestroyAPIView):
+    """
+    API view to delete a user.
+    """
     
     permission_classes = [IsAuthenticated]
     # doesnt really need a serializer
