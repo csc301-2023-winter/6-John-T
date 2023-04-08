@@ -46,3 +46,4 @@ Once you have the basic tools, you can start setting up for frontend development
 &nbsp;
 
 ### Testing: 
+  - run `npm test` to run the auto tests. These tests also automatically run through our GitHub Actions and Deployment partners (Vercel and Netlify).
