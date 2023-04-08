@@ -4,6 +4,7 @@ from Benches.views import BenchCreateView_admin, BenchGetView_admin, \
                             BenchGetView_user, BenchGetAllView_admin, \
                             BenchUpdateView_admin, BenchDeleteView_admin
 
+# Need to updated with the correct urls
 
 # class TestUrls(SimpleTestCase):
     
