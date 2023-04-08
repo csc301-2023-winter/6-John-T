@@ -1,14 +1,18 @@
 from django.test import TestCase, Client
 from django.urls import reverse, resolve
-from Benches.RESTviews import BenchCreateView, BenchGetView, BenchUpdateView, BenchDeleteView
-from Benches.models import Benches, Park
+from Benches.views import BenchCreateView_admin, BenchGetView_admin, \
+                            BenchGetView_user, BenchGetAllView_admin, \
+                            BenchUpdateView_admin, BenchDeleteView_admin
+from Benches.models import Benches, Audio
+from Parks.models import Park
 
 class TestViews(TestCase):
     
+    # Set up a bench and park to test
     def setUp(self):
         self.client = Client()
-        self.create_url = reverse('bench_create')
-        self.update_url = reverse('bench_update', args=['1'])
+        self.create_url = reverse('create-admin-bench')
+        self.update_url = reverse('update-admin-bench', args=['1'])
         self.bench1 = Benches.objects.create(
             bench_id = 1,
             bench_title = 'test bench',
@@ -19,30 +23,36 @@ class TestViews(TestCase):
             )
         )
     
+    # ADMIN VIEWS SHOULD RETURN 401 UNAUTHORIZED AS CLIENT DOES NOT
+    # HAVE PERMISSION TO ACCESS THESE VIEWS
+    
+    # Test the bench create view
     def test_bench_create_view(self):
+        response = self.client.get(self.create_url)
+        self.assertEquals(response.status_code, 401)
+        
+    # Test the bench get all view
+    def test_bench_get_all_view(self):
         client = Client()
-        url = reverse('bench_create')
+        url = reverse('get-all-admin-benches', args=['1'])
+        response = client.get(url)
+        self.assertEquals(response.status_code, 401)
+        
+    # Test the bench get user view
+    def test_bench_get_user_view(self):
+        client = Client()
+        url = reverse('get-user-benches', args=['1'])
         response = client.get(url)
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'create.html')
-        
-    def test_bench_get_view(self):
-        client = Client()
-        url = reverse('bench_view')
-        response = client.get(url)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'view.html')
-        
+    
+    # Test the bench update view
     def test_bench_update_view(self):
-        client = Client()
-        url = reverse('bench_update', args=['1'])
-        response = client.get(url)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'update.html')
+        response = self.client.get(self.update_url)
+        self.assertEquals(response.status_code, 401)
         
+    # Test the bench delete view
     def test_bench_delete_view(self):
         client = Client()
-        url = reverse('bench_delete', args=['1'])
+        url = reverse('delete-admin-bench', args=['1'])
         response = client.get(url)
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'delete.html')
+        self.assertEquals(response.status_code, 401)

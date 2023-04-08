@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-# ANYONE WHO CHANGES THIS FILE THAT IS NOT TAJWAAR GETS PUT INTO ZOOM CALL WITH JOKER MICHELE
 
 from datetime import timedelta
 from pathlib import Path
@@ -66,7 +65,9 @@ MIDDLEWARE = [
 CSRF_TRUSTED_ORIGINS = [
     "https://6-john-t-one.vercel.app",
     "https://6-john-t-production.up.railway.app",
-    "https://6-john-t.vercel.app"
+    "https://6-john-t.vercel.app",
+    "https://main--parkmindfulness-user.netlify.app",
+    "https://parkmindfulness-user.netlify.app"
 ]
 
 CORS_ORIGIN_ALLOW_ALL = False
@@ -76,7 +77,9 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     "https://6-john-t-one.vercel.app",
     "http://localhost:3000",
-    "https://6-john-t.vercel.app"
+    "https://6-john-t.vercel.app",
+    "https://main--parkmindfulness-user.netlify.app",
+    "https://parkmindfulness-user.netlify.app"
 ]
 
 ROOT_URLCONF = "ParkMindfulness.urls"
@@ -179,8 +182,8 @@ REST_FRAMEWORK = {
 # Email server settings
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ParkMindfulness-Team-6@outlook.com' # team email
-EMAIL_HOST_PASSWORD = 'EXGoblins987'
+EMAIL_HOST_PASSWORD = '6QSO0nvN4EPF3UDt'

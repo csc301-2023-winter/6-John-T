@@ -7,6 +7,7 @@ import PauseButton from "./media_buttons/PauseButton";
 import ForwardButton from "./media_buttons/ForwardButton";
 import RewindButton from "./media_buttons/RewindButton";
 import { BACKEND_URL, BACKEND_PATH_FOR_BENCH_DETAILS } from "../../default_values/constants";
+import { consoleWrapper } from "../../utils/ConsoleWrapper";
 
 // custom hook for audio
 // this hook is adapted from https://stackoverflow.com/a/47686478 on feb 20 2023
@@ -17,15 +18,16 @@ const useAudio = url => {
     const toggle = () => setPlaying(!playing);
 
     const skip = (time) => {
-        if (time == 'back') {
+        if (time === 'back') {
             audio.currentTime = audio.currentTime - 10;
-        } else if (time == 'fwd') {
+        } else if (time === 'fwd') {
             audio.currentTime = audio.currentTime + 10;
         }
     };
 
     useEffect(() => {
         playing ? audio.play() : audio.pause();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [playing]);
 
     useEffect(() => {
@@ -42,7 +44,7 @@ const useAudio = url => {
 
 
 const MediaPage = () => {
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const [title, setTitle] = useState("Mindfulness at Charleston Lake");
     const [author, setAuthor] = useState("Paula Vital");
     const [playing, toggle, skip, setAudio] = useAudio(null);
@@ -63,7 +65,7 @@ const MediaPage = () => {
             navigate('/');
         }
         else {
-            console.log("x is not null");
+            consoleWrapper.log("x is not null");
             // fetch the media from the backend
             fetch(`${BACKEND_URL}${BACKEND_PATH_FOR_BENCH_DETAILS}${x}/`, {
                 method: 'GET',
@@ -73,7 +75,7 @@ const MediaPage = () => {
                 }
                 return res.json()
             }).then(data => {
-                console.log(data);
+                consoleWrapper.log(data);
                 setTitle(data.bench_title);
                 if (data.thumbnail !== '') {
                     setAlbumArt(`${BACKEND_URL}${data.thumbnail}`);
@@ -88,34 +90,35 @@ const MediaPage = () => {
                     });
                 }
             }).catch(err => {
-                console.log(err);
-                console.log("error");
+                consoleWrapper.log(err);
+                consoleWrapper.log("error");
             });
 
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // pauses the song
     const pauseHandler = () => {
-        console.log("pause handler");
+        consoleWrapper.log("pause handler");
         toggle();
     };
 
     // plays the song
     const playHandler = () => {
-        console.log("play handler");
+        consoleWrapper.log("play handler");
         toggle();
     };
 
     // forwards the song by 10 seconds
     const forwardHandler = () => {
-        console.log("forward handler");
+        consoleWrapper.log("forward handler");
         skip('fwd');
     };
 
     // rewinds the song by 10 seconds
     const rewindHandler = () => {
-        console.log("rewind handler");
+        consoleWrapper.log("rewind handler");
         skip('back');
     };
 

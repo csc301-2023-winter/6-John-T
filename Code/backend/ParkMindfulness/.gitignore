@@ -1,2 +1,6 @@
 venv/
-#templates/
+Benches/__pycache__/
+ParkAdmin/__pycache__/
+ParkMindfulness/__pycache__/
+Parks/__pycache__/
+

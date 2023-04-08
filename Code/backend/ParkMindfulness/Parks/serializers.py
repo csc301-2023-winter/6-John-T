@@ -7,9 +7,10 @@ from Parks.models import Park
 # PARK CREATION #
 #################
 
-# Park creation serializers to be implemented by Sam as part of the CRUD API views
-
 class ParkCreationSerializer(serializers.ModelSerializer):
+    """
+    Serializer class to create a new park object.
+    """
     class Meta:
         model = Park
         fields = ["name", "location"]
@@ -18,10 +19,11 @@ class ParkCreationSerializer(serializers.ModelSerializer):
 ################
 # PARK VIEWING #
 ################
-
-# Taken over from D2's Benches/serializers.py
     
 class ParkViewSerializer(serializers.ModelSerializer):
+    """
+    Serializer class to retreive park information.
+    """
     class Meta:
         model = Park
         fields = ["park_id", "name", "location"]
@@ -31,8 +33,10 @@ class ParkViewSerializer(serializers.ModelSerializer):
 # PARK UPDATING #
 #################
 
-# Park updating serializers to be implemented by Sam as part of the CRUD API views
 class ParkUpdateSerializer(serializers.ModelSerializer):
+    """
+    Serializer class for updating an existing park's information.
+    """
     class Meta:
         model = Park
         fields = ["name", "location"]
