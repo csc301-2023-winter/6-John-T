@@ -3,7 +3,6 @@ import './Navbar.css';
 import Cookies from 'js-cookie';
 import { useNavigate , useLocation} from 'react-router-dom';
 import { BACKEND_URL } from '../Default/urls';
-import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function Navbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,7 +40,6 @@ function Navbar() {
         }
       }).then((data) => {
         setIsSU(data.is_superuser);
-        consoleWrapper.log(data.is_superuser)
       })
       .catch((error) => {
         setIsAuthenticated(false);
