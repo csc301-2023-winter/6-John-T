@@ -14,7 +14,7 @@ code {
 }
 
 body {
-  background-color: #024830;
+  background-color: #405c45;
   font-weight: bold;
 }
 
@@ -23,9 +23,9 @@ a {
 }
 
 button {
-  background-color: #c4b59b;
+  background-color: #C4B59B;
   border: 1px solid rgb(96, 81, 55);
-  color: rgb(96, 81, 55);
+  color: #241F21;
   padding: 10px 10px;
   text-align: center;
   text-decoration: none;
@@ -36,9 +36,9 @@ button {
 }
 
 .formDiv {
-  background: #c4b59b;
+  background: #C4B59B;
   align-items: 'left';
   margin: 30px;
   padding: 10px;
-  color: rgb(96, 81, 55);
+  color:  #241F21;
 }

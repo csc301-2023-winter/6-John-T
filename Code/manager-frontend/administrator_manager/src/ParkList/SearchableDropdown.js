@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import Select from 'react-select';
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function SearchableDropdown(props) {
   const [options, setOptions] = useState([]);
@@ -16,6 +17,10 @@ function SearchableDropdown(props) {
       marginTop: 0,
       background: "rgb(196, 181, 155)",
       color: "rgb(96, 81, 55)",
+    }),
+    placeholder: base => ({
+      ...base,
+      color: "#241F21"
     })
   }
 
@@ -29,7 +34,7 @@ function SearchableDropdown(props) {
         }));
         setOptions(options);
       })
-      .catch(error => console.log(error));
+      .catch(error => consoleWrapper.log(error));
   }, []);
 
   const handleChange = selected => {

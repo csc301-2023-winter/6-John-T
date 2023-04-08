@@ -5,6 +5,7 @@ import '../Default/Container.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPencil, faArrowsRotate, faTrash, faEraser, faDownload} from '@fortawesome/free-solid-svg-icons';
 import Cookies from 'js-cookie';
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function BenchList() {
 
@@ -33,7 +34,7 @@ function BenchList() {
         }));
         setBenches(benches);
       })
-      .catch(error => console.log(error));
+      .catch(error => consoleWrapper.log(error));
   }, []);
 
 

@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
-
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function EditBench() {
   const [old_audio, setOldAudio] = useState(null);
@@ -17,6 +17,7 @@ function EditBench() {
   const parkId = parseInt(searchParams.get("parkid"));
   const history = useNavigate();
   const access_token = Cookies.get('access_token');
+
   useEffect(() => {
     fetch(`${BACKEND_URL}${'/benches/get_admin_bench/'}${searchParams.get("id")}${'/'}`, {
       credentials: "include",
@@ -32,10 +33,10 @@ function EditBench() {
           setOldAudio(old_audio);
         })
         .catch(error => {
-          console.error('Error retrieving audio file:', error);
+          consoleWrapper.error('Error retrieving audio file:', error);
         });}
       })
-      .catch(error => console.log(error));
+      .catch(error => consoleWrapper.log(error));
   }, []);
 
 const handleDeleteBench = (event) => {event.preventDefault();
@@ -52,7 +53,7 @@ const handleDeleteBench = (event) => {event.preventDefault();
           history(`/park?id=${parkId}`);
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => consoleWrapper.log(error));
 }
 
 const handleDeleteAudio = (event) => {event.preventDefault();
@@ -77,7 +78,7 @@ const handleDeleteAudio = (event) => {event.preventDefault();
         history(`/park?id=${parkId}`);
       }
     })
-    .catch(error => console.log(error));}
+    .catch(error => consoleWrapper.log(error));}
 const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -104,7 +105,7 @@ const handleSubmit = (event) => {
         history(`/park?id=${parkId}`);
       }
     })
-    .catch(error => console.log(error));
+    .catch(error => consoleWrapper.log(error));
   };
 
   const handleNameChange = (event) => {
@@ -113,12 +114,12 @@ const handleSubmit = (event) => {
 
   const handleThumbnailChange = (event) => {
     setThumbnail(event.target.files[0]);
-    console.log(thumbnail);
+    consoleWrapper.log(thumbnail);
   };
 
   const handleAudioChange = (event) => {
     setAudio(event.target.files[0]);
-    console.log(audio_file);
+    consoleWrapper.log(audio_file);
   };
 
   const handleAudioContributorChange = (event) => {
