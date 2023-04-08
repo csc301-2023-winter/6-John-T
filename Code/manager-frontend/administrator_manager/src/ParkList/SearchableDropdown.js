@@ -16,6 +16,10 @@ function SearchableDropdown(props) {
       marginTop: 0,
       background: "rgb(196, 181, 155)",
       color: "rgb(96, 81, 55)",
+    }),
+    placeholder: base => ({
+      ...base,
+      color: "#241F21"
     })
   }
 
