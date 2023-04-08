@@ -22,15 +22,15 @@ function Profile() {
       return;
     }
 
-    if (validator.isStrongPassword(newPassword, {
+    if (!validator.isStrongPassword(newPassword, {
         minLength: 8, minLowercase: 1,
-        minUppercase: 1, minNumbers: 1
+        minUppercase: 1, minNumbers: 1, 
+        minSymbols: 0, returnScore: false,
       })) {
-        setErrorMessage('Is Strong Password')
-      } else {
         setErrorMessage('Password needs to be at least 8 characters, with a number, uppercase letter, and lowercase letter.')
         return;
       }
+      
 
     // Proceed with form submission, e.g., send data to the server
     const parsedData = {
@@ -51,19 +51,18 @@ function Profile() {
       },
       credentials: 'include',
       body: JSON.stringify(parsedData),
-    }).then((response) => {
-      // If the request was successful, logout the user
-      if(response.ok){
-        Cookies.set('access_token', '');
-        Cookies.set('refresh_token', '');
-        history("/login");
-      }
-      else{
-        return response.json()
-      }
-    }).then((data) => {
-        setErrorMessage(data.detail);
-    });
+    }).then(response => {
+      response.json().then(data => {
+        if(response.ok){
+          Cookies.set('access_token', '');
+          Cookies.set('refresh_token', '');
+          history("/login");
+        }else {
+          setErrorMessage(data.message);
+          return;
+        }
+      });
+      })
   };
 
   useEffect(() => {
