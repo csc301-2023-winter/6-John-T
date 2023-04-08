@@ -1,44 +1,53 @@
-# <p style="text-align: center;"><b>CSC301 A2: First Step in Building Modern Software</b></p>
+# <p style="text-align: center;"><b>Backend</b></p>
 ## <p style="text-align: center;"><b>Team 6.2 (EXGoblins Backend Sub-team) - Deployment & Instructions</b></p>
 
-&nbsp;
-&nbsp;
-&nbsp;
-
-### Overview:
-
-* First of all, the quick links to the main parts of this submission for A2 are as follows:
-    * The deployed website (the application itself): -INSERT LINK HERE-
-    * The sub-team report: file report.pdf here at the root directory of the repo.
-    * The sub-team repo: where you are right now.
-    * The main team repo (containing the Project Team Repo Report Submission): https://github.com/csc301-2023-winter/6-John-T/blob/main/documents/team/assignment-2.pdf (submitted on Sunday February 19th, 2023).
+### Backend Development Requirements:
+Requires the following tools:
+* OS: tested on Windows 10, Ubuntu 22.04 and MacOS
+* Python 3.11.1
+* Virtualenv (tested with v20.17.1)
+* Pip 22.3.1 (or newer)
+* Install all libraries and packages in Code/backend/ParkMindfulness/requirements.txt
 
 &nbsp;
 &nbsp;
 &nbsp;
 
-* Starting at the root directory of the repo, 4 things can be found:
+### Instructions:
 
-1) The ParkMindfulness Django project containing the entirety of the backend code that the deployed website runs on. 
+Once you have those basic tools, you can start setting up for backend development. Follow the instructions below:
+* First clone the repository onto your machine by running the following command on your terminal:&nbsp;
 
-2) The CSC30123S Coursework Delay notification file, highlighting our request for an extension (as we have handed in this project on tuesday february 21st, 2023).
+  `git clone git@github.com:csc301-2023-winter/6-John-T.git`
+* Next, navigate onto the following path (which will take you onto the base of the Django project):&nbsp;
 
-3) The readme.md file, which you are currently reading, containing the details and instructions needed to verify our work, and the application itself. This correpsonds to bullet points 3 and 4 on the 'Sub-Team Repo Submission' section of A2's handout.
+  `cd 6-John-T/Code/backend/ParkMindfulness`
+* Here, create a virtual environment to store the packages the application will need:&nbsp;
 
-4) The sub-team report pdf file (report.pdf), containing our decisions and considerations on the tools we have chosen to work with to develop the website's backend, and the contributions of each team member of the sub-team to this iteration of the project. This corresponds to bullet points 1 and 2 on the 'Sub-Team Repo Submission' section of A2's handout.
+  `virtualenv venv`
+* Next activate this virtual environment:&nbsp;
+
+  Windows: `venv\Scripts\activate&nbsp`
+
+  Linux: `source venv/bin/activate`
+* Now install the requirements for the project by running:&nbsp;
+
+  `pip install -r requirements.txt`
+* After this, the Django project should be fully set up. To check the installation worked, you can try running the project on your local server through the command:&nbsp;
+	
+  `python manage.py runserver`
+* Then you can open the link: http://127.0.0.1:8000/benches/get_all_admin_parks/ where, if everything went right, you should be presented with the Django Rest Framework page template, and possibly some data about the Park objects currently in the database.
+* If the setup was successful, then you should be ready to start writing code for the project within any of the existing Django applications (such as Benches).
 
 &nbsp;
 &nbsp;
 &nbsp;
 
-### Details and Instructions:
+### Github Workflow and Deployment:
 
-* As part of this submission we have implemented the user story of: “As a Park Manager, I want to be able to make up new bench objects for my park, and obtain the QR code corresponding to an existing bench”. Please note that as the backend team, we have not put too much effort into our UI, but rather we just tried to make it functional to show all the features we implemented in the backend that we are actually concerned with. 
-* So upon accessing the deployed website at -INSERT LINK HERE-, as a user, you will be able to see the following:
-    * A list of all the bench objects currently in the database, along with their corresponding details.
-    * A button to add a new bench object to the database, this will lead you over to a form where you can enter the details of the bench you want to add.
-    * A button to delete a bench object from the database, which will ask for the bench's ID, and then delete the bench with that ID from the database (in the actual application the front end will incorporate this feature more directly, but as the backend team, the functionality is that given an ID, we wanted to delete that object).
-    * A button to update a bench object in the database, which works the same way as bench creation, but instead of creating a new bench, it will update the bench with the given ID with the new details.
+- The majority of our submitted code for the backend was implemented within the `backend-upgrades-d2` branch. We later merged this functionality with the code we brought forward from A2 through a Pull Request to main. For hotfixes, we did so on the `d2-backend-hotfixes` branch, first ensuring they worked as intended, before creating a PR to merge. All merging was done in accordance to our Overall Workflow (see above).
+
+- For deployment, we chose to deploy on Railway. This ensures that our deployment builds are automated upon commits to `main`. Additionally, we chose Railway over Vercel due to storage capacity since our backend is also hosting our database. Furthermore, this allows us to communicate with both the Frontend User (FE-U) and Frontend Manager (FE-M) over HTTPS without having to invest into a domain (a requirement to obtain a SSL certificate over AWS EC2). Much like the FE-U hosting, the Railway build is linked to a fork on Tajwaar’s GitHub account that is auto deployed using a GitHub Action. (Note: This is currently not enabled as per our partner’s request due to an upcoming presentation in which he plans to showcase our work so far)
 
 &nbsp;
 &nbsp;
@@ -64,9 +73,5 @@
     4) After doing so, from the same directory, please run the following command:
     ``python manage.py test Benches`` (depending on your installation of ``python`` and your OS, you may need to alternatively run ``python3 manage.py test Benches``)
         * After doing so, you should then receive feedback on the test cases that have run
-
-### Deployment:
-
-* Deployment was conducted via AWS. Since we were all new to DevOps, the first step was learning about the entire process (using both lecture and AWS Educate material). Afterwards, we learned about both AWS EC2 and Elastic Beanstalk, weighing the pros and cons of both. For us, an EC2 instance seemed the more appropriate given its ability to expand and the many resources available that will allow us to use a GitHub repo in tandem.
 
 
