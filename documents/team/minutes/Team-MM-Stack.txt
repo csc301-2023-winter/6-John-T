@@ -79,6 +79,19 @@ frontend waiting to hear back from Tony before splitting work
 backend split work, on notion, not touching backend deployment before Monday for John's presentation
  finishing readme parts, parts split on notion
 
+3/04/2023 (Recurring Weekly Team Meeting)
+    Partner Meeting Debrief:
+        Partner liked both FEs, but requested more symbols/icons and less verbosity
+        Would like the main icon/symbol on the FEs to change based on the park
+            Will need Park objects to have an icon image on Backend
+    FE User Team working on fine tuning QR Codes (will hopefully be scannable on any camera app)
+    Regarding Audio Contract b/w BE and FE:
+        Each bench should have 1 audio rec. per season; FE support for this will come after D2
+    Questions for Partner (to be implemented post D2):
+        Would they like a change in background based off of the park as well?
+    DevOps is fun 🙃
+
+
 2/25/2023 (Recurring Weekly Team Meeting)
     Discuss D2 handout 
         Due: Mar 10, 11:59PM
@@ -152,6 +165,20 @@ backend split work, on notion, not touching backend deployment before Monday for
     Backend 
         Generate QR code AND instructions for use 
     Next meeting with John: Feb 15th 
+
+2/2/2023
+    Went over proposal, specifically, the mockups, and the user stories, got the following feedback:
+        Extra personas for people born in canada, kids, admin?
+        Lots of symbols on the design, cut back on word-count
+        The QR codes should come with instructions so that people know what to do when they see them
+        No scan button on the same screen as the play screen to avoid clutter
+        Subject to color changes
+    Got approval for the mockups, just need to formalize with proof
+    Confirmed he can access the github repo
+    They are willing to pay for premium databases, we are to provide the details closer to the release date and then get an estimate on the amount of storage we get
+    Other feedback:
+        Multiple audios should stored at once for a bench and change automatically based on season
+
 
 1/28/2023
     Team Meeting to discuss Deliverable 1 (planning.md) 
