@@ -4,6 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTrash} from '@fortawesome/free-solid-svg-icons';
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function EditPark() {
   const [park_name, setName] = useState('');
@@ -27,7 +28,7 @@ const handleDeletepark = (event) => {event.preventDefault();
           history(`/`);
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => consoleWrapper.log(error));
 }
 
 
@@ -49,7 +50,7 @@ const handleSubmit = (event) => {
         history(`/park?id=${parkId}`);
       }
     })
-    .catch(error => console.log(error));
+    .catch(error => consoleWrapper.log(error));
   };
 
   const handleNameChange = (event) => {

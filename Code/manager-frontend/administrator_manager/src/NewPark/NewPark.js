@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function NewPark() {
   const [searchParams] = useSearchParams();
@@ -30,7 +31,7 @@ function NewPark() {
         history(`/`);
       }
     })
-    .catch(error => console.log(error));
+    .catch(error => consoleWrapper.log(error));
   };
 
   const handleName = (event) => {

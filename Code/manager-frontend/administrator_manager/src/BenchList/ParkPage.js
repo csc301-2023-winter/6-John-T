@@ -6,6 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 import '../Default/Container.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPlus, faPencil} from '@fortawesome/free-solid-svg-icons';
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 
 function ParkPage() {
@@ -22,7 +23,7 @@ function ParkPage() {
           setParkTitle(bench.name);
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => consoleWrapper.log(error));
   }, [parkId]);
   return (
     <div>

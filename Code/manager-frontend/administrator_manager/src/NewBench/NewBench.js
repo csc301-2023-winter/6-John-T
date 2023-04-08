@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {BACKEND_URL} from '../Default/urls'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function NewBench() {
   const [searchParams] = useSearchParams();
@@ -37,7 +38,7 @@ const handleSubmit = (event) => {
         history(`/park?id=${parkId}`);
       }
     })
-    .catch(error => console.log(error));
+    .catch(error => consoleWrapper.log(error));
   };
 
   const handleNameChange = (event) => {
@@ -46,12 +47,12 @@ const handleSubmit = (event) => {
 
   const handleThumbnailChange = (event) => {
     setThumbnail(event.target.files[0]);
-    console.log(thumbnail);
+    consoleWrapper.log(thumbnail);
   };
 
   const handleAudioChange = (event) => {
     setAudio(event.target.files[0]);
-    console.log(audio_file);
+    consoleWrapper.log(audio_file);
   };
 
   const handleAudioContributorChange = (event) => {

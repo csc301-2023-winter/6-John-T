@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import {BACKEND_URL} from '../Default/urls'
+import { consoleWrapper} from "../Default/ConsoleWrapper"
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ function LoginPage() {
         setError('Email/Password is incorrect');
       }
       else{
-        console.log(data.response);
+        consoleWrapper.log(data.response);
       }
     });
   };

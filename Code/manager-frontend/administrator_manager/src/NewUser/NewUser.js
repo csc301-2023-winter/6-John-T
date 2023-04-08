@@ -20,7 +20,6 @@ function NewUser() {
       .then((response) => {
           return response.json();
       }).then((data) => {
-        console.log(data.is_superuser)
         if(!data.is_superuser)
             navigate("/");
       })
