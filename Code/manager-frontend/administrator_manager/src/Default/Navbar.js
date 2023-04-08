@@ -84,7 +84,7 @@ function Navbar() {
           Select Park
         </a>
 
-        {isSU && (
+        {isAuthenticated && (
           <a href="/new_park" className="navbar-item">
           Create New Park
         </a>
