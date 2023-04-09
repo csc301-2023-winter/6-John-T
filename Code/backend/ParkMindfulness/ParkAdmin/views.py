@@ -15,14 +15,16 @@ from django.contrib.auth import authenticate, login, logout
 from rest_framework.permissions import IsAuthenticated
 from django.middleware.csrf import get_token
 from django.contrib.auth.hashers import make_password
+from django.conf import settings
 
 # keep in mind email == username
-
 CREATION_MESSAGE = "Your email has been added as an administrator for the Park Mindfulness \
 application managed by Ontario Parks.\n\nTo finish the setup of your account, please \
 go to {} and use the following temporary email and password to log in:\n\
-Username: {}\nPassword: {}\n\nOnce in, you can go onto your account and edit both your \
-password and the park you manage.\n\n"
+Username: {}\nPassword: {}\n\nOnce in, you can go onto your account and update your \
+password and create the park you manage.\n\n"
+STAGING_LOGIN = "https://6-john-t.vercel.app/login"
+PROD_LOGIN = "https://parkmindfulness-manager.netlify.app/login"
 
 
 #########################
@@ -58,7 +60,11 @@ class NewUserCreateView(CreateAPIView):
         # send email to the target user with the temporary password so that they can log in
         # and finish setting up their account
 
-        url = "https://6-john-t.vercel.app/login"
+        # determine which url to redirect users to for login
+        if settings.DEBUG == True:
+            url = STAGING_LOGIN
+        else:
+            url = PROD_LOGIN
 
         subject = "Welcome, new admin, to Park Mindfulness!"
         message = CREATION_MESSAGE.format(url, email, password)
