@@ -126,8 +126,6 @@ class BenchCreateView_admin(CreateAPIView):
         new_img_size = (bench_qr.size[0] + 210, bench_qr.size[1] + 280) # 140 on top and bottom, 105 on left and right
         new_img = Image.new('RGB', new_img_size, color = 'white')
 
-        print(new_img.size)
-
         new_img.paste(logo, (795, 20))  # paste the logo
         new_img.paste(bench_qr, (105, 130)) # paste the qr code
 
