@@ -61,10 +61,10 @@ class NewUserCreateView(CreateAPIView):
         # and finish setting up their account
 
         # determine which url to redirect users to for login
-        # if settings.DEBUG == True:
-        #     url = STAGING_LOGIN
-        # else:
-        url = PROD_LOGIN
+        if settings.DEBUG_N == True:
+            url = STAGING_LOGIN
+        else:
+            url = PROD_LOGIN
 
         subject = "Welcome, new admin, to Park Mindfulness!"
         message = CREATION_MESSAGE.format(url, email, password)
