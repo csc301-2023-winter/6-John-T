@@ -36,4 +36,4 @@ urlpatterns = [
 
     # user side urls (no authentication required)
     path("get_user_bench/<int:bench_id>/", views.BenchGetView_user.as_view(), name="get-user-benches"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
