@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Parks import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -28,4 +30,4 @@ urlpatterns = [
     path("get_all_admin_parks/", views.ParkGetAllView_admin.as_view(), name="get-all-admin-parks"),
     path("update_admin_park/<int:park_id>/", views.ParkUpdateView_admin.as_view(), name="update-admin-park"),
     path("delete_admin_park/<int:park_id>/", views.ParkDeleteView_admin.as_view(), name="delete-admin-park"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

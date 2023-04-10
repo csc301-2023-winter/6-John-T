@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Benches import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
 
@@ -33,4 +36,4 @@ urlpatterns = [
 
     # user side urls (no authentication required)
     path("get_user_bench/<int:bench_id>/", views.BenchGetView_user.as_view(), name="get-user-benches"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
