@@ -31,5 +31,5 @@ jobs:
         cache: 'npm'
         cache-dependency-path: Code/manager-frontend/administrator_manager
     - run: ls
-    - run: npm install
+    - run: npm install --legacy-peer-deps
     - run: npm test
